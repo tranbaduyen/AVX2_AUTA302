@@ -40,10 +40,10 @@
 				</div>
 			</div>
 			
-		
+		<html:form styleId="addForm" action="/addAUT302.do" method="post" style="">
 			<div class="body-main col-sm-12">
 				<div style="margin: 0px 0 0 0px;">
-				<html:form styleId="addForm" action="/addAUT302.do" method="post" style="">
+				
 					<table class="table-bordered  table-striped " style="width:100%; ">
 						<thead style="background-color: #E7E7E8;">
 							<tr>
@@ -68,25 +68,26 @@
 								<th style=" text-align:center;"></th>
 							</tr>
 						 </thead>
-						 <tbody >
+						 <tbody>
+						 	<logic:iterate name="autKYSNDForm" id="num" property="number" >
 							<tr style="">
 								<td rowspan="2" style="">
 									<div style="margin-right:20px;padding-top:8px;padding-right:2px;border: 1px solid #B9B7C7;text-align:center;">
-										<label style="" >01</label>
+										<label style="" ><bean:write name="num" /></label>
 									</div>
 								</td>
 								<td style=" text-align:center;width:6%;" class="">
-									<html:text styleId="txtDEPO" property="kYSND_DEPO" styleClass="form-control no-border-radius" maxlength="2"  tabindex="1" onfocus="" ></html:text>
+									<html:text styleId="txtDEPO" property="kYSND_DEPO"  styleClass="form-control no-border-radius" maxlength="2"  tabindex="1" onfocus="" ></html:text>
 								</td>
 								<td colspan="2" style="">
 									<html:select styleClass="form-control no-border-radius" property="kYSND_MKCD" style="">
 										<html:optionsCollection name="autKYSNDForm" property="listAUTMFOPM" 
-									label="mFOPM_NAME" value="mFOPM_MKCD" />
+										label="mFOPM_NAME" value="mFOPM_MKCD" />
 									</html:select>
-									
+										
 								</td>
 								<td colspan="2" style=" text-align:center;">
-									<html:text styleId="txtMKCD" property="kYSND_MKCD" styleClass=" form-control no-border-radius" maxlength="26"  tabindex="3"></html:text>
+									<html:text styleId="txtMKCD" property="kYSND_BHNO" styleClass=" form-control no-border-radius" maxlength="26"  tabindex="3"></html:text>
 								</td>
 								<td colspan="5" style=" text-align:center;">
 									<html:text styleId="txtBHME" property="kYSND_BHME" styleClass=" form-control no-border-radius" maxlength="30"  tabindex="4"></html:text>
@@ -117,28 +118,31 @@
 								<td  style="">						
 									<html:select styleClass="form-control no-border-radius" property="kYSND_SYCD" style="padding: 1px -2px 1px 1px;">
 										<html:option styleClass="li" value="1">1.４輪</html:option>
-	            						<html:option styleClass="li" value="2">2.２輪</html:option>
+		            					<html:option styleClass="li" value="2">2.２輪</html:option>
 									</html:select>
 								</td>
 								<td style=" text-align:center;">
 									<html:text styleId="txtSPBN" property="kYSND_SPBN" styleClass=" form-control no-border-radius" maxlength="6"  tabindex="12"></html:text>
 								</td>
-						
 							  </tr>
-						 <tbody>
+							  </logic:iterate>
+						 </tbody>
 					</table>
 					<br>
-					</html:form>
+					
 				</div>
 			</div>
 			<div class="body-button col-sm-12">
 				<div style="margin: 10px 0 0 69%;">
+					<html:submit styleId="btnSubmit" property="submit" styleClass="mybtn mybtn-success my-btn" style="width: 69px;height: 34px;margin-left: 10px;" value="Save"></html:submit>
 					<button class="mybtn mybtn-success my-btn " style="width: 69px;height: 34px;margin-left: 10px;">登録(Ｎ)</button>
 					<button class="mybtn mybtn-success my-btn" style="width: 110px;height: 34px;margin-left: 10px;">クリアー(Ｒ)</button>
 					<button class="mybtn mybtn-success my-btn" style="width: 120px;height: 34px;margin-left: 10px;">キャンセル(C)</button>
 				</div>
 			</div>
+			</html:form>
 		</div>
+		
 	<div class="footer">
 	</div>
 </div>

@@ -45,9 +45,21 @@ public class AUTKYSNDForm extends ActionForm{
 	private String submit;
 	private String action;
 	private String notification;
+	private Integer[] number = {1,2,3,4,5,6,7,8,9,10};
 	
 	
-	
+	/**
+	 * @return the number
+	 */
+	public Integer[] getNumber() {
+		return number;
+	}
+	/**
+	 * @param number the number to set
+	 */
+	public void setNumber(Integer[] number) {
+		this.number = number;
+	}
 	/**
 	 * @return the kYSND_RYAK
 	 */

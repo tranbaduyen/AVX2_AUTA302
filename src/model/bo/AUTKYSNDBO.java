@@ -13,7 +13,7 @@ import model.dao.AUTKYSNDDAO;
 public class AUTKYSNDBO {
 	AUTKYSNDDAO autKYSNDDAO = new AUTKYSNDDAO();
 	
-	public boolean addRoom(AUTKYSND autKYSND) throws Exception {
+	public boolean addAUTKYSND(AUTKYSND autKYSND) throws Exception {
 		return autKYSNDDAO.addAUTKYSND(autKYSND);
 	}
 	
