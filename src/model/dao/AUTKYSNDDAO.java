@@ -26,43 +26,43 @@ public class AUTKYSNDDAO {
 	public boolean addAUTKYSND(AUTKYSND autKYSND) throws Exception {
 		connection = da.getConnect();
 		ResultSet rs = null;
-//		String sql = String.format(
-//				"INSERT INTO AUTKYSND(kYSND_SBET, kYSND_DEPO, kYSND_MKCD, kYSND_SSCD, kYSND_SEQ, kYSND_MKKG, kYSND_TYPE, "
-//						+ " kYSND_SYK_FORM, kYSND_SYK_BHNO1, kYSND_SYK_FIL, kYSND_SYK_BHNO2, kYSND_SYK_SYMD, kYSND_SYK_CHNO, kYSND_SYK_SKCD, kYSND_SYK_SZSU, "
-//						+ " kYSND_SYK_BHME, kYSND_SYK_SYCD, kYSND_SYK_SPBN,kYSND_SKJ_SYMD) " + " VALUES ('%s','%s','%s','%s',%s,'%s','%s','%s','%s','%s','%s','%s','%s','%s',%s,'%s','%s','%s','')",
-//				autKYSND.getkYSND_SBET(), autKYSND.getkYSND_DEPO(), autKYSND.getkYSND_MKCD(), autKYSND.getkYSND_SSCD(),
-//				Integer.parseInt(autKYSND.getkYSND_SEQ()), autKYSND.getkYSND_MKKG(), autKYSND.getkYSND_TYPE(), autKYSND.getkYSND_FORM(),
-//				autKYSND.getkYSND_BHNO1(), autKYSND.getkYSND_FIL(), autKYSND.getkYSND_BHNO2(), autKYSND.getkYSND_SYMD(),
-//				autKYSND.getkYSND_CHNO(), autKYSND.getkYSND_SKCD(), Integer.parseInt(autKYSND.getkYSND_SZSU()), autKYSND.getkYSND_BHME(),
-//				autKYSND.getkYSND_SYCD(), autKYSND.getkYSND_SPBN());
-//		System.out.println(sql);
+		String sql = String.format(
+				"INSERT INTO AUTKYSND(kYSND_SBET, kYSND_DEPO, kYSND_MKCD, kYSND_SSCD, kYSND_SEQ, kYSND_MKKG, kYSND_TYPE, "
+						+ " kYSND_SYK_FORM, kYSND_SYK_BHNO1, kYSND_SYK_FIL, kYSND_SYK_BHNO2, kYSND_SYK_SYMD, kYSND_SYK_CHNO, kYSND_SYK_SKCD, kYSND_SYK_SZSU, "
+						+ " kYSND_SYK_BHME, kYSND_SYK_SYCD, kYSND_SYK_SPBN,kYSND_SKJ_SYMD) " + " VALUES ('%s','%s','%s','%s',%s,'%s','%s','%s','%s','%s','%s','%s','%s','%s',%s,'%s','%s','%s','')",
+				autKYSND.getkYSND_SBET(), autKYSND.getkYSND_DEPO(), autKYSND.getkYSND_MKCD(), autKYSND.getkYSND_SSCD(),
+				Integer.parseInt(autKYSND.getkYSND_SEQ()), autKYSND.getkYSND_MKKG(), autKYSND.getkYSND_TYPE(), autKYSND.getkYSND_FORM(),
+				autKYSND.getkYSND_BHNO1(), autKYSND.getkYSND_FIL(), autKYSND.getkYSND_BHNO2(), autKYSND.getkYSND_SYMD(),
+				autKYSND.getkYSND_CHNO(), autKYSND.getkYSND_SKCD(), Integer.parseInt(autKYSND.getkYSND_SZSU()), autKYSND.getkYSND_BHME(),
+				autKYSND.getkYSND_SYCD(), autKYSND.getkYSND_SPBN());
+		System.out.println(sql);
 		
 		try {
-//			stmt = connection.createStatement();
-//			stmt.executeUpdate(sql);
-			cs = connection.prepareCall("{call addAUTKYSND(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
-			cs.setString(1, autKYSND.getkYSND_SBET());
-			cs.setString(2, autKYSND.getkYSND_DEPO());
-			cs.setString(3, autKYSND.getkYSND_MKCD());
-			cs.setString(4, autKYSND.getkYSND_SSCD());
-			cs.setInt(5, Integer.parseInt(autKYSND.getkYSND_SEQ()));
-			cs.setString(6, autKYSND.getkYSND_MKKG());
-			cs.setString(7, autKYSND.getkYSND_TYPE());
-			cs.setString(8, autKYSND.getkYSND_FORM());
-			cs.setString(9, autKYSND.getkYSND_BHNO1());
-			cs.setString(10, autKYSND.getkYSND_FIL());
-			cs.setString(11, autKYSND.getkYSND_BHNO2());
-			cs.setString(12, autKYSND.getkYSND_SYMD());
-			cs.setString(13, autKYSND.getkYSND_CHNO());
-			cs.setString(14, autKYSND.getkYSND_SKCD());
-			cs.setInt(15, Integer.parseInt(autKYSND.getkYSND_SZSU()));
-			cs.setString(16, autKYSND.getkYSND_BHME());
-			cs.setString(17, autKYSND.getkYSND_SYCD());
-			cs.setString(18, autKYSND.getkYSND_SPBN());
-			cs.setString(19, "");
-			cs.addBatch();
-			
-			cs.executeUpdate();
+			stmt = connection.createStatement();
+			stmt.executeUpdate(sql);
+//			cs = connection.prepareCall("{call addAUTKYSND(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
+//			cs.setString(1, autKYSND.getkYSND_SBET());
+//			cs.setString(2, autKYSND.getkYSND_DEPO());
+//			cs.setString(3, autKYSND.getkYSND_MKCD());
+//			cs.setString(4, autKYSND.getkYSND_SSCD());
+//			cs.setInt(5, Integer.parseInt(autKYSND.getkYSND_SEQ()));
+//			cs.setString(6, autKYSND.getkYSND_MKKG());
+//			cs.setString(7, autKYSND.getkYSND_TYPE());
+//			cs.setString(8, autKYSND.getkYSND_FORM());
+//			cs.setString(9, autKYSND.getkYSND_BHNO1());
+//			cs.setString(10, autKYSND.getkYSND_FIL());
+//			cs.setString(11, autKYSND.getkYSND_BHNO2());
+//			cs.setString(12, autKYSND.getkYSND_SYMD());
+//			cs.setString(13, autKYSND.getkYSND_CHNO());
+//			cs.setString(14, autKYSND.getkYSND_SKCD());
+//			cs.setInt(15, Integer.parseInt(autKYSND.getkYSND_SZSU()));
+//			cs.setString(16, autKYSND.getkYSND_BHME());
+//			cs.setString(17, autKYSND.getkYSND_SYCD());
+//			cs.setString(18, autKYSND.getkYSND_SPBN());
+//			cs.setString(19, "");
+//			cs.addBatch();
+//			
+//			cs.executeUpdate();
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();

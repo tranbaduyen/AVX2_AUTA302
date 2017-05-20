@@ -40,7 +40,7 @@
 				</div>
 			</div>
 			
-		<html:form styleId="addForm" action="/addAUT302.do" method="post" style="">
+		<html:form styleId="addForm" action="/addNewAUT302.do" method="post" style="">
 			<div class="body-main col-sm-12">
 				<div style="margin: 0px 0 0 0px;">
 				
@@ -77,52 +77,52 @@
 									</div>
 								</td>
 								<td style=" text-align:center;width:6%;" class="">
-									<html:text styleId="txtDEPO" property="kYSND_DEPO"  styleClass="form-control no-border-radius" maxlength="2"  tabindex="1" onfocus="" ></html:text>
+									<html:text styleId="txtDEPO" property="arrKYSND_DEPO"  styleClass="form-control no-border-radius" maxlength="2"  tabindex="1" onfocus="" ></html:text>
 								</td>
 								<td colspan="2" style="">
-									<html:select styleClass="form-control no-border-radius" property="kYSND_MKCD" style="">
+									<html:select styleClass="form-control no-border-radius" property="arrKYSND_MKCD" style="">
 										<html:optionsCollection name="autKYSNDForm" property="listAUTMFOPM" 
 										label="mFOPM_NAME" value="mFOPM_MKCD" />
 									</html:select>
 										
 								</td>
 								<td colspan="2" style=" text-align:center;">
-									<html:text styleId="txtMKCD" property="kYSND_BHNO" styleClass=" form-control no-border-radius" maxlength="26"  tabindex="3"></html:text>
+									<html:text styleId="txtMKCD" property="arrKYSND_BHNO" styleClass=" form-control no-border-radius" maxlength="26"  tabindex="3"></html:text>
 								</td>
 								<td colspan="5" style=" text-align:center;">
-									<html:text styleId="txtBHME" property="kYSND_BHME" styleClass=" form-control no-border-radius" maxlength="30"  tabindex="4"></html:text>
+									<html:text styleId="txtBHME" property="arrKYSND_BHME" styleClass=" form-control no-border-radius" maxlength="30"  tabindex="4"></html:text>
 								</td>
 								<td rowspan="2" style="width:5%;"></td>
 							  </tr>
 							  <tr>
 								<td style=" text-align:center;">
-									<html:text styleId="txtSSCD" property="kYSND_SSCD" styleClass=" form-control no-border-radius" maxlength="1"  tabindex="5"></html:text>
+									<html:text styleId="txtSSCD" property="arrKYSND_SSCD" styleClass=" form-control no-border-radius" maxlength="1"  tabindex="5"></html:text>
 								</td>
 								<td style="width"></td>
 								<td style=" text-align:center;width:11%;">
-									<html:text styleId="txtFORM" property="kYSND_FORM" styleClass=" form-control no-border-radius" maxlength="10"  tabindex="6"></html:text>
+									<html:text styleId="txtFORM" property="arrKYSND_FORM" styleClass=" form-control no-border-radius" maxlength="10"  tabindex="6"></html:text>
 								</td>
 								<td style=" text-align:center;width:15%;">
-									<html:text styleId="txtCHNO" property="kYSND_CHNO" styleClass=" form-control no-border-radius" maxlength="15"  tabindex="7"></html:text>
+									<html:text styleId="txtCHNO" property="arrKYSND_CHNO" styleClass=" form-control no-border-radius" maxlength="15"  tabindex="7"></html:text>
 								</td>
 								<td style=" text-align:center;">
-									<html:text styleId="txtSYMD" property="kYSND_SYMD" styleClass=" form-control no-border-radius" maxlength="8"  tabindex="8"></html:text>
+									<html:text styleId="txtSYMD" property="arrKYSND_SYMD" styleClass=" form-control no-border-radius" maxlength="8"  tabindex="8"></html:text>
 								</td>
 								<td style=" text-align:center;">
-									<html:text styleId="txtSZSU" property="kYSND_SZSU" styleClass=" form-control no-border-radius" maxlength="6"  tabindex="9"></html:text>
+									<html:text styleId="txtSZSU" property="arrKYSND_SZSU" styleClass=" form-control no-border-radius" maxlength="6"  tabindex="9"></html:text>
 								</td>
 								<td style=" text-align:center;">
-									<html:text styleId="txtSKCD" property="kYSND_SKCD" styleClass=" form-control no-border-radius" maxlength="2"  tabindex="10"></html:text>
+									<html:text styleId="txtSKCD" property="arrKYSND_SKCD" styleClass=" form-control no-border-radius" maxlength="2"  tabindex="10"></html:text>
 								</td>
 								<td style=" text-align:center;"></td>
 								<td  style="">						
-									<html:select styleClass="form-control no-border-radius" property="kYSND_SYCD" style="padding: 1px -2px 1px 1px;">
+									<html:select styleClass="form-control no-border-radius" property="arrKYSND_SYCD" style="padding: 1px -2px 1px 1px;">
 										<html:option styleClass="li" value="1">1.４輪</html:option>
 		            					<html:option styleClass="li" value="2">2.２輪</html:option>
 									</html:select>
 								</td>
 								<td style=" text-align:center;">
-									<html:text styleId="txtSPBN" property="kYSND_SPBN" styleClass=" form-control no-border-radius" maxlength="6"  tabindex="12"></html:text>
+									<html:text styleId="txtSPBN" property="arrKYSND_SPBN" styleClass=" form-control no-border-radius" maxlength="6"  tabindex="12"></html:text>
 								</td>
 							  </tr>
 							  </logic:iterate>

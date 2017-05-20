@@ -15,7 +15,13 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 			<forward name="addError" path="/addAUT302.jsp" />
 			<forward name="addSuccess" path="/index.jsp"/>
 		</action>
-		
+		<action input="/addAUT302.jsp" name="autKYSNDForm"
+			path="/addNewAUT302" scope="request" type="action.AddNewAUTKYSNDAction">
+			<forward name="error" path="/error500.jsp" />
+			<forward name="addNew" path="/addAUT302.jsp" />
+			<forward name="addError" path="/addAUT302.jsp" />
+			<forward name="addNewSuccess" path="/index.jsp"/>
+		</action>
 	</action-mappings>
 	<message-resources parameter="action.ApplicationResources" />
 	
