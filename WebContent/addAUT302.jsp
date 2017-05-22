@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page import="java.lang.Math"%>
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
 <%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic" %>
 <%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -16,23 +18,35 @@
 </head>
 <body>
 <div class="container">
-
+	<html:form styleId="addForm" action="/addNewAUT302.do" method="post" style="">
 	<div class="body">
 		<div class="main-form col-sm-12" style="padding-top:20px;">
 			<div class="top-text col-sm-12;" style="color:#F8FFFF;margin-bottom:5px;" >
 				<div class="col-sm-5" style="float: left;background-color:#303549;padding-bottom: 10px;">
-					<label class="my-label">AUTA302</label>
+					<label for="AUTA302" class="my-label">AUTA302</label>
 				</div>
 				<div class="col-sm-4" style="float: left;background-color:#303549;padding-bottom: 10px;">
-					<label class="my-label" style=";">出荷指示 送信情報 登録</label>
+					<label for="Title" class="my-label" style=";">出荷指示 送信情報 登録</label>
 				</div>
 				<div class="col-sm-3" style="float: left;background-color:#303549;">
 					<div id="clock" class="my-label" style="padding-left: 78%;padding-bottom:15px;" ></div>
-					
 				</div>
 			</div>
 			<div class="top-message col-sm-12" style="background-color:#F8F8F8;margin-top: 10px;margin-bottom: 10px;">
-				<label style="color: red;padding-top:5px;"><html:errors property="kYSND_DEPOError" /></label>
+				<bean:define id="errorFirst" name="autKYSNDForm" property="errorFirst"></bean:define>
+				<html:hidden styleId="errorFirst" property="errorFirst" styleClass="form-control"></html:hidden>
+				<label for="errorMessage" style="color: red;padding-top:5px;">
+					<c:if test="${errorFirst == 0}">
+						<span>&lt;&lt;&lt; エラーメッセージ >>></span>
+					</c:if>
+					<c:if test="${errorFirst != 0}">
+						<span>Record ${errorFirst} </span></br>
+						<html:errors property="kYSND_DEPOError" />
+						<html:errors property="kYSND_MKCDError" />
+						<html:errors property="kYSND_SSCDError" />
+					</c:if>
+					
+				</label>
 			</div>
 			<div class="body-filter col-sm-12" style="">
 				<div style="background-color: #E7E7E8;">
@@ -40,11 +54,10 @@
 				</div>
 			</div>
 			
-		<html:form styleId="addForm" action="/addNewAUT302.do" method="post" style="">
+		
 			<div class="body-main col-sm-12">
 				<div style="margin: 0px 0 0 0px;">
-					<bean:define id="errorFirst" name="autKYSNDForm" property="errorFirst"></bean:define>
-					<html:hidden styleId="errorFirst" property="errorFirst" styleClass="form-control"></html:hidden>
+					
 					<table class="table-bordered  table-striped " style="width:100%; ">
 						<thead style="background-color: #E7E7E8;">
 							<tr>
@@ -78,10 +91,10 @@
 									</div>
 								</td>
 								<td style=" text-align:center;width:6%;" class="">
-									<html:text styleId="txtDEPO" property="arrKYSND_DEPO[${num}]" value=""  styleClass="form-control no-border-radius" maxlength="2"  tabindex="1" onfocus="" ></html:text>
+									<html:text styleId="txtDEPO" property="arrKYSND_DEPO[${num}]"  styleClass="form-control no-border-radius" maxlength="2"  tabindex="1" onfocus="" ></html:text>
 								</td>
 								<td colspan="2" style="">
-									<html:select styleClass="form-control no-border-radius" value="0" property="arrKYSND_MKCD[${num}]" style="">
+									<html:select styleClass="form-control no-border-radius" property="arrKYSND_MKCD[${num}]" style="">
 										<html:option value="0">--Please choose--</html:option>
 										<html:optionsCollection name="autKYSNDForm" property="listAUTMFOPM" 
 										label="mFOPM_NAME" value="mFOPM_MKCD" />
@@ -89,43 +102,43 @@
 										
 								</td>
 								<td colspan="2" style=" text-align:center;">
-									<html:text styleId="txtMKCD" property="arrKYSND_BHNO[${num}]" value="" styleClass=" form-control no-border-radius" maxlength="26"  tabindex="3"></html:text>
+									<html:text styleId="txtMKCD" property="arrKYSND_BHNO[${num}]" styleClass=" form-control no-border-radius" maxlength="26"  tabindex="3"></html:text>
 								</td>
 								<td colspan="5" style=" text-align:center;">
-									<html:text styleId="txtBHME" property="arrKYSND_BHME[${num}]" value="" styleClass=" form-control no-border-radius" maxlength="30"  tabindex="4"></html:text>
+									<html:text styleId="txtBHME" property="arrKYSND_BHME[${num}]" styleClass=" form-control no-border-radius" maxlength="30"  tabindex="4"></html:text>
 								</td>
 								<td rowspan="2" style="width:5%;"></td>
 							  </tr>
 							  <tr>
 								<td style=" text-align:center;">
-									<html:text styleId="txtSSCD" property="arrKYSND_SSCD[${num}]" value="" styleClass=" form-control no-border-radius" maxlength="1"  tabindex="5"></html:text>
+									<html:text styleId="txtSSCD" property="arrKYSND_SSCD[${num}]" styleClass=" form-control no-border-radius" maxlength="1"  tabindex="5"></html:text>
 								</td>
 								<td style="width"></td>
 								<td style=" text-align:center;width:11%;">
-									<html:text styleId="txtFORM" property="arrKYSND_FORM[${num}]" value="" styleClass=" form-control no-border-radius" maxlength="10"  tabindex="6"></html:text>
+									<html:text styleId="txtFORM" property="arrKYSND_FORM[${num}]"  styleClass=" form-control no-border-radius" maxlength="10"  tabindex="6"></html:text>
 								</td>
 								<td style=" text-align:center;width:15%;">
-									<html:text styleId="txtCHNO" property="arrKYSND_CHNO[${num}]" value="" styleClass=" form-control no-border-radius" maxlength="15"  tabindex="7"></html:text>
+									<html:text styleId="txtCHNO" property="arrKYSND_CHNO[${num}]"  styleClass=" form-control no-border-radius" maxlength="15"  tabindex="7"></html:text>
 								</td>
 								<td style=" text-align:center;">
-									<html:text styleId="txtSYMD" property="arrKYSND_SYMD[${num}]" value="" styleClass=" form-control no-border-radius" maxlength="8"  tabindex="8"></html:text>
+									<html:text styleId="txtSYMD" property="arrKYSND_SYMD[${num}]"  styleClass=" form-control no-border-radius" maxlength="8"  tabindex="8"></html:text>
 								</td>
 								<td style=" text-align:center;">
-									<html:text styleId="txtSZSU" property="arrKYSND_SZSU[${num}]" value="0" styleClass=" form-control no-border-radius" maxlength="6"  tabindex="9"></html:text>
+									<html:text styleId="txtSZSU" property="arrKYSND_SZSU[${num}]"  styleClass=" form-control no-border-radius" maxlength="6"  tabindex="9"></html:text>
 								</td>
 								<td style=" text-align:center;">
-									<html:text styleId="txtSKCD" property="arrKYSND_SKCD[${num}]" value="" styleClass=" form-control no-border-radius" maxlength="2"  tabindex="10"></html:text>
+									<html:text styleId="txtSKCD" property="arrKYSND_SKCD[${num}]"  styleClass=" form-control no-border-radius" maxlength="2"  tabindex="10"></html:text>
 								</td>
 								<td style=" text-align:center;"></td>
 								<td  style="">						
-									<html:select styleClass="form-control no-border-radius" value="0" property="arrKYSND_SYCD[${num}]" style="padding: 1px -2px 1px 1px;">
+									<html:select styleClass="form-control no-border-radius" property="arrKYSND_SYCD[${num}]" style="padding: 1px -2px 1px 1px;">
 										<html:option styleClass="li" value="0">Choose</html:option>
 										<html:option styleClass="li" value="1">1.４輪</html:option>
 		            					<html:option styleClass="li" value="2">2.２輪</html:option>
 									</html:select>
 								</td>
 								<td style=" text-align:center;">
-									<html:text styleId="txtSPBN" property="arrKYSND_SPBN[${num}]" value="" styleClass=" form-control no-border-radius" maxlength="6"  tabindex="12"></html:text>
+									<html:text styleId="txtSPBN" property="arrKYSND_SPBN[${num}]" styleClass=" form-control no-border-radius" maxlength="6"  tabindex="12"></html:text>
 								</td>
 							  </tr>
 							  </logic:iterate>
@@ -135,19 +148,21 @@
 					
 				</div>
 			</div>
-			<div class="body-button col-sm-12">
-				<div style="margin: 10px 0 0 69%;">
-					<html:submit styleId="btnSubmit" property="submit" styleClass="mybtn mybtn-success my-btn" style="width: 69px;height: 34px;margin-left: 10px;" value="Save"></html:submit>
-					<button class="mybtn mybtn-success my-btn " style="width: 69px;height: 34px;margin-left: 10px;">登録(Ｎ)</button>
-					<button class="mybtn mybtn-success my-btn" style="width: 110px;height: 34px;margin-left: 10px;">クリアー(Ｒ)</button>
-					<button class="mybtn mybtn-success my-btn" style="width: 120px;height: 34px;margin-left: 10px;">キャンセル(C)</button>
+				<div class="body-button col-sm-12">
+					<div style="margin: 10px 0 0 69%;">
+						<html:submit styleId="btnSubmit" property="submit" styleClass="mybtn mybtn-success my-btn" style="width: 69px;height: 34px;margin-left: 10px;" value="Save"></html:submit>
+						<button class="mybtn mybtn-success my-btn " style="width: 69px;height: 34px;margin-left: 10px;">登録(Ｎ)</button>
+						<button class="mybtn mybtn-success my-btn" style="width: 110px;height: 34px;margin-left: 10px;">クリアー(Ｒ)</button>
+						<button class="mybtn mybtn-success my-btn" style="width: 120px;height: 34px;margin-left: 10px;">キャンセル(C)</button>
+					</div>
 				</div>
-			</div>
-			</html:form>
+			
 		</div>
 		
 	<div class="footer">
 	</div>
+</div>
+</html:form>
 </div>
 </body>
 	<script type="text/javascript"> function refrClock() {
@@ -214,4 +229,4 @@
 			}
 		});
 	</script>
-</html/>
+</html>

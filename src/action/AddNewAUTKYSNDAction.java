@@ -34,8 +34,6 @@ public class AddNewAUTKYSNDAction extends Action {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		AUTKYSNDForm autKYSNDForm = (AUTKYSNDForm) form;	
-		System.out.println("xxx");
-
 		//
 		AUTMFOPMBO autMFOPMBO = new AUTMFOPMBO();
 		ArrayList<AUTMFOPM> listAUTMFOPM = autMFOPMBO.getListAUTMFOPM();
@@ -45,27 +43,6 @@ public class AddNewAUTKYSNDAction extends Action {
 		AUTKYSND autKYSND = null;
 		boolean isSuccess = true;
 		int i = 1;
-//		String[] arrKYSND_SBET = autKYSNDForm.getArrKYSND_SBET();
-//		String[] arrKYSND_DEPO = autKYSNDForm.getArrKYSND_DEPO();
-//		String[] arrKYSND_MKCD = autKYSNDForm.getArrKYSND_MKCD();
-//		String[] arrKYSND_SSCD = autKYSNDForm.getArrKYSND_SSCD();
-//		String[] arrKYSND_SEQ = autKYSNDForm.getArrKYSND_SEQ();
-//		String[] arrKYSND_MKKG = autKYSNDForm.getArrKYSND_MKKG();
-//		String[] arrKYSND_TYPE = autKYSNDForm.getArrKYSND_TYPE();
-//		String[] arrKYSND_FORM = autKYSNDForm.getArrKYSND_FORM();
-//		String[] arrKYSND_BHNO = autKYSNDForm.getArrKYSND_BHNO();
-//		String[] arrKYSND_BHNO1 = autKYSNDForm.getArrKYSND_BHNO1();
-//		String[] arrKYSND_FIL = autKYSNDForm.getArrKYSND_FIL();
-//		String[] arrKYSND_BHNO2 = autKYSNDForm.getArrKYSND_BHNO2();
-//		String[] arrKYSND_SYMD = autKYSNDForm.getArrKYSND_SYMD();
-//		String[] arrKYSND_CHNO = autKYSNDForm.getArrKYSND_CHNO();
-//		String[] arrKYSND_SKCD = autKYSNDForm.getArrKYSND_SKCD();
-//		String[] arrKYSND_SZSU = autKYSNDForm.getArrKYSND_SZSU();
-//		String[] arrKYSND_BHME = autKYSNDForm.getArrKYSND_BHME();
-//		String[] arrKYSND_SYCD = autKYSNDForm.getArrKYSND_SYCD();
-//		String[] arrKYSND_SPBN = autKYSNDForm.getArrKYSND_SPBN();
-//		String[] arrKYSND_RYAK = autKYSNDForm.getArrKYSND_RYAK();
-//		String[] arrKYSND_NAME = autKYSNDForm.getArrKYSND_NAME();
 		String kYSND_BHNO;
 		String kYSND_BHNO1;
 		String kYSND_FIL = "";
@@ -85,50 +62,91 @@ public class AddNewAUTKYSNDAction extends Action {
 		String kYSND_CHNO;
 		String kYSND_SKCD;
 		System.out.println(autKYSNDForm.getSubmit());
-//		if("Save".equals(autKYSNDForm.getSubmit())) {
-//			ActionErrors actionErrors = new ActionErrors();
-//			
-//			autKYSNDForm.setErrorFirst(0);
-//			int j = 1;
-//			while (j < 3 && isSuccess == true) {
-//				kYSND_BHNO = autKYSNDForm.getArrKYSND_BHNO(j+1);
-//				kYSND_DEPO = autKYSNDForm.getArrKYSND_DEPO(j+1);
-//				kYSND_SYCD = autKYSNDForm.getArrKYSND_SYCD(j+1);
-//				kYSND_SSCD = autKYSNDForm.getArrKYSND_SSCD(j+1);
-//				kYSND_FORM = autKYSNDForm.getArrKYSND_FORM(j+1);
-//				kYSND_MKCD = autKYSNDForm.getArrKYSND_MKCD(j+1);
-//				kYSND_SYMD = autKYSNDForm.getArrKYSND_SYMD(j+1);
-//				kYSND_BHME = autKYSNDForm.getArrKYSND_BHME(j+1);
-//				kYSND_SPBN = autKYSNDForm.getArrKYSND_SPBN(j+1);
-//				kYSND_SZSU = autKYSNDForm.getArrKYSND_SZSU(j+1);
-//				kYSND_CHNO = autKYSNDForm.getArrKYSND_CHNO(j+1);
-//				kYSND_SKCD = autKYSNDForm.getArrKYSND_SKCD(j+1);
-//			//check RoomName not input
-//				System.out.println("ValidateData.isEmpty(kYSND_DEPO):"+ValidateData.isEmpty(kYSND_DEPO));
-//				if (ValidateData.isEmpty(kYSND_DEPO)) {
-//					actionErrors.add("kYSND_DEPOError", new ActionMessage("error.depo.trong"));
-//					autKYSNDForm.setErrorFirst(1+j*10);
-//				}
-//				saveErrors(request, actionErrors);
-//				if (actionErrors.size() > 0) {
-//					return mapping.findForward("addError");
-//				}
-//				j++;
-//			}	
-//			
-//
-//			
-//		}
+		if("Save".equals(autKYSNDForm.getSubmit())) {
+			ActionErrors actionErrors = new ActionErrors();
+			
+			autKYSNDForm.setErrorFirst(0);
+			int j = 1;
+			while (j < 11 ) {
+				kYSND_BHNO = autKYSNDForm.getArrKYSND_BHNO(j);
+				kYSND_DEPO = autKYSNDForm.getArrKYSND_DEPO(j);
+				kYSND_SYCD = autKYSNDForm.getArrKYSND_SYCD(j);
+				kYSND_SSCD = autKYSNDForm.getArrKYSND_SSCD(j);
+				kYSND_FORM = autKYSNDForm.getArrKYSND_FORM(j);
+				kYSND_MKCD = autKYSNDForm.getArrKYSND_MKCD(j);
+				kYSND_SYMD = autKYSNDForm.getArrKYSND_SYMD(j);
+				kYSND_BHME = autKYSNDForm.getArrKYSND_BHME(j);
+				kYSND_SPBN = autKYSNDForm.getArrKYSND_SPBN(j);
+				kYSND_SZSU = autKYSNDForm.getArrKYSND_SZSU(j);
+				kYSND_CHNO = autKYSNDForm.getArrKYSND_CHNO(j);
+				kYSND_SKCD = autKYSNDForm.getArrKYSND_SKCD(j);
+				if(!ValidateData.isBlankRecord(kYSND_DEPO, kYSND_MKCD, kYSND_SSCD, kYSND_FORM, kYSND_BHNO2, kYSND_SYMD, kYSND_CHNO, kYSND_SKCD, kYSND_SZSU, kYSND_BHME, kYSND_SYCD, kYSND_SPBN)) {
+					
+					//check kYSND_DEPO not input
+					if (ValidateData.isEmpty(kYSND_DEPO)) {
+						actionErrors.add("kYSND_DEPOError", new ActionMessage("error.depo.trong"));
+						autKYSNDForm.setErrorFirst(1+j*10);
+					}
+					
+					//check kYSND_DEPO is exist in database
+					if (autKYSNDBO.isKYSND_DEPO_Exist(kYSND_DEPO) && !autKYSNDBO.checkInputData_Exist(kYSND_DEPO, kYSND_MKCD, kYSND_SSCD)) {
+						actionErrors.add("kYSND_DEPOError", new ActionMessage("error.depo.trung"));
+						autKYSNDForm.setErrorFirst(1+j*10);
+					}
+					
+					//check (kYSND_DEPO,kYSND_SSCD,kYSND_SSCD) is exist in database
+					if (autKYSNDBO.checkInputData_Exist(kYSND_DEPO, kYSND_MKCD, kYSND_SSCD)) {
+						actionErrors.add("kYSND_DEPOError", new ActionMessage("error.depo_mkcd_sscd.trung"));
+						autKYSNDForm.setErrorFirst(1+j*10);
+					}
+					
+					//check kYSND_DEPO use special characters 
+					if (ValidateData.isSpecialCharacters(kYSND_DEPO)) {
+						actionErrors.add("kYSND_DEPOError", new ActionMessage("error.depo.kituDB"));
+						autKYSNDForm.setErrorFirst(1+j*10);
+					}
+					
+					//check kYSND_MKCD not choose
+					if (ValidateData.isEmpty(kYSND_MKCD)) {
+						actionErrors.add("kYSND_MKCDError", new ActionMessage("error.mkcd.trong"));
+						if (autKYSNDForm.getErrorFirst() == 0) {
+							autKYSNDForm.setErrorFirst(2+j*10);
+						}
+					}
+					
+					//check kYSND_SSCD not input
+					if (ValidateData.isEmpty(kYSND_SSCD)) {
+						actionErrors.add("kYSND_SSCDError", new ActionMessage("error.sscd.trong"));
+						if (autKYSNDForm.getErrorFirst() == 0) {
+							autKYSNDForm.setErrorFirst(3+j*10);
+						}
+					}
+					
+					//check kYSND_SSCD use special characters 
+					if (ValidateData.isSpecialCharacters(kYSND_SSCD)) {
+						actionErrors.add("kYSND_SSCDError", new ActionMessage("error.sscd.kituDB"));
+						if (autKYSNDForm.getErrorFirst() == 0) {
+							autKYSNDForm.setErrorFirst(3+j*10);
+						}
+					}
+					
+					saveErrors(request, actionErrors);
+					if (actionErrors.size() > 0) {
+						return mapping.findForward("addError");
+					}
+					j++;
+				}
+				
+			}	
+		}
 		// Execute Add new Room when click 'Save' in Create New Room page
 		if ("Save".equals(autKYSNDForm.getSubmit())) {
-			while (i < 4 && isSuccess == true) {
+			while (i < 11 && isSuccess == true) {
 				
 				autKYSND = new AUTKYSND();
 				kYSND_BHNO = autKYSNDForm.getArrKYSND_BHNO(i);
 				System.out.println("kYSND_BHNOAction:" + kYSND_BHNO);
-				kYSND_BHNO1 = "";
-				kYSND_FIL = "";
-				kYSND_BHNO2 = "";
+				
 				kYSND_TYPE = "1";
 				kYSND_DEPO = autKYSNDForm.getArrKYSND_DEPO(i);
 				System.out.println("kYSND_DEPO:" + kYSND_DEPO);
@@ -147,7 +165,7 @@ public class AddNewAUTKYSNDAction extends Action {
 				kYSND_BHME = autKYSNDForm.getArrKYSND_BHME(i);
 				System.out.println("kYSND_BHME:" + kYSND_BHME);
 				kYSND_SPBN = autKYSNDForm.getArrKYSND_SPBN(i);
-				System.out.println("kYSND_SPBN" + kYSND_SPBN);
+				System.out.println("kYSND_SPBN:" + kYSND_SPBN);
 				kYSND_SZSU = autKYSNDForm.getArrKYSND_SZSU(i);
 				System.out.println("kYSND_SZSU:" + kYSND_SZSU);
 				kYSND_CHNO = autKYSNDForm.getArrKYSND_CHNO(i);
@@ -155,9 +173,9 @@ public class AddNewAUTKYSNDAction extends Action {
 				kYSND_SKCD = autKYSNDForm.getArrKYSND_SKCD(i);
 				System.out.println("kYSND_SKCD:" + kYSND_SKCD);
 				System.out
-						.println(ValidateData.isBlankRecord(kYSND_DEPO, kYSND_MKCD, kYSND_SSCD, kYSND_FORM, kYSND_BHNO2,
+						.println(ValidateData.isBlankRecord(kYSND_DEPO, kYSND_MKCD, kYSND_SSCD, kYSND_FORM, kYSND_BHNO,
 								kYSND_SYMD, kYSND_CHNO, kYSND_SKCD, kYSND_SZSU, kYSND_BHME, kYSND_SYCD, kYSND_SPBN));
-				if (!ValidateData.isBlankRecord(kYSND_DEPO, kYSND_MKCD, kYSND_SSCD, kYSND_FORM, kYSND_BHNO2, kYSND_SYMD,
+				if (!ValidateData.isBlankRecord(kYSND_DEPO, kYSND_MKCD, kYSND_SSCD, kYSND_FORM, kYSND_BHNO, kYSND_SYMD,
 						kYSND_CHNO, kYSND_SKCD, kYSND_SZSU, kYSND_BHME, kYSND_SYCD, kYSND_SPBN)) {
 					autKYSND.setkYSND_SBET(kYSND_SBET);
 					autKYSND.setkYSND_DEPO(kYSND_DEPO);
@@ -183,10 +201,7 @@ public class AddNewAUTKYSNDAction extends Action {
 					autKYSND.setkYSND_TYPE(kYSND_TYPE);
 					autKYSND.setkYSND_SYCD(kYSND_SYCD);
 					autKYSND.setkYSND_SSCD(kYSND_SSCD);
-					if (kYSND_FORM != null)
-						autKYSND.setkYSND_FORM(kYSND_FORM);
-					else
-						autKYSND.setkYSND_FORM("");
+					autKYSND.setkYSND_FORM(kYSND_FORM);
 					autKYSND.setkYSND_BHME(kYSND_BHME);
 					autKYSND.setkYSND_CHNO(kYSND_CHNO);
 					if (kYSND_SYMD != null) {
@@ -249,7 +264,8 @@ public class AddNewAUTKYSNDAction extends Action {
 			}
 			return mapping.findForward("addNewSuccess");
 		} else {
-
+			autKYSNDForm.setErrorFirst(0);
+			
 			// redirect to Create New Room page
 			return mapping.findForward("addNew");
 		}

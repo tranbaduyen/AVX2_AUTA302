@@ -68,7 +68,7 @@ public class ValidateData {
 	}
 
 	public static void main(String[] args) {
-		System.out.println();
+		System.out.println(isBlankRecord("", "0", "", "", "", "", "", "", "", "", "0", ""));
 	}
 
 	public static boolean isBlankRecord(String kYSND_DEPO, String kYSND_MKCD, String kYSND_SSCD, String kYSND_FORM,
@@ -83,9 +83,11 @@ public class ValidateData {
 				&& (kYSND_SKCD == null || kYSND_SKCD.length() == 0 || "".equals(kYSND_SKCD))
 				&& (kYSND_SZSU == null || kYSND_SZSU.length() == 0 || "".equals(kYSND_SZSU))
 				&& (kYSND_BHME == null || kYSND_BHME.length() == 0 || "".equals(kYSND_BHME)) && ("0".equals(kYSND_SYCD))
-				&& (kYSND_SPBN == null || kYSND_SPBN.length() == 0 || "".equals(kYSND_SPBN)))
+				&& (kYSND_SPBN == null || kYSND_SPBN.length() == 0 || "".equals(kYSND_SPBN))) {
 			return true;
-		return false;
+		}
+		else
+			return false;
 	}
 
 	public static boolean isInvalidKYSND_BHNO(String kYSND_MKCD, String kYSND_BHNO) {

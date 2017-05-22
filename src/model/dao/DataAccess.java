@@ -21,7 +21,7 @@ public class DataAccess {
 	public Connection getConnect(){
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-			conn =DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=AVX;user=sa;password=abc@1234;");
+			conn =DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=AVX;user=sa;password=12345678;");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

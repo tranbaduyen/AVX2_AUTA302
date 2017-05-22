@@ -41,11 +41,9 @@ public class AUTMFOPMDAO {
 				list.add(autMFOPM);
 			}
 			rs.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			throw new Exception("Error occur: "+ e.getMessage());
-		}
-		finally {
+		} finally {
 			try {
 				if (stmt != null)
 					stmt.close();

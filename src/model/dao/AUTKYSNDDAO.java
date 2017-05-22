@@ -119,11 +119,9 @@ public class AUTKYSNDDAO {
 			while (rs.next()) {
 				num = rs.getInt("num");
 			}
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			throw new Exception("Error occur: "+ e.getMessage());
-		}
-		finally {
+		} finally {
 			try {
 				if (stmt != null)
 					stmt.close();
@@ -151,11 +149,9 @@ public class AUTKYSNDDAO {
 			while (rs.next()) {
 				num = rs.getInt("num");
 			}
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			throw new Exception("Error occur: "+ e.getMessage());
-		}
-		finally {
+		} finally {
 			try {
 				if (stmt != null)
 					stmt.close();
