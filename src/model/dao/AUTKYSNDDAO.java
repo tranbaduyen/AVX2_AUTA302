@@ -22,6 +22,7 @@ public class AUTKYSNDDAO {
 	Statement stmt = null;
 	CallableStatement cs = null;
 	private int seq = 0;
+	private int num = 0;
 
 	public boolean addAUTKYSND(AUTKYSND autKYSND) throws Exception {
 		connection = da.getConnect();
@@ -105,5 +106,66 @@ public class AUTKYSNDDAO {
 			}
 		}
 		return seq;
+	}
+	
+	public boolean isKYSND_DEPO_Exist(String kYSND_DEPO) throws Exception {
+		connection = da.getConnect();
+		String sql = String.format("SELECT count(kYSND_DEPO) as num FROM AUTKYSND WHERE kYSND_DEPO = N'%s'", kYSND_DEPO);
+		ResultSet rs = null;
+		try {
+			stmt = connection.createStatement();
+			rs = stmt.executeQuery(sql);
+
+			while (rs.next()) {
+				num = rs.getInt("num");
+			}
+		}
+		catch (Exception e) {
+			throw new Exception("Error occur: "+ e.getMessage());
+		}
+		finally {
+			try {
+				if (stmt != null)
+					stmt.close();
+				if (connection != null)
+					connection.close();
+			} catch (SQLException e) {
+				throw new SQLException("Error occur: "+ e.getMessage());
+			}
+		}
+		
+		return (num != 0)? true : false;
+	}
+	
+	public boolean checkInputData_Exist( String kYSND_DEPO,String kYSND_MKCD,String kYSND_SSCD) throws Exception {
+		connection = da.getConnect();
+		String sql = String.format("SELECT KYSND_DEPO,KYSND_MKCD,KYSND_SSCD, count(*) as num "
+				+ " FROM AUTKYSND "
+				+ " WHERE kYSND_DEPO = N'%s' AND kYSND_MKCD = N'%s' AND kYSND_SSCD = N'%s' "
+				+ " GROUP BY KYSND_DEPO,KYSND_MKCD,KYSND_SSCD ", kYSND_DEPO, kYSND_MKCD, kYSND_SSCD);
+		ResultSet rs = null;
+		try {
+			stmt = connection.createStatement();
+			rs = stmt.executeQuery(sql);
+
+			while (rs.next()) {
+				num = rs.getInt("num");
+			}
+		}
+		catch (Exception e) {
+			throw new Exception("Error occur: "+ e.getMessage());
+		}
+		finally {
+			try {
+				if (stmt != null)
+					stmt.close();
+				if (connection != null)
+					connection.close();
+			} catch (SQLException e) {
+				throw new SQLException("Error occur: "+ e.getMessage());
+			}
+		}
+		
+		return (num != 0)? true : false;
 	}
 }
