@@ -4,13 +4,24 @@
 package model.bean;
 
 /**
- * @author HCD-Fresher204
+ * AUTMFOPM.java
  *
+ * Version 1.0
+ *
+ * Date: 18-05-2017
+ *
+ * Copyright
+ *
+ * Modification Logs: 
+ * DATE 			AUTHOR		 	DESCRIPTION
+ * -----------------------------------------------------------------------
+ * 18-05-2017 		DuyenTB 		Create
  */
 public class AUTMFOPM {
 	private String mFOPM_MKCD;
 	private String mFOPM_RYAK;
 	private String mFOPM_NAME;
+	
 	/**
 	 * @return the mFOPM_MKCD
 	 */

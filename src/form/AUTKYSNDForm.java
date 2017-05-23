@@ -15,8 +15,18 @@ import model.bean.AUTKYSND;
 import model.bean.AUTMFOPM;
 
 /**
- * @author HCD-Fresher204
+ * AUTKYSNDForm.java
  *
+ * Version 1.2
+ *
+ * Date: 18-05-2017
+ *
+ * Copyright
+ *
+ * Modification Logs: 
+ * DATE 			AUTHOR		 	DESCRIPTION
+ * -----------------------------------------------------------------------
+ * 23-05-2017 		DuyenTB 		Create
  */
 public class AUTKYSNDForm extends ActionForm {
 	
@@ -712,12 +722,10 @@ public class AUTKYSNDForm extends ActionForm {
 
 	@Override
 	public void reset(ActionMapping mapping, HttpServletRequest request) {
-		// TODO Auto-generated method stub
 		try {
 			request.setCharacterEncoding("UTF-8");
 		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			;
 		}
 	}
 }

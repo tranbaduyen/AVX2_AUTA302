@@ -23,10 +23,30 @@ import model.bo.AUTKYSNDBO;
 import model.bo.AUTMFOPMBO;
 
 /**
- * @author HCD-Fresher204
+ * AddAUTKYSNDAction.java
  *
+ * Version 1.1
+ *
+ * Date: 18-05-2017
+ *
+ * Copyright
+ *
+ * Modification Logs: 
+ * DATE 			AUTHOR		 	DESCRIPTION
+ * -----------------------------------------------------------------------
+ * 22-05-2017 		DuyenTB 		Create
  */
 public class AddAUTKYSNDAction extends Action {
+	
+	/**
+	 * Ham chuan hoa chuoi string Method format String
+	 * 
+	 * @param mapping
+	 * @param form
+	 * @param request
+	 * @param response
+	 * @return ActionForward addNew || addNewSuccess || addError || error
+	 */
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
@@ -34,15 +54,21 @@ public class AddAUTKYSNDAction extends Action {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		AUTKYSNDForm autKYSNDForm = (AUTKYSNDForm) form;
-		//
+		
+		//get list ArrayList<AUTMFOPM> listAUTMFOPM for select option 
 		AUTMFOPMBO autMFOPMBO = new AUTMFOPMBO();
 		ArrayList<AUTMFOPM> listAUTMFOPM = autMFOPMBO.getListAUTMFOPM();
 		autKYSNDForm.setListAUTMFOPM(listAUTMFOPM);
 
 		AUTKYSNDBO autKYSNDBO = new AUTKYSNDBO();
+		
+		//Init object AUTKYSND autKYSND
 		AUTKYSND autKYSND = null;
+		
 		boolean isSuccess = true;
 		int i = 1;
+		
+		//Init attributes of object AUTKYSND autKYSND
 		String kYSND_BHNO;
 		String kYSND_BHNO1;
 		String kYSND_FIL = "";
@@ -63,14 +89,14 @@ public class AddAUTKYSNDAction extends Action {
 		String kYSND_SKCD;
 		System.out.println(autKYSNDForm.getSubmit());
 		
-		//Method check validate data from Form
+		//Method check validate data from Form before insert into database
 		if ("登録(Ｎ)".equals(autKYSNDForm.getSubmit())) {
 			ActionErrors actionErrors = new ActionErrors();
 
 			autKYSNDForm.setErrorFirst(0);
 			int j = 1;
 			
-			//loop to check validate each record in form (1->10)
+			//loop to check validate each record in form (1->10 records)
 			while (j < 11) {
 				
 				//get value from Form
@@ -96,6 +122,12 @@ public class AddAUTKYSNDAction extends Action {
 						actionErrors.add("kYSND_DEPOError", new ActionMessage("error.depo.trong"));
 						autKYSNDForm.setErrorFirst(1 + j * 10);
 					}
+					
+					// check kYSND_DEPO use special characters
+					if (ValidateData.isSpecialCharacters(kYSND_DEPO)) {
+						actionErrors.add("kYSND_DEPOError", new ActionMessage("error.depo.kituDB"));
+						autKYSNDForm.setErrorFirst(1 + j * 10);
+					}
 
 					// check kYSND_DEPO is exist in database
 					if (autKYSNDBO.isKYSND_DEPO_Exist(kYSND_DEPO)
@@ -111,12 +143,6 @@ public class AddAUTKYSNDAction extends Action {
 						autKYSNDForm.setErrorFirst(1 + j * 10);
 					}
 
-					// check kYSND_DEPO use special characters
-					if (ValidateData.isSpecialCharacters(kYSND_DEPO)) {
-						actionErrors.add("kYSND_DEPOError", new ActionMessage("error.depo.kituDB"));
-						autKYSNDForm.setErrorFirst(1 + j * 10);
-					}
-
 					// check kYSND_MKCD not choose
 					if (ValidateData.isEmpty(kYSND_MKCD)) {
 						actionErrors.add("kYSND_MKCDError", new ActionMessage("error.mkcd.trong"));
@@ -124,18 +150,18 @@ public class AddAUTKYSNDAction extends Action {
 							autKYSNDForm.setErrorFirst(2 + j * 10);
 						}
 					}
-
-					// check 15th character kYSND_BHNO use '#' character and kYSND_MKCD = '01'
-					if (kYSND_BHNO.length() >= 15 && ValidateData.isInvalidKYSND_BHNO(kYSND_MKCD, kYSND_BHNO)) {
-						actionErrors.add("kYSND_BHNOError", new ActionMessage("error.bhno.S3M0033E"));
+					
+					// check kYSND_BHNO use special characters
+					if (ValidateData.isSpecialCharacters(kYSND_BHNO)) {
+						actionErrors.add("kYSND_BHNOError", new ActionMessage("error.bhno.kituDB"));
 						if (autKYSNDForm.getErrorFirst() == 0) {
 							autKYSNDForm.setErrorFirst(3 + j * 10);
 						}
 					}
 
-					// check kYSND_BHNO use special characters
-					if (ValidateData.isSpecialCharacters(kYSND_BHNO)) {
-						actionErrors.add("kYSND_BHNOError", new ActionMessage("error.bhno.kituDB"));
+					// check 15th character kYSND_BHNO use '#' character and kYSND_MKCD = '01'
+					if (kYSND_BHNO.length() >= 15 && ValidateData.isInvalidKYSND_BHNO(kYSND_MKCD, kYSND_BHNO)) {
+						actionErrors.add("kYSND_BHNOError", new ActionMessage("error.bhno.S3M0033E"));
 						if (autKYSNDForm.getErrorFirst() == 0) {
 							autKYSNDForm.setErrorFirst(3 + j * 10);
 						}
@@ -206,10 +232,12 @@ public class AddAUTKYSNDAction extends Action {
 						}
 					}
 					// check kYSND_SZSU max value (-999999 <= kYSND_SZSU <= 999999)
-					if (!"".equals(kYSND_SZSU) && !ValidateData.isAllNumber(kYSND_SZSU) && Integer.parseInt(kYSND_SZSU) > 999999) {
-						actionErrors.add("kYSND_SZSUError", new ActionMessage("error.szsu.maxValue"));
-						if (autKYSNDForm.getErrorFirst() == 0) {
-							autKYSNDForm.setErrorFirst(9 + j * 10);
+					if(ValidateData.isAllNumber(kYSND_SZSU)) {
+						if (Integer.parseInt(kYSND_SZSU) > 999999) {
+							actionErrors.add("kYSND_SZSUError", new ActionMessage("error.szsu.maxValue"));
+							if (autKYSNDForm.getErrorFirst() == 0) {
+								autKYSNDForm.setErrorFirst(9 + j * 10);
+							}
 						}
 					}
 
@@ -223,9 +251,9 @@ public class AddAUTKYSNDAction extends Action {
 
 					// check kYSND_SPBN use special characters
 					if (ValidateData.isSpecialCharacters(kYSND_SPBN)) {
-						actionErrors.add("kYSND_SPBNError", new ActionMessage("error.SPBN.kituDB"));
+						actionErrors.add("kYSND_SPBNError", new ActionMessage("error.spbn.kituDB"));
 						if (autKYSNDForm.getErrorFirst() == 0) {
-							autKYSNDForm.setErrorFirst(12 + j * 10);
+							autKYSNDForm.setErrorFirst(13 + j * 100);
 						}
 					}
 

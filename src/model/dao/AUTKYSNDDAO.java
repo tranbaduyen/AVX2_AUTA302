@@ -8,13 +8,22 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 
 import model.bean.AUTKYSND;
 
 /**
- * @author HCD-Fresher204
+ * AUTKYSNDDAO.java
  *
+ * Version 1.1
+ *
+ * Date: 18-05-2017
+ *
+ * Copyright
+ *
+ * Modification Logs: 
+ * DATE 			AUTHOR		 	DESCRIPTION
+ * -----------------------------------------------------------------------
+ * 22-05-2017 		DuyenTB 		Create
  */
 public class AUTKYSNDDAO {
 	DataAccess da = new DataAccess();
@@ -25,6 +34,8 @@ public class AUTKYSNDDAO {
 	private int num = 0;
 
 	/**
+	 * Method add a object AUTKYSND into database (add 1 lan 1 doi tuong thay vi add 1 list doi tuong)
+	 * 
 	 * @param autKYSND
 	 * @return
 	 * @throws Exception
@@ -71,9 +82,7 @@ public class AUTKYSNDDAO {
 			cs.executeUpdate();
 			return true;
 		} catch (Exception e) {
-			e.printStackTrace();
 			return false;
-			//throw new Exception("Error occur: " + e.getMessage());
 		} finally {
 			try {
 				if (stmt != null) {
@@ -92,7 +101,9 @@ public class AUTKYSNDDAO {
 	}
 	
 	/**
-	 * @return
+	 * Method get value kYSND_SEQ
+	 * 
+	 * @return true || false
 	 * @throws Exception
 	 */
 	public int getKYSND_SEQ() throws Exception{
@@ -123,8 +134,10 @@ public class AUTKYSNDDAO {
 	}
 	
 	/**
+	 * Method check kYSND_DEPO is exist in database
+	 * 
 	 * @param kYSND_DEPO
-	 * @return
+	 * @return true || false
 	 * @throws Exception
 	 */
 	public boolean isKYSND_DEPO_Exist(String kYSND_DEPO) throws Exception {
@@ -157,10 +170,12 @@ public class AUTKYSNDDAO {
 	}
 	
 	/**
+	 * Method check mandory primary key (kYSND_DEPO,kYSND_MKCD,kYSND_SSCD)
+	 * 
 	 * @param kYSND_DEPO
 	 * @param kYSND_MKCD
 	 * @param kYSND_SSCD
-	 * @return
+	 * @return true || false
 	 * @throws Exception
 	 */
 	public boolean checkInputData_Exist( String kYSND_DEPO,String kYSND_MKCD,String kYSND_SSCD) throws Exception {
@@ -196,6 +211,8 @@ public class AUTKYSNDDAO {
 	}
 	
 	/**
+	 * Method delete a record in database
+	 * 
 	 * @param kYSND_DEPO
 	 * @param kYSND_MKCD
 	 * @param kYSND_SSCD

@@ -12,8 +12,18 @@ import java.util.ArrayList;
 import model.bean.AUTMFOPM;
 
 /**
- * @author HCD-Fresher204
+ * AUTMFOPMDAO.java
  *
+ * Version 1.0
+ *
+ * Date: 18-05-2017
+ *
+ * Copyright
+ *
+ * Modification Logs: 
+ * DATE 			AUTHOR		 	DESCRIPTION
+ * -----------------------------------------------------------------------
+ * 18-05-2017 		DuyenTB 		Create
  */
 public class AUTMFOPMDAO {
 	DataAccess da = new DataAccess();
@@ -21,12 +31,14 @@ public class AUTMFOPMDAO {
 	Statement stmt = null;
 	
 	/**
-	 * @return
+	 * Method get list AUTMFOPM
+	 * 
+	 * @return ArrayList<AUTMFOPM> list
 	 * @throws Exception
 	 */
 	public ArrayList<AUTMFOPM> getListAUTMFOPM() throws Exception{
 		String sql = "SELECT MFOPM_TRCD, MFOPM_RYAK, MFOPM_NAME "
-				+ "FROM AUTMFOPM ";
+				+ "FROM AUTMFOPM ORDER BY (MFOPM_TRCD) ASC ";
 		ArrayList<AUTMFOPM> list = null;
 		list = new ArrayList<AUTMFOPM>();
 		AUTMFOPM autMFOPM = null;
@@ -49,10 +61,12 @@ public class AUTMFOPMDAO {
 			throw new Exception("Error occur: "+ e.getMessage());
 		} finally {
 			try {
-				if (stmt != null)
+				if (stmt != null) {
 					stmt.close();
-				if (connection != null)
+				}
+				if (connection != null) {
 					connection.close();
+				}
 			} catch (SQLException e) {
 				throw new SQLException("Error occur: "+ e.getMessage());
 			}

@@ -7,15 +7,27 @@ import model.bean.AUTKYSND;
 import model.dao.AUTKYSNDDAO;
 
 /**
- * @author HCD-Fresher204
+ * AUTKYSNDBO.java
  *
+ * Version 1.0
+ *
+ * Date: 18-05-2017
+ *
+ * Copyright
+ *
+ * Modification Logs: 
+ * DATE 			AUTHOR		 	DESCRIPTION
+ * -----------------------------------------------------------------------
+ * 18-05-2017 		DuyenTB 		Create
  */
 public class AUTKYSNDBO {
 	AUTKYSNDDAO autKYSNDDAO = new AUTKYSNDDAO();
 
 	/**
+	 * Method add a object AUTKYSND into database (add 1 lan 1 doi tuong thay vi add 1 list doi tuong)
+	 * 
 	 * @param autKYSND
-	 * @return
+	 * @return true || false
 	 * @throws Exception
 	 */
 	public boolean addAUTKYSND(AUTKYSND autKYSND) throws Exception {
@@ -23,7 +35,9 @@ public class AUTKYSNDBO {
 	}
 
 	/**
-	 * @return
+	 * Method get value kYSND_SEQ
+	 * 
+	 * @return autKYSNDDAO.getKYSND_SEQ()
 	 * @throws Exception
 	 */
 	public int getKYSND_SEQ() throws Exception {
@@ -31,8 +45,10 @@ public class AUTKYSNDBO {
 	}
 
 	/**
+	 * Method check kYSND_DEPO is exist in database
+	 * 
 	 * @param kYSND_DEPO
-	 * @return
+	 * @return true || false
 	 * @throws Exception
 	 */
 	public boolean isKYSND_DEPO_Exist(String kYSND_DEPO) throws Exception {
@@ -40,10 +56,12 @@ public class AUTKYSNDBO {
 	}
 
 	/**
+	 * Method check mandory primary key (kYSND_DEPO,kYSND_MKCD,kYSND_SSCD)
+	 * 
 	 * @param kYSND_DEPO
 	 * @param kYSND_MKCD
 	 * @param kYSND_SSCD
-	 * @return
+	 * @return true || false
 	 * @throws Exception
 	 */
 	public boolean checkInputData_Exist(String kYSND_DEPO, String kYSND_MKCD, String kYSND_SSCD) throws Exception {
@@ -51,6 +69,8 @@ public class AUTKYSNDBO {
 	}
 	
 	/**
+	 * Method delete a record in database
+	 * 
 	 * @param kYSND_DEPO
 	 * @param kYSND_MKCD
 	 * @param kYSND_SSCD

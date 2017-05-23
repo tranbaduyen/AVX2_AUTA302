@@ -15,7 +15,12 @@
 <link rel="stylesheet" href="css/myStyle.css" />
 <link rel="stylesheet" href="css/font-awesome.min.css" />
 <script src="js/jquery.min.js"></script>
-
+<style>
+.decoratedErrorField{
+    background-color: red;
+    color: white;
+}
+</style>
 </head>
 <body>
 <div class="container">
@@ -102,17 +107,17 @@
 						 </thead>
 						 <tbody>
 						 	<logic:iterate name="autKYSNDForm"  id="num" property="number" >
-							<tr style="">
-								<td rowspan="2" style="">
+							<tr style="" class="no-border-radius " id="row1${num} ">
+								<td rowspan="2" style="" >
 									<div style="margin-right:20px;padding-top:8px;padding-right:2px;border: 1px solid #B9B7C7;text-align:center;">
 										<label style="" ><bean:write name="num" /></label>
 									</div>
 								</td>
-								<td style=" text-align:center;width:6%;" class="">
-									<html:text styleId="txtDEPO" property="arrKYSND_DEPO[${num}]"  styleClass="form-control no-border-radius" maxlength="2"  tabindex="1" onfocus="" ></html:text>
+								<td style=" text-align:center;width:6%;" ">
+									<html:text styleId="txtDEPO${num}" property="arrKYSND_DEPO[${num}]"  styleClass="form-control no-border-radius" maxlength="2"  tabindex="1" onfocus="" ></html:text>
 								</td>
 								<td colspan="2" style="">
-									<html:select styleClass="form-control no-border-radius" property="arrKYSND_MKCD[${num}]" style="">
+									<html:select styleId="txtMKCD${num}" styleClass="form-control no-border-radius" property="arrKYSND_MKCD[${num}]" style="">
 										<html:option value="0">--Please choose--</html:option>
 										<html:optionsCollection name="autKYSNDForm" property="listAUTMFOPM" 
 										label="mFOPM_NAME" value="mFOPM_MKCD" />
@@ -120,43 +125,43 @@
 										
 								</td>
 								<td colspan="2" style=" text-align:center;">
-									<html:text styleId="txtMKCD" property="arrKYSND_BHNO[${num}]" styleClass=" form-control no-border-radius" maxlength="26"  tabindex="3"></html:text>
+									<html:text styleId="txtBHNO${num}" property="arrKYSND_BHNO[${num}]" styleClass=" form-control no-border-radius" maxlength="26"  tabindex="3"></html:text>
 								</td>
 								<td colspan="5" style=" text-align:center;">
-									<html:text styleId="txtBHME" property="arrKYSND_BHME[${num}]" styleClass=" form-control no-border-radius" maxlength="30"  tabindex="4"></html:text>
+									<html:text styleId="txtBHME${num}" property="arrKYSND_BHME[${num}]" styleClass=" form-control no-border-radius" maxlength="30"  tabindex="4"></html:text>
 								</td>
 								<td rowspan="2" style="width:5%;"></td>
 							  </tr>
-							  <tr>
+							  <tr style="" class="no-border-radius " id="row2${num}">
 								<td style=" text-align:center;">
-									<html:text styleId="txtSSCD" property="arrKYSND_SSCD[${num}]" styleClass=" form-control no-border-radius" maxlength="1"  tabindex="5"></html:text>
+									<html:text styleId="txtSSCD${num}" property="arrKYSND_SSCD[${num}]" styleClass=" form-control no-border-radius" maxlength="1"  tabindex="5"></html:text>
 								</td>
 								<td style="width"></td>
 								<td style=" text-align:center;width:11%;">
-									<html:text styleId="txtFORM" property="arrKYSND_FORM[${num}]"  styleClass=" form-control no-border-radius" maxlength="10"  tabindex="6"></html:text>
+									<html:text styleId="txtFORM${num}" property="arrKYSND_FORM[${num}]"  styleClass=" form-control no-border-radius" maxlength="10"  tabindex="6"></html:text>
 								</td>
 								<td style=" text-align:center;width:15%;">
-									<html:text styleId="txtCHNO" property="arrKYSND_CHNO[${num}]"  styleClass=" form-control no-border-radius" maxlength="15"  tabindex="7"></html:text>
+									<html:text styleId="txtCHNO${num}" property="arrKYSND_CHNO[${num}]"  styleClass=" form-control no-border-radius" maxlength="15"  tabindex="7"></html:text>
 								</td>
-								<td style=" text-align:center;">
-									<html:text styleId="txtSYMD" property="arrKYSND_SYMD[${num}]"  styleClass=" form-control no-border-radius" maxlength="8"  tabindex="8"></html:text>
+								<td align="right" style="">
+									<html:text styleId="txtSYMD${num}" style="" property="arrKYSND_SYMD[${num}]"  styleClass=" form-control no-border-radius" maxlength="8"  tabindex="8"></html:text>
 								</td>
-								<td style=" text-align:center;">
-									<html:text styleId="txtSZSU" property="arrKYSND_SZSU[${num}]"  styleClass=" form-control no-border-radius" maxlength="7"  tabindex="9"></html:text>
+								<td align="right" style="">
+									<html:text styleId="txtSZSU${num}" property="arrKYSND_SZSU[${num}]"  styleClass=" form-control no-border-radius" maxlength="7"  tabindex="9"></html:text>
 								</td>
-								<td style=" text-align:center;">
-									<html:text styleId="txtSKCD" property="arrKYSND_SKCD[${num}]"  styleClass=" form-control no-border-radius" maxlength="2"  tabindex="10"></html:text>
+								<td style="text-align:center;">
+									<html:text styleId="txtSKCD${num}" property="arrKYSND_SKCD[${num}]"  styleClass=" form-control no-border-radius" maxlength="2"  tabindex="10"></html:text>
 								</td>
 								<td style=" text-align:center;"></td>
 								<td  style="">						
-									<html:select styleClass="form-control no-border-radius" property="arrKYSND_SYCD[${num}]" style="padding: 1px -2px 1px 1px;">
+									<html:select styleId="txtSYCD${num}" styleClass="form-control no-border-radius" property="arrKYSND_SYCD[${num}]" style="padding: 1px -2px 1px 1px;">
 										<html:option styleClass="li" value="0">Choose</html:option>
 										<html:option styleClass="li" value="1">1.４輪</html:option>
 		            					<html:option styleClass="li" value="2">2.２輪</html:option>
 									</html:select>
 								</td>
 								<td style=" text-align:center;">
-									<html:text styleId="txtSPBN" property="arrKYSND_SPBN[${num}]" styleClass=" form-control no-border-radius" maxlength="6"  tabindex="12"></html:text>
+									<html:text styleId="txtSPBN${num}" property="arrKYSND_SPBN[${num}]" styleClass=" form-control no-border-radius" maxlength="6"  tabindex="12"></html:text>
 								</td>
 							  </tr>
 							  </logic:iterate>
@@ -292,5 +297,89 @@
 		if(message12.length > 0){
 			$("#iconmessage12").html('</br><i class="fa fa-exclamation-triangle" style="color:#cccc00;"></i>');
 		}
+	</script>
+	<script>
+	jQuery.extend(jQuery.expr[':'], {
+	    focusable: function (el, index, selector) {
+	        return $(el).is('a, button, :input, [tabindex]');
+	    }
+	});
+	
+	$(document).on('keydown', ':focusable', function (e) {
+	    if (e.which == 13) {
+	        e.preventDefault();
+	        // Get all focusable elements on the page
+	        var $canfocus = $(':focusable');
+	        var index = $canfocus.index(this) + 1;
+	        if (index >= $canfocus.length) index = 0;
+	        $canfocus.eq(index).focus();
+	    }
+	});
+	</script>
+	<script >
+	$(function() {
+		  $('#txtDEPO1').focus();
+		  var errorFirst = ${errorFirst}
+		  for(var i=1; i<=10; i++){
+			  switch (errorFirst) {
+				case 1+i*10:
+					$('#txtDEPO1').blur();
+					$('#txtDEPO'+i).focus();
+					document.getElementById('txtDEPO'+i).className += ' decoratedErrorField ';
+					break;
+				case 2+i*10:
+					$('#txtDEPO1').blur();
+					$('#txtMKCD'+i).focus();
+					document.getElementById('txtMKCD'+i).className += ' decoratedErrorField ';
+					break;
+				case 3+i*10:
+					$('#txtDEPO1').blur();
+					$('#txtBHNO'+i).focus();
+					document.getElementById('txtBHNO'+i).className += ' decoratedErrorField ';
+					break;
+				case 4+i*10:
+					$('#txtDEPO1').blur();
+					$('#txtBHME'+i).focus();
+					document.getElementById('txtBHME'+i).className += ' decoratedErrorField ';
+					break;
+				case 5+i*10:
+					$('#txtDEPO1').blur();
+					$('#txtSSCD'+i).focus();
+					document.getElementById('txtBHME'+i).className += ' decoratedErrorField ';
+					break;
+				case 6+i*10:
+					$('#txtDEPO1').blur();
+					$('#txtFORM'+i).focus();
+					document.getElementById('txtFORM'+i).className += ' decoratedErrorField ';
+					break;
+				case 7+i*10:
+					$('#txtDEPO1').blur();
+					$('#txtCHNO'+i).focus();
+					document.getElementById('txtCHNO'+i).className += ' decoratedErrorField ';
+					break;
+				case 8+i*10:
+					$('#txtDEPO1').blur();
+					$('#txtSYMD'+i).focus();
+					document.getElementById('txtSYMD'+i).className += ' decoratedErrorField ';
+					break;
+				case 9+i*10:
+					$('#txtDEPO1').blur();
+					$('#txtSZSU'+i).focus();
+					document.getElementById('txtSZSU'+i).className += ' decoratedErrorField ';
+					break;
+				case 10+i*10:
+					$('#txtDEPO1').blur();
+					$('#txtSKCD'+i).focus();
+					document.getElementById('txtSKCD'+i).className += ' decoratedErrorField ';
+					break;
+				case 13+i*100:
+					$('#txtDEPO1').blur();
+					$('#txtSPBN'+i).focus();
+					document.getElementById('txtSPBN'+i).className += ' decoratedErrorField ';
+					break;	
+				}
+		  }
+		  
+	});
 	</script>
 </html>
