@@ -20,6 +20,10 @@ public class AUTMFOPMDAO {
 	Connection connection = null;
 	Statement stmt = null;
 	
+	/**
+	 * @return
+	 * @throws Exception
+	 */
 	public ArrayList<AUTMFOPM> getListAUTMFOPM() throws Exception{
 		String sql = "SELECT MFOPM_TRCD, MFOPM_RYAK, MFOPM_NAME "
 				+ "FROM AUTMFOPM ";

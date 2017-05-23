@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>AUTA302</title>
+<title>List AUTA302</title>
 <link rel="stylesheet" href="css/bootstrap.min.css" />
 <link rel="stylesheet" href="css/quanlynhanvien.css" />
 <link rel="stylesheet" href="css/myStyle.css" />
@@ -19,7 +19,7 @@
 </head>
 <body>
 <div class="container">
-	<html:form styleId="addForm" action="/addAUT302.do" method="post" style="">
+	<html:form styleId="addForm" action="/addNewAUT302.do" method="post" style="">
 	<div class="body">
 		<div class="main-form col-sm-12" style="padding-top:20px;">
 			<div class="top-text col-sm-12;" style="color:#F8FFFF;margin-bottom:5px;" >
@@ -40,33 +40,7 @@
 				<bean:define id="errorFirst" name="autKYSNDForm" property="errorFirst"></bean:define>
 				<html:hidden styleId="errorFirst" property="errorFirst" styleClass="form-control"></html:hidden>
 				<label for="errorMessage" style="color: red;padding-top:5px;padding-left: 5px;">
-					<c:if test="${errorFirst == 0}">
 						<span>&lt;&lt;&lt; エラーメッセージ >>></span>
-					</c:if>
-					<c:if test="${errorFirst != 0}">
-						<span id="iconmessage1"></span>
-						<label for="message1" id="message1"><html:errors property="kYSND_DEPOError" /></label>
-						<span id="iconmessage2"></span>
-						<label for="message2" id="message2"><html:errors property="kYSND_MKCDError" /></label>
-						<span id="iconmessage3"></span>
-						<label for="message3" id="message3"><html:errors property="kYSND_BHNOError" /></label>
-						<span id="iconmessage4"></span>
-						<label for="message4" id="message4"><html:errors property="kYSND_BHMEError" /></label>
-						<span id="iconmessage5"></span>
-						<label for="message5" id="message5"><html:errors property="kYSND_SSCDError" /></label>
-						<span id="iconmessage6"></span>
-						<label for="message6" id="message6"><html:errors property="kYSND_FORMError" /></label>
-						<span id="iconmessage7"></span>
-						<label for="message7" id="message7"><html:errors property="kYSND_CHNOError" /></label>
-						<span id="iconmessage8"></span>
-						<label for="message8" id="message8"><html:errors property="kYSND_SYMDError" /></label>
-						<span id="iconmessage9"></span>
-						<label for="message9" id="message9"><html:errors property="kYSND_SZSUError" /></label>
-						<span id="iconmessage10"></span>
-						<label for="message10" id="message10"><html:errors property="kYSND_SKCDError" /></label>
-						<span id="iconmessage12"></span>
-						<label for="message12" id="message12"><html:errors property="kYSND_SPBNError" /></label>
-					</c:if>
 				</label>
 			</div>
 			<div class="body-filter col-sm-12" style="border: 1px solid black;">
@@ -101,65 +75,7 @@
 							</tr>
 						 </thead>
 						 <tbody>
-						 	<logic:iterate name="autKYSNDForm"  id="num" property="number" >
-							<tr style="">
-								<td rowspan="2" style="">
-									<div style="margin-right:20px;padding-top:8px;padding-right:2px;border: 1px solid #B9B7C7;text-align:center;">
-										<label style="" ><bean:write name="num" /></label>
-									</div>
-								</td>
-								<td style=" text-align:center;width:6%;" class="">
-									<html:text styleId="txtDEPO" property="arrKYSND_DEPO[${num}]"  styleClass="form-control no-border-radius" maxlength="2"  tabindex="1" onfocus="" ></html:text>
-								</td>
-								<td colspan="2" style="">
-									<html:select styleClass="form-control no-border-radius" property="arrKYSND_MKCD[${num}]" style="">
-										<html:option value="0">--Please choose--</html:option>
-										<html:optionsCollection name="autKYSNDForm" property="listAUTMFOPM" 
-										label="mFOPM_NAME" value="mFOPM_MKCD" />
-									</html:select>
-										
-								</td>
-								<td colspan="2" style=" text-align:center;">
-									<html:text styleId="txtMKCD" property="arrKYSND_BHNO[${num}]" styleClass=" form-control no-border-radius" maxlength="26"  tabindex="3"></html:text>
-								</td>
-								<td colspan="5" style=" text-align:center;">
-									<html:text styleId="txtBHME" property="arrKYSND_BHME[${num}]" styleClass=" form-control no-border-radius" maxlength="30"  tabindex="4"></html:text>
-								</td>
-								<td rowspan="2" style="width:5%;"></td>
-							  </tr>
-							  <tr>
-								<td style=" text-align:center;">
-									<html:text styleId="txtSSCD" property="arrKYSND_SSCD[${num}]" styleClass=" form-control no-border-radius" maxlength="1"  tabindex="5"></html:text>
-								</td>
-								<td style="width"></td>
-								<td style=" text-align:center;width:11%;">
-									<html:text styleId="txtFORM" property="arrKYSND_FORM[${num}]"  styleClass=" form-control no-border-radius" maxlength="10"  tabindex="6"></html:text>
-								</td>
-								<td style=" text-align:center;width:15%;">
-									<html:text styleId="txtCHNO" property="arrKYSND_CHNO[${num}]"  styleClass=" form-control no-border-radius" maxlength="15"  tabindex="7"></html:text>
-								</td>
-								<td style=" text-align:center;">
-									<html:text styleId="txtSYMD" property="arrKYSND_SYMD[${num}]"  styleClass=" form-control no-border-radius" maxlength="8"  tabindex="8"></html:text>
-								</td>
-								<td style=" text-align:center;">
-									<html:text styleId="txtSZSU" property="arrKYSND_SZSU[${num}]"  styleClass=" form-control no-border-radius" maxlength="7"  tabindex="9"></html:text>
-								</td>
-								<td style=" text-align:center;">
-									<html:text styleId="txtSKCD" property="arrKYSND_SKCD[${num}]"  styleClass=" form-control no-border-radius" maxlength="2"  tabindex="10"></html:text>
-								</td>
-								<td style=" text-align:center;"></td>
-								<td  style="">						
-									<html:select styleClass="form-control no-border-radius" property="arrKYSND_SYCD[${num}]" style="padding: 1px -2px 1px 1px;">
-										<html:option styleClass="li" value="0">Choose</html:option>
-										<html:option styleClass="li" value="1">1.４輪</html:option>
-		            					<html:option styleClass="li" value="2">2.２輪</html:option>
-									</html:select>
-								</td>
-								<td style=" text-align:center;">
-									<html:text styleId="txtSPBN" property="arrKYSND_SPBN[${num}]" styleClass=" form-control no-border-radius" maxlength="6"  tabindex="12"></html:text>
-								</td>
-							  </tr>
-							  </logic:iterate>
+						 	
 						 </tbody>
 					</table>
 					<br>

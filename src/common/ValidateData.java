@@ -67,10 +67,6 @@ public class ValidateData {
 		return (str.matches(regex)) ? true : false;
 	}
 
-	public static void main(String[] args) {
-		System.out.println(isBlankRecord("", "0", "", "", "", "", "", "", "", "", "0", ""));
-	}
-
 	public static boolean isBlankRecord(String kYSND_DEPO, String kYSND_MKCD, String kYSND_SSCD, String kYSND_FORM,
 			String kYSND_BHNO, String kYSND_SYMD, String kYSND_CHNO, String kYSND_SKCD, String kYSND_SZSU,
 			String kYSND_BHME, String kYSND_SYCD, String kYSND_SPBN) {
@@ -85,27 +81,31 @@ public class ValidateData {
 				&& (kYSND_BHME == null || kYSND_BHME.length() == 0 || "".equals(kYSND_BHME)) && ("0".equals(kYSND_SYCD))
 				&& (kYSND_SPBN == null || kYSND_SPBN.length() == 0 || "".equals(kYSND_SPBN))) {
 			return true;
-		}
-		else
+		} else {
 			return false;
+		}
 	}
 
 	public static boolean isInvalidKYSND_BHNO(String kYSND_MKCD, String kYSND_BHNO) {
+		chuanHoa(kYSND_BHNO);
 		String kYSND_FIL = kYSND_BHNO.substring(14, 15);
 		return ("01".equals(kYSND_MKCD) && "#".equals(kYSND_FIL)) ? true : false;
 	}
 
 	public static boolean isInvalidDateValue(String kYSND_SYMD) {
+		chuanHoa(kYSND_SYMD);
 		int currentYear = Calendar.getInstance().get(Calendar.YEAR);
 		int year = Integer.parseInt(kYSND_SYMD.substring(0, 4));
 		int month = Integer.parseInt(kYSND_SYMD.substring(4, 6));
 		int day = Integer.parseInt(kYSND_SYMD.substring(6, 8));
 
-		return (year < 1900 || year > currentYear || month < 1 || month > 12 || day < 1 || day > 31) ? true : false;
+		return (year < 1900 || year > currentYear + 100 || month < 1 || month > 12 || day < 1 || day > 31) ? true
+				: false;
 	}
-	public static boolean isInvalidDateFormat(String kYSND_SYMD){
+
+	public static boolean isInvalidDateFormat(String kYSND_SYMD) {
 		kYSND_SYMD = chuanHoa(kYSND_SYMD);
 		String regex = "[0-9]+";
-		return (kYSND_SYMD.matches(regex)&&kYSND_SYMD.length()==8) ? false : true;
+		return (kYSND_SYMD.matches(regex) && kYSND_SYMD.length() == 8) ? false : true;
 	}
 }

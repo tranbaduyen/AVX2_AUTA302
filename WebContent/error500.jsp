@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Initial Screen</title>
+<title>Error</title>
 <link rel="stylesheet" href="css/bootstrap.min.css" />
 <link rel="stylesheet" href="css/quanlynhanvien.css" />
 <link rel="stylesheet" href="css/myStyle.css" />
@@ -36,7 +36,7 @@
 			</div>
 			<div class="body-filter col-sm-12" align="center" style="">
 				<div style="background-color: #E7E7E8;">
-					<div class="body-main-label-text"><h1>Initial Screen</h1></div>
+					<div class="body-main-label-text"><h1>ERROR</h1></div>
 				</div>
 			</div>
 			

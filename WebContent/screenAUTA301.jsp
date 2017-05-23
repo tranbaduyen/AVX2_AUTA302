@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Initial Screen</title>
+<title>AUTA301 Screen</title>
 <link rel="stylesheet" href="css/bootstrap.min.css" />
 <link rel="stylesheet" href="css/quanlynhanvien.css" />
 <link rel="stylesheet" href="css/myStyle.css" />
@@ -21,7 +21,7 @@
 		<div class="main-form col-sm-12" style="padding-top:20px;">
 			<div class="top-text col-sm-12;" style="color:#F8FFFF;margin-bottom:5px;" >
 				<div class="col-sm-5" style="float: left;background-color:#303549;padding-bottom: 10px;">
-					<label class="my-label">AUTA302</label>
+					<label class="my-label">AUTA301</label>
 				</div>
 				<div class="col-sm-4" style="float: left;background-color:#303549;padding-bottom: 10px;">
 					<label class="my-label" style=";">出荷指示 送信情報 登録</label>
@@ -36,7 +36,7 @@
 			</div>
 			<div class="body-filter col-sm-12" align="center" style="">
 				<div style="background-color: #E7E7E8;">
-					<div class="body-main-label-text"><h1>Initial Screen</h1></div>
+					<div class="body-main-label-text"><h1>AUTA301 Screen</h1></div>
 				</div>
 			</div>
 			

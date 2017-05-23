@@ -24,6 +24,11 @@ public class AUTKYSNDDAO {
 	private int seq = 0;
 	private int num = 0;
 
+	/**
+	 * @param autKYSND
+	 * @return
+	 * @throws Exception
+	 */
 	public boolean addAUTKYSND(AUTKYSND autKYSND) throws Exception {
 		connection = da.getConnect();
 		ResultSet rs = null;
@@ -39,31 +44,31 @@ public class AUTKYSNDDAO {
 		System.out.println(sql);
 		
 		try {
-			stmt = connection.createStatement();
-			stmt.executeUpdate(sql);
-//			cs = connection.prepareCall("{call addAUTKYSND(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
-//			cs.setString(1, autKYSND.getkYSND_SBET());
-//			cs.setString(2, autKYSND.getkYSND_DEPO());
-//			cs.setString(3, autKYSND.getkYSND_MKCD());
-//			cs.setString(4, autKYSND.getkYSND_SSCD());
-//			cs.setInt(5, Integer.parseInt(autKYSND.getkYSND_SEQ()));
-//			cs.setString(6, autKYSND.getkYSND_MKKG());
-//			cs.setString(7, autKYSND.getkYSND_TYPE());
-//			cs.setString(8, autKYSND.getkYSND_FORM());
-//			cs.setString(9, autKYSND.getkYSND_BHNO1());
-//			cs.setString(10, autKYSND.getkYSND_FIL());
-//			cs.setString(11, autKYSND.getkYSND_BHNO2());
-//			cs.setString(12, autKYSND.getkYSND_SYMD());
-//			cs.setString(13, autKYSND.getkYSND_CHNO());
-//			cs.setString(14, autKYSND.getkYSND_SKCD());
-//			cs.setInt(15, Integer.parseInt(autKYSND.getkYSND_SZSU()));
-//			cs.setString(16, autKYSND.getkYSND_BHME());
-//			cs.setString(17, autKYSND.getkYSND_SYCD());
-//			cs.setString(18, autKYSND.getkYSND_SPBN());
-//			cs.setString(19, "");
-//			cs.addBatch();
-//			
-//			cs.executeUpdate();
+//			stmt = connection.createStatement();
+//			stmt.executeUpdate(sql);
+			cs = connection.prepareCall("{call addAUTKYSND(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
+			cs.setString(1, autKYSND.getkYSND_SBET());
+			cs.setString(2, autKYSND.getkYSND_DEPO());
+			cs.setString(3, autKYSND.getkYSND_MKCD());
+			cs.setString(4, autKYSND.getkYSND_SSCD());
+			cs.setInt(5, Integer.parseInt(autKYSND.getkYSND_SEQ()));
+			cs.setString(6, autKYSND.getkYSND_MKKG());
+			cs.setString(7, autKYSND.getkYSND_TYPE());
+			cs.setString(8, autKYSND.getkYSND_FORM());
+			cs.setString(9, autKYSND.getkYSND_BHNO1());
+			cs.setString(10, autKYSND.getkYSND_FIL());
+			cs.setString(11, autKYSND.getkYSND_BHNO2());
+			cs.setString(12, autKYSND.getkYSND_SYMD());
+			cs.setString(13, autKYSND.getkYSND_CHNO());
+			cs.setString(14, autKYSND.getkYSND_SKCD());
+			cs.setInt(15, Integer.parseInt(autKYSND.getkYSND_SZSU()));
+			cs.setString(16, autKYSND.getkYSND_BHME());
+			cs.setString(17, autKYSND.getkYSND_SYCD());
+			cs.setString(18, autKYSND.getkYSND_SPBN());
+			cs.setString(19, "");
+			cs.addBatch();
+			
+			cs.executeUpdate();
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -71,18 +76,25 @@ public class AUTKYSNDDAO {
 			//throw new Exception("Error occur: " + e.getMessage());
 		} finally {
 			try {
-				if (stmt != null)
+				if (stmt != null) {
 					stmt.close();
-				if (cs != null)
+				}
+				if (cs != null) {
 					cs.close();
-				if (connection != null)
+				}
+				if (connection != null) {
 					connection.close();
+				}
 			} catch (SQLException e) {
 				throw new SQLException("Error occur: " + e.getMessage());
 			}
 		}
 	}
 	
+	/**
+	 * @return
+	 * @throws Exception
+	 */
 	public int getKYSND_SEQ() throws Exception{
 		connection = da.getConnect();
 		ResultSet rs = null;
@@ -96,11 +108,13 @@ public class AUTKYSNDDAO {
 		} catch (Exception e) {
 			throw new Exception("Error occur: " + e.getMessage());
 		} finally {
-			try{
-				if (stmt != null)
+			try {
+				if (stmt != null) {
 					stmt.close();
-				if (connection != null)
+				}
+				if (connection != null) {
 					connection.close();
+				}
 			} catch (SQLException e) {
 				throw new SQLException("Error occur: " + e.getMessage());
 			}
@@ -108,6 +122,11 @@ public class AUTKYSNDDAO {
 		return seq;
 	}
 	
+	/**
+	 * @param kYSND_DEPO
+	 * @return
+	 * @throws Exception
+	 */
 	public boolean isKYSND_DEPO_Exist(String kYSND_DEPO) throws Exception {
 		connection = da.getConnect();
 		String sql = String.format("SELECT count(kYSND_DEPO) as num FROM AUTKYSND WHERE kYSND_DEPO = N'%s'", kYSND_DEPO);
@@ -123,10 +142,12 @@ public class AUTKYSNDDAO {
 			throw new Exception("Error occur: "+ e.getMessage());
 		} finally {
 			try {
-				if (stmt != null)
+				if (stmt != null) {
 					stmt.close();
-				if (connection != null)
+				}
+				if (connection != null) {
 					connection.close();
+				}
 			} catch (SQLException e) {
 				throw new SQLException("Error occur: "+ e.getMessage());
 			}
@@ -135,6 +156,13 @@ public class AUTKYSNDDAO {
 		return (num != 0)? true : false;
 	}
 	
+	/**
+	 * @param kYSND_DEPO
+	 * @param kYSND_MKCD
+	 * @param kYSND_SSCD
+	 * @return
+	 * @throws Exception
+	 */
 	public boolean checkInputData_Exist( String kYSND_DEPO,String kYSND_MKCD,String kYSND_SSCD) throws Exception {
 		connection = da.getConnect();
 		String sql = String.format("SELECT KYSND_DEPO,KYSND_MKCD,KYSND_SSCD, count(*) as num "
@@ -153,15 +181,47 @@ public class AUTKYSNDDAO {
 			throw new Exception("Error occur: "+ e.getMessage());
 		} finally {
 			try {
-				if (stmt != null)
+				if (stmt != null) {
 					stmt.close();
-				if (connection != null)
+				}
+				if (connection != null) {
 					connection.close();
+				}
 			} catch (SQLException e) {
 				throw new SQLException("Error occur: "+ e.getMessage());
 			}
 		}
 		
 		return (num != 0)? true : false;
+	}
+	
+	/**
+	 * @param kYSND_DEPO
+	 * @param kYSND_MKCD
+	 * @param kYSND_SSCD
+	 * @throws Exception
+	 */
+	public void deleteAUTKYSND(String kYSND_DEPO, String kYSND_MKCD, String kYSND_SSCD) throws Exception {
+		connection = da.getConnect();
+		String sql = String.format("DELETE FROM AUTKYSND WHERE kYSND_DEPO = N'%s' AND kYSND_MKCD = '%s' AND kYSND_SSCD = N'%s' ", kYSND_DEPO, kYSND_MKCD, kYSND_SSCD);
+		try {
+			stmt = connection.createStatement();
+			stmt.executeUpdate(sql);
+		}
+		catch (Exception e) {
+			throw new Exception("Error occur: "+ e.getMessage());
+		}
+		finally {
+			try {
+				if (stmt != null) {
+					stmt.close();
+				}
+				if (connection != null) {
+					connection.close();
+				}
+			} catch (SQLException e) {
+				throw new SQLException("Error occur: "+ e.getMessage());
+			}
+		}
 	}
 }

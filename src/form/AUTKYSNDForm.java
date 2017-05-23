@@ -19,31 +19,8 @@ import model.bean.AUTMFOPM;
  *
  */
 public class AUTKYSNDForm extends ActionForm {
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
-	private String kYSND_SBET;
-	private String kYSND_DEPO;
-	private String kYSND_MKCD;
-	private String kYSND_SSCD;
-	private String kYSND_SEQ;
-	private String kYSND_MKKG;
-	private String kYSND_TYPE;
-	private String kYSND_FORM;
-	private String kYSND_BHNO;
-	private String kYSND_BHNO1;
-	private String kYSND_FIL;
-	private String kYSND_BHNO2;
-	private String kYSND_SYMD;
-	private String kYSND_CHNO;
-	private String kYSND_SKCD;
-	private String kYSND_SZSU;
-	private String kYSND_BHME;
-	private String kYSND_SYCD;
-	private String kYSND_SPBN;
-	private String kYSND_RYAK;
-	private String kYSND_NAME;
 	private String[] arrKYSND_SBET = { "", "", "", "", "", "", "", "", "", "", "" };
 	private String[] arrKYSND_DEPO = { "", "", "", "", "", "", "", "", "", "", "" };
 	private String[] arrKYSND_MKCD = { "", "", "", "", "", "", "", "", "", "", "" };
@@ -95,6 +72,10 @@ public class AUTKYSNDForm extends ActionForm {
 		return arrKYSND_SBET;
 	}
 
+	/**
+	 * @param index
+	 * @return
+	 */
 	public String getArrKYSND_SBET(int index) {
 		return arrKYSND_SBET[index];
 	}
@@ -107,6 +88,10 @@ public class AUTKYSNDForm extends ActionForm {
 		this.arrKYSND_SBET = arrKYSND_SBET;
 	}
 
+	/**
+	 * @param index
+	 * @param arrKYSND_SBET
+	 */
 	public void setArrKYSND_SBET(int index, String arrKYSND_SBET) {
 		this.arrKYSND_SBET[index] = arrKYSND_SBET;
 	}
@@ -118,6 +103,10 @@ public class AUTKYSNDForm extends ActionForm {
 		return arrKYSND_DEPO;
 	}
 
+	/**
+	 * @param index
+	 * @return
+	 */
 	public String getArrKYSND_DEPO(int index) {
 		return arrKYSND_DEPO[index];
 	}
@@ -137,6 +126,10 @@ public class AUTKYSNDForm extends ActionForm {
 		return arrKYSND_MKCD;
 	}
 
+	/**
+	 * @param index
+	 * @return
+	 */
 	public String getArrKYSND_MKCD(int index) {
 		return arrKYSND_MKCD[index];
 	}
@@ -156,6 +149,10 @@ public class AUTKYSNDForm extends ActionForm {
 		return arrKYSND_SSCD;
 	}
 
+	/**
+	 * @param index
+	 * @return
+	 */
 	public String getArrKYSND_SSCD(int index) {
 		return arrKYSND_SSCD[index];
 	}
@@ -175,6 +172,10 @@ public class AUTKYSNDForm extends ActionForm {
 		return arrKYSND_SEQ;
 	}
 
+	/**
+	 * @param index
+	 * @return
+	 */
 	public String getArrKYSND_SEQ(int index) {
 		return arrKYSND_SEQ[index];
 	}
@@ -187,6 +188,10 @@ public class AUTKYSNDForm extends ActionForm {
 		this.arrKYSND_SEQ = arrKYSND_SEQ;
 	}
 
+	/**
+	 * @param index
+	 * @param arrKYSND_SEQ
+	 */
 	public void setArrKYSND_SEQ(int index, String arrKYSND_SEQ) {
 		this.arrKYSND_SEQ[index] = arrKYSND_SEQ;
 	}
@@ -198,6 +203,10 @@ public class AUTKYSNDForm extends ActionForm {
 		return arrKYSND_MKKG;
 	}
 
+	/**
+	 * @param index
+	 * @return
+	 */
 	public String getArrKYSND_MKKG(int index) {
 		return arrKYSND_MKKG[index];
 	}
@@ -210,6 +219,10 @@ public class AUTKYSNDForm extends ActionForm {
 		this.arrKYSND_MKKG = arrKYSND_MKKG;
 	}
 
+	/**
+	 * @param index
+	 * @param arrKYSND_MKKG
+	 */
 	public void setArrKYSND_MKKG(int index, String arrKYSND_MKKG) {
 		this.arrKYSND_MKKG[index] = arrKYSND_MKKG;
 	}
@@ -221,6 +234,10 @@ public class AUTKYSNDForm extends ActionForm {
 		return arrKYSND_TYPE;
 	}
 
+	/**
+	 * @param index
+	 * @return
+	 */
 	public String getArrKYSND_TYPE(int index) {
 		return arrKYSND_TYPE[index];
 	}
@@ -233,6 +250,10 @@ public class AUTKYSNDForm extends ActionForm {
 		this.arrKYSND_TYPE = arrKYSND_TYPE;
 	}
 
+	/**
+	 * @param index
+	 * @param arrKYSND_TYPE
+	 */
 	public void setArrKYSND_TYPE(int index, String arrKYSND_TYPE) {
 		this.arrKYSND_TYPE[index] = arrKYSND_TYPE;
 	}
@@ -244,6 +265,10 @@ public class AUTKYSNDForm extends ActionForm {
 		return arrKYSND_FORM;
 	}
 
+	/**
+	 * @param index
+	 * @return
+	 */
 	public String getArrKYSND_FORM(int index) {
 		return arrKYSND_FORM[index];
 	}
@@ -256,6 +281,10 @@ public class AUTKYSNDForm extends ActionForm {
 		this.arrKYSND_FORM = arrKYSND_FORM;
 	}
 
+	/**
+	 * @param index
+	 * @param arrKYSND_FORM
+	 */
 	public void setArrKYSND_FORM(int index, String arrKYSND_FORM) {
 		this.arrKYSND_FORM[index] = arrKYSND_FORM;
 	}
@@ -267,6 +296,10 @@ public class AUTKYSNDForm extends ActionForm {
 		return arrKYSND_BHNO;
 	}
 
+	/**
+	 * @param index
+	 * @return
+	 */
 	public String getArrKYSND_BHNO(int index) {
 		return arrKYSND_BHNO[index];
 	}
@@ -279,6 +312,10 @@ public class AUTKYSNDForm extends ActionForm {
 		this.arrKYSND_BHNO = arrKYSND_BHNO;
 	}
 
+	/**
+	 * @param index
+	 * @param arrKYSND_BHNO
+	 */
 	public void setArrKYSND_BHNO(int index, String arrKYSND_BHNO) {
 		this.arrKYSND_BHNO[index] = arrKYSND_BHNO;
 	}
@@ -335,6 +372,10 @@ public class AUTKYSNDForm extends ActionForm {
 		return arrKYSND_SYMD;
 	}
 
+	/**
+	 * @param index
+	 * @return
+	 */
 	public String getArrKYSND_SYMD(int index) {
 		return arrKYSND_SYMD[index];
 	}
@@ -347,6 +388,10 @@ public class AUTKYSNDForm extends ActionForm {
 		this.arrKYSND_SYMD = arrKYSND_SYMD;
 	}
 
+	/**
+	 * @param index
+	 * @param arrKYSND_SYMD
+	 */
 	public void setArrKYSND_SYMD(int index, String arrKYSND_SYMD) {
 		this.arrKYSND_SYMD[index] = arrKYSND_SYMD;
 	}
@@ -358,6 +403,10 @@ public class AUTKYSNDForm extends ActionForm {
 		return arrKYSND_CHNO;
 	}
 
+	/**
+	 * @param index
+	 * @return
+	 */
 	public String getArrKYSND_CHNO(int index) {
 		return arrKYSND_CHNO[index];
 	}
@@ -370,6 +419,10 @@ public class AUTKYSNDForm extends ActionForm {
 		this.arrKYSND_CHNO = arrKYSND_CHNO;
 	}
 
+	/**
+	 * @param index
+	 * @param arrKYSND_CHNO
+	 */
 	public void setArrKYSND_CHNO(int index, String arrKYSND_CHNO) {
 		this.arrKYSND_CHNO[index] = arrKYSND_CHNO;
 	}
@@ -381,6 +434,10 @@ public class AUTKYSNDForm extends ActionForm {
 		return arrKYSND_SKCD;
 	}
 
+	/**
+	 * @param index
+	 * @return
+	 */
 	public String getArrKYSND_SKCD(int index) {
 		return arrKYSND_SKCD[index];
 	}
@@ -393,6 +450,10 @@ public class AUTKYSNDForm extends ActionForm {
 		this.arrKYSND_SKCD = arrKYSND_SKCD;
 	}
 
+	/**
+	 * @param index
+	 * @param arrKYSND_SKCD
+	 */
 	public void setArrKYSND_SKCD(int index, String arrKYSND_SKCD) {
 		this.arrKYSND_SKCD[index] = arrKYSND_SKCD;
 	}
@@ -404,6 +465,10 @@ public class AUTKYSNDForm extends ActionForm {
 		return arrKYSND_SZSU;
 	}
 
+	/**
+	 * @param index
+	 * @return
+	 */
 	public String getArrKYSND_SZSU(int index) {
 		return arrKYSND_SZSU[index];
 	}
@@ -416,6 +481,10 @@ public class AUTKYSNDForm extends ActionForm {
 		this.arrKYSND_SZSU = arrKYSND_SZSU;
 	}
 
+	/**
+	 * @param index
+	 * @param arrKYSND_SZSU
+	 */
 	public void setArrKYSND_SZSU(int index, String arrKYSND_SZSU) {
 		this.arrKYSND_SZSU[index] = arrKYSND_SZSU;
 	}
@@ -427,6 +496,10 @@ public class AUTKYSNDForm extends ActionForm {
 		return arrKYSND_BHME;
 	}
 
+	/**
+	 * @param index
+	 * @return
+	 */
 	public String getArrKYSND_BHME(int index) {
 		return arrKYSND_BHME[index];
 	}
@@ -439,6 +512,10 @@ public class AUTKYSNDForm extends ActionForm {
 		this.arrKYSND_BHME = arrKYSND_BHME;
 	}
 
+	/**
+	 * @param index
+	 * @param arrKYSND_BHME
+	 */
 	public void setArrKYSND_BHME(int index, String arrKYSND_BHME) {
 		this.arrKYSND_BHME[index] = arrKYSND_BHME;
 	}
@@ -450,6 +527,10 @@ public class AUTKYSNDForm extends ActionForm {
 		return arrKYSND_SYCD;
 	}
 
+	/**
+	 * @param index
+	 * @return
+	 */
 	public String getArrKYSND_SYCD(int index) {
 		return arrKYSND_SYCD[index];
 	}
@@ -462,6 +543,10 @@ public class AUTKYSNDForm extends ActionForm {
 		this.arrKYSND_SYCD = arrKYSND_SYCD;
 	}
 
+	/**
+	 * @param index
+	 * @param arrKYSND_SYCD
+	 */
 	public void setArrKYSND_SYCD(int index, String arrKYSND_SYCD) {
 		this.arrKYSND_SYCD[index] = arrKYSND_SYCD;
 	}
@@ -473,6 +558,10 @@ public class AUTKYSNDForm extends ActionForm {
 		return arrKYSND_SPBN;
 	}
 
+	/**
+	 * @param index
+	 * @return
+	 */
 	public String getArrKYSND_SPBN(int index) {
 		return arrKYSND_SPBN[index];
 	}
@@ -485,6 +574,10 @@ public class AUTKYSNDForm extends ActionForm {
 		this.arrKYSND_SPBN = arrKYSND_SPBN;
 	}
 
+	/**
+	 * @param index
+	 * @param arrKYSND_SPBN
+	 */
 	public void setArrKYSND_SPBN(int index, String arrKYSND_SPBN) {
 		this.arrKYSND_SPBN[index] = arrKYSND_SPBN;
 	}
@@ -526,6 +619,10 @@ public class AUTKYSNDForm extends ActionForm {
 		return number;
 	}
 
+	/**
+	 * @param index
+	 * @return
+	 */
 	public Integer getNumber(int index) {
 		return number[index];
 	}
@@ -536,36 +633,6 @@ public class AUTKYSNDForm extends ActionForm {
 	 */
 	public void setNumber(int index, Integer number) {
 		this.number[index] = number;
-	}
-
-	/**
-	 * @return the kYSND_RYAK
-	 */
-	public String getkYSND_RYAK() {
-		return kYSND_RYAK;
-	}
-
-	/**
-	 * @param kYSND_RYAK
-	 *            the kYSND_RYAK to set
-	 */
-	public void setkYSND_RYAK(String kYSND_RYAK) {
-		this.kYSND_RYAK = kYSND_RYAK;
-	}
-
-	/**
-	 * @return the kYSND_NAME
-	 */
-	public String getkYSND_NAME() {
-		return kYSND_NAME;
-	}
-
-	/**
-	 * @param kYSND_NAME
-	 *            the kYSND_NAME to set
-	 */
-	public void setkYSND_NAME(String kYSND_NAME) {
-		this.kYSND_NAME = kYSND_NAME;
 	}
 
 	/**
@@ -596,291 +663,6 @@ public class AUTKYSNDForm extends ActionForm {
 	 */
 	public void setListAUTKYSND(ArrayList<AUTKYSND> listAUTKYSND) {
 		this.listAUTKYSND = listAUTKYSND;
-	}
-
-	/**
-	 * @return the kYSND_SBET
-	 */
-	public String getkYSND_SBET() {
-		return kYSND_SBET;
-	}
-
-	/**
-	 * @param kYSND_SBET
-	 *            the kYSND_SBET to set
-	 */
-	public void setkYSND_SBET(String kYSND_SBET) {
-		this.kYSND_SBET = kYSND_SBET;
-	}
-
-	/**
-	 * @return the kYSND_DEPO
-	 */
-	public String getkYSND_DEPO() {
-		return kYSND_DEPO;
-	}
-
-	/**
-	 * @param kYSND_DEPO
-	 *            the kYSND_DEPO to set
-	 */
-	public void setkYSND_DEPO(String kYSND_DEPO) {
-		this.kYSND_DEPO = kYSND_DEPO;
-	}
-
-	/**
-	 * @return the kYSND_MKCD
-	 */
-	public String getkYSND_MKCD() {
-		return kYSND_MKCD;
-	}
-
-	/**
-	 * @param kYSND_MKCD
-	 *            the kYSND_MKCD to set
-	 */
-	public void setkYSND_MKCD(String kYSND_MKCD) {
-		this.kYSND_MKCD = kYSND_MKCD;
-	}
-
-	/**
-	 * @return the kYSND_SSCD
-	 */
-	public String getkYSND_SSCD() {
-		return kYSND_SSCD;
-	}
-
-	/**
-	 * @param kYSND_SSCD
-	 *            the kYSND_SSCD to set
-	 */
-	public void setkYSND_SSCD(String kYSND_SSCD) {
-		this.kYSND_SSCD = kYSND_SSCD;
-	}
-
-	/**
-	 * @return the kYSND_SEQ
-	 */
-	public String getkYSND_SEQ() {
-		return kYSND_SEQ;
-	}
-
-	/**
-	 * @param kYSND_SEQ
-	 *            the kYSND_SEQ to set
-	 */
-	public void setkYSND_SEQ(String kYSND_SEQ) {
-		this.kYSND_SEQ = kYSND_SEQ;
-	}
-
-	/**
-	 * @return the kYSND_MKKG
-	 */
-	public String getkYSND_MKKG() {
-		return kYSND_MKKG;
-	}
-
-	/**
-	 * @param kYSND_MKKG
-	 *            the kYSND_MKKG to set
-	 */
-	public void setkYSND_MKKG(String kYSND_MKKG) {
-		this.kYSND_MKKG = kYSND_MKKG;
-	}
-
-	/**
-	 * @return the kYSND_TYPE
-	 */
-	public String getkYSND_TYPE() {
-		return kYSND_TYPE;
-	}
-
-	/**
-	 * @param kYSND_TYPE
-	 *            the kYSND_TYPE to set
-	 */
-	public void setkYSND_TYPE(String kYSND_TYPE) {
-		this.kYSND_TYPE = kYSND_TYPE;
-	}
-
-	/**
-	 * @return the kYSND_FORM
-	 */
-	public String getkYSND_FORM() {
-		return kYSND_FORM;
-	}
-
-	/**
-	 * @param kYSND_FORM
-	 *            the kYSND_FORM to set
-	 */
-	public void setkYSND_FORM(String kYSND_FORM) {
-		this.kYSND_FORM = kYSND_FORM;
-	}
-
-	/**
-	 * @return the kYSND_BHNO
-	 */
-	public String getkYSND_BHNO() {
-		return kYSND_BHNO;
-	}
-
-	/**
-	 * @param kYSND_BHNO
-	 *            the kYSND_BHNO to set
-	 */
-	public void setkYSND_BHNO(String kYSND_BHNO) {
-		this.kYSND_BHNO = kYSND_BHNO;
-	}
-
-	/**
-	 * @return the kYSND_BHNO1
-	 */
-	public String getkYSND_BHNO1() {
-		return kYSND_BHNO1;
-	}
-
-	/**
-	 * @param kYSND_BHNO1
-	 *            the kYSND_BHNO1 to set
-	 */
-	public void setkYSND_BHNO1(String kYSND_BHNO1) {
-		this.kYSND_BHNO1 = kYSND_BHNO1;
-	}
-
-	/**
-	 * @return the kYSND_FIL
-	 */
-	public String getkYSND_FIL() {
-		return kYSND_FIL;
-	}
-
-	/**
-	 * @param kYSND_FIL
-	 *            the kYSND_FIL to set
-	 */
-	public void setkYSND_FIL(String kYSND_FIL) {
-		this.kYSND_FIL = kYSND_FIL;
-	}
-
-	/**
-	 * @return the kYSND_BHNO2
-	 */
-	public String getkYSND_BHNO2() {
-		return kYSND_BHNO2;
-	}
-
-	/**
-	 * @param kYSND_BHNO2
-	 *            the kYSND_BHNO2 to set
-	 */
-	public void setkYSND_BHNO2(String kYSND_BHNO2) {
-		this.kYSND_BHNO2 = kYSND_BHNO2;
-	}
-
-	/**
-	 * @return the kYSND_SYMD
-	 */
-	public String getkYSND_SYMD() {
-		return kYSND_SYMD;
-	}
-
-	/**
-	 * @param kYSND_SYMD
-	 *            the kYSND_SYMD to set
-	 */
-	public void setkYSND_SYMD(String kYSND_SYMD) {
-		this.kYSND_SYMD = kYSND_SYMD;
-	}
-
-	/**
-	 * @return the kYSND_CHNO
-	 */
-	public String getkYSND_CHNO() {
-		return kYSND_CHNO;
-	}
-
-	/**
-	 * @param kYSND_CHNO
-	 *            the kYSND_CHNO to set
-	 */
-	public void setkYSND_CHNO(String kYSND_CHNO) {
-		this.kYSND_CHNO = kYSND_CHNO;
-	}
-
-	/**
-	 * @return the kYSND_SKCD
-	 */
-	public String getkYSND_SKCD() {
-		return kYSND_SKCD;
-	}
-
-	/**
-	 * @param kYSND_SKCD
-	 *            the kYSND_SKCD to set
-	 */
-	public void setkYSND_SKCD(String kYSND_SKCD) {
-		this.kYSND_SKCD = kYSND_SKCD;
-	}
-
-	/**
-	 * @return the kYSND_SZSU
-	 */
-	public String getkYSND_SZSU() {
-		return kYSND_SZSU;
-	}
-
-	/**
-	 * @param kYSND_SZSU
-	 *            the kYSND_SZSU to set
-	 */
-	public void setkYSND_SZSU(String kYSND_SZSU) {
-		this.kYSND_SZSU = kYSND_SZSU;
-	}
-
-	/**
-	 * @return the kYSND_BHME
-	 */
-	public String getkYSND_BHME() {
-		return kYSND_BHME;
-	}
-
-	/**
-	 * @param kYSND_BHME
-	 *            the kYSND_BHME to set
-	 */
-	public void setkYSND_BHME(String kYSND_BHME) {
-		this.kYSND_BHME = kYSND_BHME;
-	}
-
-	/**
-	 * @return the kYSND_SYCD
-	 */
-	public String getkYSND_SYCD() {
-		return kYSND_SYCD;
-	}
-
-	/**
-	 * @param kYSND_SYCD
-	 *            the kYSND_SYCD to set
-	 */
-	public void setkYSND_SYCD(String kYSND_SYCD) {
-		this.kYSND_SYCD = kYSND_SYCD;
-	}
-
-	/**
-	 * @return the kYSND_SPBN
-	 */
-	public String getkYSND_SPBN() {
-		return kYSND_SPBN;
-	}
-
-	/**
-	 * @param kYSND_SPBN
-	 *            the kYSND_SPBN to set
-	 */
-	public void setkYSND_SPBN(String kYSND_SPBN) {
-		this.kYSND_SPBN = kYSND_SPBN;
 	}
 
 	/**
@@ -931,25 +713,6 @@ public class AUTKYSNDForm extends ActionForm {
 	@Override
 	public void reset(ActionMapping mapping, HttpServletRequest request) {
 		// TODO Auto-generated method stub
-		kYSND_SBET = "A";
-		kYSND_DEPO = "";
-		kYSND_MKCD = "0";
-		kYSND_SSCD = "";
-		kYSND_SEQ = "";
-		kYSND_MKKG = "";
-		kYSND_TYPE = "1";
-		kYSND_FORM = "";
-		kYSND_BHNO = "";
-		kYSND_BHNO1 = "";
-		kYSND_FIL = "";
-		kYSND_BHNO2 = "";
-		kYSND_SYMD = "";
-		kYSND_CHNO = "";
-		kYSND_SKCD = "";
-		kYSND_SZSU = "";
-		kYSND_BHME = "";
-		kYSND_SYCD = "0";
-		kYSND_SPBN = "";
 		try {
 			request.setCharacterEncoding("UTF-8");
 		} catch (UnsupportedEncodingException e) {
