@@ -5,9 +5,11 @@ package model.dao;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import model.bean.AUTKYSND;
 
@@ -29,6 +31,7 @@ public class AUTKYSNDDAO {
 	DataAccess da = new DataAccess();
 	Connection connection = null;
 	Statement stmt = null;
+	PreparedStatement preparedStatementInsert = null;
 	CallableStatement cs = null;
 	private int seq = 0;
 	private int num = 0;
@@ -42,7 +45,6 @@ public class AUTKYSNDDAO {
 	 */
 	public boolean addAUTKYSND(AUTKYSND autKYSND) throws Exception {
 		connection = da.getConnect();
-		ResultSet rs = null;
 		String sql = String.format(
 				"INSERT INTO AUTKYSND(kYSND_SBET, kYSND_DEPO, kYSND_MKCD, kYSND_SSCD, kYSND_SEQ, kYSND_MKKG, kYSND_TYPE, "
 						+ " kYSND_SYK_FORM, kYSND_SYK_BHNO1, kYSND_SYK_FIL, kYSND_SYK_BHNO2, kYSND_SYK_SYMD, kYSND_SYK_CHNO, kYSND_SYK_SKCD, kYSND_SYK_SZSU, "
@@ -90,6 +92,59 @@ public class AUTKYSNDDAO {
 				}
 				if (cs != null) {
 					cs.close();
+				}
+				if (connection != null) {
+					connection.close();
+				}
+			} catch (SQLException e) {
+				throw new SQLException("Error occur: " + e.getMessage());
+			}
+		}
+	}
+	
+	public boolean addListAUTKYSND(ArrayList<AUTKYSND> listAUTKYSND) throws Exception {
+		
+		String sql = "INSERT INTO AUTKYSND(kYSND_SBET, kYSND_DEPO, kYSND_MKCD, kYSND_SSCD, kYSND_SEQ, kYSND_MKKG, kYSND_TYPE, "
+				+ " kYSND_SYK_FORM, kYSND_SYK_BHNO1, kYSND_SYK_FIL, kYSND_SYK_BHNO2, kYSND_SYK_SYMD, kYSND_SYK_CHNO, kYSND_SYK_SKCD, kYSND_SYK_SZSU, "
+				+ " kYSND_SYK_BHME, kYSND_SYK_SYCD, kYSND_SYK_SPBN,kYSND_SKJ_SYMD) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
+		try { 
+			connection = da.getConnect();
+			connection.setAutoCommit(false);
+			preparedStatementInsert = connection.prepareStatement(sql);
+			for (int i=0;i<listAUTKYSND.size();i++) {
+				
+				preparedStatementInsert.setString(1, listAUTKYSND.get(i).getkYSND_SBET());
+				preparedStatementInsert.setString(2, listAUTKYSND.get(i).getkYSND_DEPO());
+				preparedStatementInsert.setString(3, listAUTKYSND.get(i).getkYSND_MKCD());
+				preparedStatementInsert.setString(4, listAUTKYSND.get(i).getkYSND_SSCD());
+				preparedStatementInsert.setInt(5, Integer.parseInt(listAUTKYSND.get(i).getkYSND_SEQ()));
+				preparedStatementInsert.setString(6, listAUTKYSND.get(i).getkYSND_MKKG());
+				preparedStatementInsert.setString(7, listAUTKYSND.get(i).getkYSND_TYPE());
+				preparedStatementInsert.setString(8, listAUTKYSND.get(i).getkYSND_FORM());
+				preparedStatementInsert.setString(9, listAUTKYSND.get(i).getkYSND_BHNO1());
+				preparedStatementInsert.setString(10, listAUTKYSND.get(i).getkYSND_FIL());
+				preparedStatementInsert.setString(11, listAUTKYSND.get(i).getkYSND_BHNO2());
+				preparedStatementInsert.setString(12, listAUTKYSND.get(i).getkYSND_SYMD());
+				preparedStatementInsert.setString(13, listAUTKYSND.get(i).getkYSND_CHNO());
+				preparedStatementInsert.setString(14, listAUTKYSND.get(i).getkYSND_SKCD());
+				preparedStatementInsert.setInt(15, Integer.parseInt(listAUTKYSND.get(i).getkYSND_SZSU()));
+				preparedStatementInsert.setString(16, listAUTKYSND.get(i).getkYSND_BHME());
+				preparedStatementInsert.setString(17, listAUTKYSND.get(i).getkYSND_SYCD());
+				preparedStatementInsert.setString(18, listAUTKYSND.get(i).getkYSND_SPBN());
+				preparedStatementInsert.setString(19, "");
+				preparedStatementInsert.executeUpdate();
+			}
+			connection.commit();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			connection.rollback();
+			return false;
+		} finally {
+			try {
+				if (preparedStatementInsert  != null) {
+					preparedStatementInsert .close();
 				}
 				if (connection != null) {
 					connection.close();

@@ -65,6 +65,8 @@ public class AddAUTKYSNDAction extends Action {
 		//Init object AUTKYSND autKYSND
 		AUTKYSND autKYSND = null;
 		
+		ArrayList<AUTKYSND> listAUTKYSND = new ArrayList<AUTKYSND>();
+		
 		boolean isSuccess = true;
 		int i = 1;
 		
@@ -360,42 +362,58 @@ public class AddAUTKYSNDAction extends Action {
 						autKYSND.setkYSND_FIL(kYSND_FIL);
 						autKYSND.setkYSND_BHNO2(kYSND_BHNO2);
 					}
-					
-					ActionErrors actionErrors = new ActionErrors();
-					try {
-
-						// check (kYSND_DEPO,kYSND_SSCD,kYSND_SSCD) is exist in database
-						if (autKYSNDBO.checkInputData_Exist(kYSND_DEPO, kYSND_MKCD, kYSND_SSCD)) {
-							actionErrors.add("kYSND_DEPOError", new ActionMessage("error.depo_mkcd_sscd.trung"));
-							autKYSNDForm.setErrorFirst(1 + i * 10);
-							autKYSNDBO.deleteAUTKYSND(kYSND_DEPO, kYSND_MKCD, kYSND_SSCD);
-						}
-						
-						saveErrors(request, actionErrors);
-						if (actionErrors.size() > 0) {
-							return mapping.findForward("addError");
-						}
-
-						// Validate OK -> execute addAUTKYSND() method
-						if (autKYSNDBO.addAUTKYSND(autKYSND)) {
-							isSuccess = true;
-						} else {
-							isSuccess = false;
-						}
-
-					} catch (Exception e) {
-						e.printStackTrace();
-						
-						// Exeption throw -> redirect to Error page
-						return mapping.findForward("error");
-					}
-
+//					
+//					ActionErrors actionErrors = new ActionErrors();
+//					try {
+//
+//						// check (kYSND_DEPO,kYSND_SSCD,kYSND_SSCD) is exist in database
+//						if (autKYSNDBO.checkInputData_Exist(kYSND_DEPO, kYSND_MKCD, kYSND_SSCD)) {
+//							actionErrors.add("kYSND_DEPOError", new ActionMessage("error.depo_mkcd_sscd.trung"));
+//							autKYSNDForm.setErrorFirst(1 + i * 10);
+//							autKYSNDBO.deleteAUTKYSND(kYSND_DEPO, kYSND_MKCD, kYSND_SSCD);
+//						}
+//						
+//						saveErrors(request, actionErrors);
+//						if (actionErrors.size() > 0) {
+//							return mapping.findForward("addError");
+//						}
+//
+//						// Validate OK -> execute addAUTKYSND() method
+//						if (autKYSNDBO.addAUTKYSND(autKYSND)) {
+//							isSuccess = true;
+//						} else {
+//							isSuccess = false;
+//						}
+//
+//					} catch (Exception e) {
+//						e.printStackTrace();
+//						
+//						// Exeption throw -> redirect to Error page
+//						return mapping.findForward("error");
+//					}
+					listAUTKYSND.add(autKYSND);
 				}
 				i++;
 			}
+			try {
+				// Validate OK -> execute addAUTKYSND() method
+				if (autKYSNDBO.addListAUTKYSND(listAUTKYSND)) {
+
+					// Forward list screen when add success
+					return mapping.findForward("addNewSuccess");
+				} else {
+					ActionErrors actionErrors = new ActionErrors();
+					actionErrors.add("kYSND_DEPOError", new ActionMessage("error.depo_mkcd_sscd.trung"));
+					autKYSNDForm.setErrorFirst(11);
+					saveErrors(request, actionErrors);
+					return mapping.findForward("addError");
+				}
+
+			} catch (Exception e) {
+				return mapping.findForward("error");
+			}
 			
-			//Forward list screen when add success
-			return mapping.findForward("addNewSuccess");
+			
 		} else {
 			autKYSNDForm.setErrorFirst(0);
 

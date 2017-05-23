@@ -19,7 +19,7 @@
 </head>
 <body>
 <div class="container">
-	<html:form styleId="addForm" action="/addNewAUT302.do" method="post" style="">
+	<html:form styleId="addForm" action="/addAUT302.do" method="post" style="">
 	<div class="body">
 		<div class="main-form col-sm-12" style="padding-top:20px;">
 			<div class="top-text col-sm-12;" style="color:#F8FFFF;margin-bottom:5px;" >

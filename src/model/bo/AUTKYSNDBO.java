@@ -3,6 +3,8 @@
  */
 package model.bo;
 
+import java.util.ArrayList;
+
 import model.bean.AUTKYSND;
 import model.dao.AUTKYSNDDAO;
 
@@ -32,6 +34,10 @@ public class AUTKYSNDBO {
 	 */
 	public boolean addAUTKYSND(AUTKYSND autKYSND) throws Exception {
 		return autKYSNDDAO.addAUTKYSND(autKYSND);
+	}
+	
+	public boolean addListAUTKYSND(ArrayList<AUTKYSND> listAUTKYSND) throws Exception {
+		return autKYSNDDAO.addListAUTKYSND(listAUTKYSND);
 	}
 
 	/**
