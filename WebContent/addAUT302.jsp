@@ -17,8 +17,16 @@
 <script src="js/jquery.min.js"></script>
 <style>
 .decoratedErrorField{
-    background-color: red;
+    background-color: #ff3333;
     color: white;
+}
+.decoratedErrorRow{
+    background-color: #ff3333;
+}
+.no-border-radius{
+    border-radius: 0px;
+    margin-top: 2px;
+    margin-bottom: 2px;
 }
 </style>
 </head>
@@ -81,7 +89,7 @@
 			</div>
 			<div class="body-main col-sm-12">
 				<div style="margin: 0px 0 0 0px;">
-					<table class="table-bordered  table-striped table-hover " style="width:100%; ">
+					<table class="table-bordered table-hover " style="width:100%;">
 						<thead style="background-color: #E7E7E8;">
 							<tr>
 								<th rowspan="2" style="width:5%; text-align:center;"></th>
@@ -105,10 +113,10 @@
 								<th style=" text-align:center;"></th>
 							</tr>
 						 </thead>
-						 <tbody>
-						 	<logic:iterate name="autKYSNDForm"  id="num" property="number" >
-							<tr style="" class="no-border-radius " id="row1${num} ">
-								<td rowspan="2" style="" >
+						 <logic:iterate name="autKYSNDForm"  id="num" property="number" >
+						 <tbody class="body${num }" style="">
+							<tr style="" class="no-border-radius row${num} " id="row1${num} ">
+								<td rowspan="2" style="" class="body${num }" >
 									<div style="margin-right:20px;padding-top:8px;padding-right:2px;border: 1px solid #B9B7C7;text-align:center;">
 										<label style="" ><bean:write name="num" /></label>
 									</div>
@@ -118,7 +126,7 @@
 								</td>
 								<td colspan="2" style="">
 									<html:select styleId="txtMKCD${num}" styleClass="form-control no-border-radius" property="arrKYSND_MKCD[${num}]" style="">
-										<html:option value="0">--Please choose--</html:option>
+										<html:option value="0">を選択してください</html:option>
 										<html:optionsCollection name="autKYSNDForm" property="listAUTMFOPM" 
 										label="mFOPM_NAME" value="mFOPM_MKCD" />
 									</html:select>
@@ -130,9 +138,9 @@
 								<td colspan="5" style=" text-align:center;">
 									<html:text styleId="txtBHME${num}" property="arrKYSND_BHME[${num}]" styleClass=" form-control no-border-radius" maxlength="30"  tabindex="4"></html:text>
 								</td>
-								<td rowspan="2" style="width:5%;"></td>
+								<td rowspan="2" style="width:5%;" class="body${num }"></td>
 							  </tr>
-							  <tr style="" class="no-border-radius " id="row2${num}">
+							  <tr style="" class="no-border-radius row${num}" id="row2${num}">
 								<td style=" text-align:center;">
 									<html:text styleId="txtSSCD${num}" property="arrKYSND_SSCD[${num}]" styleClass=" form-control no-border-radius" maxlength="1"  tabindex="5"></html:text>
 								</td>
@@ -155,7 +163,7 @@
 								<td style=" text-align:center;"></td>
 								<td  style="">						
 									<html:select styleId="txtSYCD${num}" styleClass="form-control no-border-radius" property="arrKYSND_SYCD[${num}]" style="padding: 1px -2px 1px 1px;">
-										<html:option styleClass="li" value="0">Choose</html:option>
+										<html:option styleClass="li" value="0">選択する</html:option>
 										<html:option styleClass="li" value="1">1.４輪</html:option>
 		            					<html:option styleClass="li" value="2">2.２輪</html:option>
 									</html:select>
@@ -163,9 +171,9 @@
 								<td style=" text-align:center;">
 									<html:text styleId="txtSPBN${num}" property="arrKYSND_SPBN[${num}]" styleClass=" form-control no-border-radius" maxlength="6"  tabindex="12"></html:text>
 								</td>
-							  </tr>
-							  </logic:iterate>
+							  </tr> 
 						 </tbody>
+						 </logic:iterate>
 					</table>
 					<br>
 					
@@ -174,8 +182,8 @@
 				<div class="body-button col-sm-12">
 					<div style="margin: 10px 0 0 69%;">
 						<html:submit styleId="btnSubmit" property="submit" styleClass="mybtn mybtn-success my-btn" style="width: 69px;height: 34px;margin-left: 10px;" value="登録(Ｎ)"></html:submit>
-						<button class="mybtn mybtn-success my-btn" style="width: 110px;height: 34px;margin-left: 10px;">クリアー(Ｒ)</button>
-						<button class="mybtn mybtn-success my-btn" style="width: 120px;height: 34px;margin-left: 10px;">キャンセル(C)</button>
+						<a role="button" href="index.jsp" class="mybtn mybtn-success my-btn" style="width: 110px;height: 34px;margin-left: 10px;text-decoration: none !important;">クリアー(Ｒ)</a>
+						<a role="button" href="screenAUTA301.jsp" class="mybtn mybtn-success my-btn" style="width: 120px;height: 34px;margin-left: 10px;text-decoration: none !important;">キャンセル(C)</a>
 					</div>
 				</div>
 			
@@ -325,61 +333,92 @@
 				case 1+i*10:
 					$('#txtDEPO1').blur();
 					$('#txtDEPO'+i).focus();
-					document.getElementById('txtDEPO'+i).className += ' decoratedErrorField ';
+					$('.row'+i).css('background-color','#ff3333');
+					//document.getElementById('txtDEPO'+i).className += ' decoratedErrorField ';
+					//document.getElementById('body'+i).className += ' decoratedErrorRow ';
 					break;
 				case 2+i*10:
 					$('#txtDEPO1').blur();
 					$('#txtMKCD'+i).focus();
-					document.getElementById('txtMKCD'+i).className += ' decoratedErrorField ';
+					$('.row'+i).css('background-color','#ff3333');
+					//document.getElementById('txtMKCD'+i).className += ' decoratedErrorField ';
 					break;
 				case 3+i*10:
 					$('#txtDEPO1').blur();
 					$('#txtBHNO'+i).focus();
-					document.getElementById('txtBHNO'+i).className += ' decoratedErrorField ';
+					$('.row'+i).css('background-color','#ff3333');
+					//document.getElementById('txtBHNO'+i).className += ' decoratedErrorField ';
 					break;
 				case 4+i*10:
 					$('#txtDEPO1').blur();
 					$('#txtBHME'+i).focus();
-					document.getElementById('txtBHME'+i).className += ' decoratedErrorField ';
+					$('.row'+i).css('background-color','#ff3333');
+					//document.getElementById('txtBHME'+i).className += ' decoratedErrorField ';
 					break;
 				case 5+i*10:
 					$('#txtDEPO1').blur();
 					$('#txtSSCD'+i).focus();
-					document.getElementById('txtBHME'+i).className += ' decoratedErrorField ';
+					$('.row'+i).css('background-color','#ff3333');
+					//document.getElementById('txtBHME'+i).className += ' decoratedErrorField ';
 					break;
 				case 6+i*10:
 					$('#txtDEPO1').blur();
 					$('#txtFORM'+i).focus();
-					document.getElementById('txtFORM'+i).className += ' decoratedErrorField ';
+					$('.row'+i).css('background-color','#ff3333');
+					//document.getElementById('txtFORM'+i).className += ' decoratedErrorField ';
 					break;
 				case 7+i*10:
 					$('#txtDEPO1').blur();
 					$('#txtCHNO'+i).focus();
-					document.getElementById('txtCHNO'+i).className += ' decoratedErrorField ';
+					$('.row'+i).css('background-color','#ff3333');
+					//document.getElementById('txtCHNO'+i).className += ' decoratedErrorField ';
 					break;
 				case 8+i*10:
 					$('#txtDEPO1').blur();
 					$('#txtSYMD'+i).focus();
-					document.getElementById('txtSYMD'+i).className += ' decoratedErrorField ';
+					$('.row'+i).css('background-color','#ff3333');
+					//document.getElementById('txtSYMD'+i).className += ' decoratedErrorField ';
 					break;
 				case 9+i*10:
 					$('#txtDEPO1').blur();
 					$('#txtSZSU'+i).focus();
-					document.getElementById('txtSZSU'+i).className += ' decoratedErrorField ';
+					$('.row'+i).css('background-color','#ff3333');
+					//document.getElementById('txtSZSU'+i).className += ' decoratedErrorField ';
 					break;
 				case 10+i*10:
 					$('#txtDEPO1').blur();
 					$('#txtSKCD'+i).focus();
-					document.getElementById('txtSKCD'+i).className += ' decoratedErrorField ';
+					$('.row'+i).css('background-color','#ff3333');
+					//document.getElementById('txtSKCD'+i).className += ' decoratedErrorField ';
 					break;
 				case 13+i*100:
 					$('#txtDEPO1').blur();
 					$('#txtSPBN'+i).focus();
-					document.getElementById('txtSPBN'+i).className += ' decoratedErrorField ';
+					$('.row'+i).css('background-color','#ff3333');
+					//document.getElementById('txtSPBN'+i).className += ' decoratedErrorField ';
+					break;
+				case 14+i*100:
+					$('#txtDEPO1').blur();
+					$('#txtDEPO'+i).focus();
+					$('.row'+i).css('background-color','#ff3333');
+					//document.getElementById('txtDEPO'+i).className += ' decoratedErrorField ';
+					//$(".txtDEPO"+i).className += ' decoratedErrorField ';
+					//document.getElementById('txtMKCD'+i).className += ' decoratedErrorField ';
+					//document.getElementById('txtSSCD'+i).className += ' decoratedErrorField ';
 					break;	
 				}
 		  }
 		  
 	});
+	</script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+	     $(':input[type="submit"]').prop('disabled', true);
+	     $('input[type="text"]').keyup(function() {
+	        if($(this).val() != '') {
+	           $(':input[type="submit"]').prop('disabled', false);
+	        }
+	     });
+	 });
 	</script>
 </html>

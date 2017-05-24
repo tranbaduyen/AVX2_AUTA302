@@ -26,16 +26,12 @@ public class AUTKYSNDBO {
 	AUTKYSNDDAO autKYSNDDAO = new AUTKYSNDDAO();
 
 	/**
-	 * Method add a object AUTKYSND into database (add 1 lan 1 doi tuong thay vi add 1 list doi tuong)
+	 * Method add a List object AUTKYSND into database
 	 * 
-	 * @param autKYSND
+	 * @param listAUTKYSND
 	 * @return true || false
 	 * @throws Exception
 	 */
-	public boolean addAUTKYSND(AUTKYSND autKYSND) throws Exception {
-		return autKYSNDDAO.addAUTKYSND(autKYSND);
-	}
-	
 	public boolean addListAUTKYSND(ArrayList<AUTKYSND> listAUTKYSND) throws Exception {
 		return autKYSNDDAO.addListAUTKYSND(listAUTKYSND);
 	}
@@ -74,15 +70,4 @@ public class AUTKYSNDBO {
 		return autKYSNDDAO.checkInputData_Exist(kYSND_DEPO, kYSND_MKCD, kYSND_SSCD);
 	}
 	
-	/**
-	 * Method delete a record in database
-	 * 
-	 * @param kYSND_DEPO
-	 * @param kYSND_MKCD
-	 * @param kYSND_SSCD
-	 * @throws Exception
-	 */
-	public void deleteAUTKYSND(String kYSND_DEPO, String kYSND_MKCD, String kYSND_SSCD) throws Exception{
-		autKYSNDDAO.deleteAUTKYSND(kYSND_DEPO, kYSND_MKCD, kYSND_SSCD);
-	}
 }

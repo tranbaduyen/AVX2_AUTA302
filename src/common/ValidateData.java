@@ -52,7 +52,7 @@ public class ValidateData {
 	public static boolean isAllNumber(String str) {
 		str = chuanHoa(str);
 		String regex = "[0-9+-]+";
-		return (str.matches(regex)) ? true : false;
+		return (str.matches(regex));
 	}
 
 	/**
@@ -64,8 +64,8 @@ public class ValidateData {
 	 */
 	public static boolean isSpecialCharacters(String str) {
 		str = chuanHoa(str);
-		String regex = (".*[\"\\.&,@!?%'$()/\\\\ \\_<>].*");
-		return (str.matches(regex)) ? true : false;
+		String regex = (".*[\"\\.&,@!?%'$()/\\\\\\_<>].*");
+		return (str.matches(regex));
 	}
 
 	/**
@@ -147,6 +147,10 @@ public class ValidateData {
 	public static boolean isInvalidDateFormat(String kYSND_SYMD) {
 		kYSND_SYMD = chuanHoa(kYSND_SYMD);
 		String regex = "[0-9]+";
-		return (kYSND_SYMD.matches(regex) && kYSND_SYMD.length() == 8) ? false : true;
+		return !(kYSND_SYMD.matches(regex) && kYSND_SYMD.length() == 8);
+	}
+	
+	public static void main(String[] args) {
+		System.out.println(isInvalidDateFormat("12345678"));
 	}
 }

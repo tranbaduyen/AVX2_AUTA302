@@ -37,83 +37,23 @@ public class AUTKYSNDDAO {
 	private int num = 0;
 
 	/**
-	 * Method add a object AUTKYSND into database (add 1 lan 1 doi tuong thay vi add 1 list doi tuong)
+	 * Method add a list object AUTKYSND into database
 	 * 
-	 * @param autKYSND
-	 * @return
+	 * @param listAUTKYSND
+	 * @return true || false
 	 * @throws Exception
 	 */
-	public boolean addAUTKYSND(AUTKYSND autKYSND) throws Exception {
-		connection = da.getConnect();
-		String sql = String.format(
-				"INSERT INTO AUTKYSND(kYSND_SBET, kYSND_DEPO, kYSND_MKCD, kYSND_SSCD, kYSND_SEQ, kYSND_MKKG, kYSND_TYPE, "
-						+ " kYSND_SYK_FORM, kYSND_SYK_BHNO1, kYSND_SYK_FIL, kYSND_SYK_BHNO2, kYSND_SYK_SYMD, kYSND_SYK_CHNO, kYSND_SYK_SKCD, kYSND_SYK_SZSU, "
-						+ " kYSND_SYK_BHME, kYSND_SYK_SYCD, kYSND_SYK_SPBN,kYSND_SKJ_SYMD) " + " VALUES ('%s','%s','%s','%s',%s,'%s','%s','%s','%s','%s','%s','%s','%s','%s',%s,'%s','%s','%s','')",
-				autKYSND.getkYSND_SBET(), autKYSND.getkYSND_DEPO(), autKYSND.getkYSND_MKCD(), autKYSND.getkYSND_SSCD(),
-				Integer.parseInt(autKYSND.getkYSND_SEQ()), autKYSND.getkYSND_MKKG(), autKYSND.getkYSND_TYPE(), autKYSND.getkYSND_FORM(),
-				autKYSND.getkYSND_BHNO1(), autKYSND.getkYSND_FIL(), autKYSND.getkYSND_BHNO2(), autKYSND.getkYSND_SYMD(),
-				autKYSND.getkYSND_CHNO(), autKYSND.getkYSND_SKCD(), Integer.parseInt(autKYSND.getkYSND_SZSU()), autKYSND.getkYSND_BHME(),
-				autKYSND.getkYSND_SYCD(), autKYSND.getkYSND_SPBN());
-		System.out.println(sql);
-		
-		try {
-//			stmt = connection.createStatement();
-//			stmt.executeUpdate(sql);
-			cs = connection.prepareCall("{call addAUTKYSND(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
-			cs.setString(1, autKYSND.getkYSND_SBET());
-			cs.setString(2, autKYSND.getkYSND_DEPO());
-			cs.setString(3, autKYSND.getkYSND_MKCD());
-			cs.setString(4, autKYSND.getkYSND_SSCD());
-			cs.setInt(5, Integer.parseInt(autKYSND.getkYSND_SEQ()));
-			cs.setString(6, autKYSND.getkYSND_MKKG());
-			cs.setString(7, autKYSND.getkYSND_TYPE());
-			cs.setString(8, autKYSND.getkYSND_FORM());
-			cs.setString(9, autKYSND.getkYSND_BHNO1());
-			cs.setString(10, autKYSND.getkYSND_FIL());
-			cs.setString(11, autKYSND.getkYSND_BHNO2());
-			cs.setString(12, autKYSND.getkYSND_SYMD());
-			cs.setString(13, autKYSND.getkYSND_CHNO());
-			cs.setString(14, autKYSND.getkYSND_SKCD());
-			cs.setInt(15, Integer.parseInt(autKYSND.getkYSND_SZSU()));
-			cs.setString(16, autKYSND.getkYSND_BHME());
-			cs.setString(17, autKYSND.getkYSND_SYCD());
-			cs.setString(18, autKYSND.getkYSND_SPBN());
-			cs.setString(19, "");
-			cs.addBatch();
-			
-			cs.executeUpdate();
-			return true;
-		} catch (Exception e) {
-			return false;
-		} finally {
-			try {
-				if (stmt != null) {
-					stmt.close();
-				}
-				if (cs != null) {
-					cs.close();
-				}
-				if (connection != null) {
-					connection.close();
-				}
-			} catch (SQLException e) {
-				throw new SQLException("Error occur: " + e.getMessage());
-			}
-		}
-	}
-	
 	public boolean addListAUTKYSND(ArrayList<AUTKYSND> listAUTKYSND) throws Exception {
-		
+
 		String sql = "INSERT INTO AUTKYSND(kYSND_SBET, kYSND_DEPO, kYSND_MKCD, kYSND_SSCD, kYSND_SEQ, kYSND_MKKG, kYSND_TYPE, "
 				+ " kYSND_SYK_FORM, kYSND_SYK_BHNO1, kYSND_SYK_FIL, kYSND_SYK_BHNO2, kYSND_SYK_SYMD, kYSND_SYK_CHNO, kYSND_SYK_SKCD, kYSND_SYK_SZSU, "
 				+ " kYSND_SYK_BHME, kYSND_SYK_SYCD, kYSND_SYK_SPBN,kYSND_SKJ_SYMD) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
-		try { 
+		try {
 			connection = da.getConnect();
 			connection.setAutoCommit(false);
 			preparedStatementInsert = connection.prepareStatement(sql);
-			for (int i=0;i<listAUTKYSND.size();i++) {
-				
+			for (int i = 0; i < listAUTKYSND.size(); i++) {
 				preparedStatementInsert.setString(1, listAUTKYSND.get(i).getkYSND_SBET());
 				preparedStatementInsert.setString(2, listAUTKYSND.get(i).getkYSND_DEPO());
 				preparedStatementInsert.setString(3, listAUTKYSND.get(i).getkYSND_MKCD());
@@ -133,18 +73,18 @@ public class AUTKYSNDDAO {
 				preparedStatementInsert.setString(17, listAUTKYSND.get(i).getkYSND_SYCD());
 				preparedStatementInsert.setString(18, listAUTKYSND.get(i).getkYSND_SPBN());
 				preparedStatementInsert.setString(19, "");
+				System.out.println(preparedStatementInsert.toString());
 				preparedStatementInsert.executeUpdate();
 			}
 			connection.commit();
 			return true;
 		} catch (Exception e) {
-			e.printStackTrace();
 			connection.rollback();
 			return false;
 		} finally {
 			try {
-				if (preparedStatementInsert  != null) {
-					preparedStatementInsert .close();
+				if (preparedStatementInsert != null) {
+					preparedStatementInsert.close();
 				}
 				if (connection != null) {
 					connection.close();
@@ -154,14 +94,14 @@ public class AUTKYSNDDAO {
 			}
 		}
 	}
-	
+
 	/**
 	 * Method get value kYSND_SEQ
 	 * 
 	 * @return true || false
 	 * @throws Exception
 	 */
-	public int getKYSND_SEQ() throws Exception{
+	public int getKYSND_SEQ() throws Exception {
 		connection = da.getConnect();
 		ResultSet rs = null;
 		String sql = "Select KYSND_SBET,KYSND_DEPO,KYSND_MKCD,KYSND_SSCD,Max(KYSND_SEQ) as SEQ "
@@ -169,8 +109,9 @@ public class AUTKYSNDDAO {
 		try {
 			stmt = connection.createStatement();
 			rs = stmt.executeQuery(sql);
-			if (rs.next())
-				this.seq = rs.getInt("SEQ")+1;
+			if (rs.next()) {
+				this.seq = rs.getInt("SEQ") + 1;
+			}
 		} catch (Exception e) {
 			throw new Exception("Error occur: " + e.getMessage());
 		} finally {
@@ -187,7 +128,7 @@ public class AUTKYSNDDAO {
 		}
 		return seq;
 	}
-	
+
 	/**
 	 * Method check kYSND_DEPO is exist in database
 	 * 
@@ -197,7 +138,8 @@ public class AUTKYSNDDAO {
 	 */
 	public boolean isKYSND_DEPO_Exist(String kYSND_DEPO) throws Exception {
 		connection = da.getConnect();
-		String sql = String.format("SELECT count(kYSND_DEPO) as num FROM AUTKYSND WHERE kYSND_DEPO = N'%s'", kYSND_DEPO);
+		String sql = String.format("SELECT count(kYSND_DEPO) as num FROM AUTKYSND WHERE kYSND_DEPO = N'%s'",
+				kYSND_DEPO);
 		ResultSet rs = null;
 		try {
 			stmt = connection.createStatement();
@@ -207,7 +149,7 @@ public class AUTKYSNDDAO {
 				num = rs.getInt("num");
 			}
 		} catch (Exception e) {
-			throw new Exception("Error occur: "+ e.getMessage());
+			throw new Exception("Error occur: " + e.getMessage());
 		} finally {
 			try {
 				if (stmt != null) {
@@ -217,13 +159,13 @@ public class AUTKYSNDDAO {
 					connection.close();
 				}
 			} catch (SQLException e) {
-				throw new SQLException("Error occur: "+ e.getMessage());
+				throw new SQLException("Error occur: " + e.getMessage());
 			}
 		}
-		
-		return (num != 0)? true : false;
+
+		return (num != 0) ? true : false;
 	}
-	
+
 	/**
 	 * Method check mandory primary key (kYSND_DEPO,kYSND_MKCD,kYSND_SSCD)
 	 * 
@@ -233,10 +175,9 @@ public class AUTKYSNDDAO {
 	 * @return true || false
 	 * @throws Exception
 	 */
-	public boolean checkInputData_Exist( String kYSND_DEPO,String kYSND_MKCD,String kYSND_SSCD) throws Exception {
+	public boolean checkInputData_Exist(String kYSND_DEPO, String kYSND_MKCD, String kYSND_SSCD) throws Exception {
 		connection = da.getConnect();
-		String sql = String.format("SELECT KYSND_DEPO,KYSND_MKCD,KYSND_SSCD, count(*) as num "
-				+ " FROM AUTKYSND "
+		String sql = String.format("SELECT KYSND_DEPO,KYSND_MKCD,KYSND_SSCD, count(*) as num " + " FROM AUTKYSND "
 				+ " WHERE kYSND_DEPO = N'%s' AND kYSND_MKCD = N'%s' AND kYSND_SSCD = N'%s' "
 				+ " GROUP BY KYSND_DEPO,KYSND_MKCD,KYSND_SSCD ", kYSND_DEPO, kYSND_MKCD, kYSND_SSCD);
 		ResultSet rs = null;
@@ -248,7 +189,7 @@ public class AUTKYSNDDAO {
 				num = rs.getInt("num");
 			}
 		} catch (Exception e) {
-			throw new Exception("Error occur: "+ e.getMessage());
+			throw new Exception("Error occur: " + e.getMessage());
 		} finally {
 			try {
 				if (stmt != null) {
@@ -258,42 +199,11 @@ public class AUTKYSNDDAO {
 					connection.close();
 				}
 			} catch (SQLException e) {
-				throw new SQLException("Error occur: "+ e.getMessage());
+				throw new SQLException("Error occur: " + e.getMessage());
 			}
 		}
-		
-		return (num != 0)? true : false;
+
+		return (num != 0) ? true : false;
 	}
-	
-	/**
-	 * Method delete a record in database
-	 * 
-	 * @param kYSND_DEPO
-	 * @param kYSND_MKCD
-	 * @param kYSND_SSCD
-	 * @throws Exception
-	 */
-	public void deleteAUTKYSND(String kYSND_DEPO, String kYSND_MKCD, String kYSND_SSCD) throws Exception {
-		connection = da.getConnect();
-		String sql = String.format("DELETE FROM AUTKYSND WHERE kYSND_DEPO = N'%s' AND kYSND_MKCD = '%s' AND kYSND_SSCD = N'%s' ", kYSND_DEPO, kYSND_MKCD, kYSND_SSCD);
-		try {
-			stmt = connection.createStatement();
-			stmt.executeUpdate(sql);
-		}
-		catch (Exception e) {
-			throw new Exception("Error occur: "+ e.getMessage());
-		}
-		finally {
-			try {
-				if (stmt != null) {
-					stmt.close();
-				}
-				if (connection != null) {
-					connection.close();
-				}
-			} catch (SQLException e) {
-				throw new SQLException("Error occur: "+ e.getMessage());
-			}
-		}
-	}
+
 }

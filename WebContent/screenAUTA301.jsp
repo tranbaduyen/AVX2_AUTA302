@@ -27,7 +27,7 @@
 					<label class="my-label" style=";">出荷指示 送信情報 登録</label>
 				</div>
 				<div class="col-sm-3" style="float: left;background-color:#303549;">
-					<div id="clock" class="my-label" style="padding-left: 78%;padding-bottom:15px;" ></div>
+					<div id="clock" class="my-label" style="padding-left: 50%;padding-bottom:15px;" ></div>
 					
 				</div>
 			</div>

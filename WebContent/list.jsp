@@ -19,7 +19,6 @@
 </head>
 <body>
 <div class="container">
-	<html:form styleId="addForm" action="/addAUT302.do" method="post" style="">
 	<div class="body">
 		<div class="main-form col-sm-12" style="padding-top:20px;">
 			<div class="top-text col-sm-12;" style="color:#F8FFFF;margin-bottom:5px;" >
@@ -37,8 +36,6 @@
 
 			</div>
 			<div class="top-message col-sm-12" style="border: 1px solid black;background-color:#F8F8F8;margin-top: 10px;margin-bottom: 10px;">
-				<bean:define id="errorFirst" name="autKYSNDForm" property="errorFirst"></bean:define>
-				<html:hidden styleId="errorFirst" property="errorFirst" styleClass="form-control"></html:hidden>
 				<label for="errorMessage" style="color: red;padding-top:5px;padding-left: 5px;">
 						<span>&lt;&lt;&lt; エラーメッセージ >>></span>
 				</label>
@@ -84,9 +81,9 @@
 			</div>
 				<div class="body-button col-sm-12">
 					<div style="margin: 10px 0 0 69%;">
-						<html:submit styleId="btnSubmit" property="submit" styleClass="mybtn mybtn-success my-btn" style="width: 69px;height: 34px;margin-left: 10px;" value="登録(Ｎ)"></html:submit>
-						<button class="mybtn mybtn-success my-btn" style="width: 110px;height: 34px;margin-left: 10px;">クリアー(Ｒ)</button>
-						<button class="mybtn mybtn-success my-btn" style="width: 120px;height: 34px;margin-left: 10px;">キャンセル(C)</button>
+						<a href="addAUT302.do" id="btnSubmit" property="submit" class="mybtn mybtn-success my-btn" style="width: 69px;height: 34px;margin-left: 10px;text-decoration: none !important;" >登録(Ｎ)</a>
+						<a role="button" href="index.jsp" class="mybtn mybtn-success my-btn" style="width: 110px;height: 34px;margin-left: 10px;text-decoration: none !important;">クリアー(Ｒ)</a>
+						<a role="button" href="screenAUTA301.jsp" class="mybtn mybtn-success my-btn" style="width: 120px;height: 34px;margin-left: 10px;text-decoration: none !important;">キャンセル(C)</a>
 					</div>
 				</div>
 			
@@ -95,7 +92,6 @@
 	<div class="footer">
 	</div>
 </div>
-</html:form>
 </div>
 </body>
 	<script type="text/javascript"> function refrClock() {

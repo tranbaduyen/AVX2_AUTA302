@@ -39,7 +39,7 @@ import model.bo.AUTMFOPMBO;
 public class AddAUTKYSNDAction extends Action {
 	
 	/**
-	 * Ham chuan hoa chuoi string Method format String
+	 * Method execute action form
 	 * 
 	 * @param mapping
 	 * @param form
@@ -142,7 +142,7 @@ public class AddAUTKYSNDAction extends Action {
 					// database
 					if (autKYSNDBO.checkInputData_Exist(kYSND_DEPO, kYSND_MKCD, kYSND_SSCD)) {
 						actionErrors.add("kYSND_DEPOError", new ActionMessage("error.depo_mkcd_sscd.trung"));
-						autKYSNDForm.setErrorFirst(1 + j * 10);
+						autKYSNDForm.setErrorFirst(14 + j * 100);
 					}
 
 					// check kYSND_MKCD not choose
@@ -362,35 +362,8 @@ public class AddAUTKYSNDAction extends Action {
 						autKYSND.setkYSND_FIL(kYSND_FIL);
 						autKYSND.setkYSND_BHNO2(kYSND_BHNO2);
 					}
-//					
-//					ActionErrors actionErrors = new ActionErrors();
-//					try {
-//
-//						// check (kYSND_DEPO,kYSND_SSCD,kYSND_SSCD) is exist in database
-//						if (autKYSNDBO.checkInputData_Exist(kYSND_DEPO, kYSND_MKCD, kYSND_SSCD)) {
-//							actionErrors.add("kYSND_DEPOError", new ActionMessage("error.depo_mkcd_sscd.trung"));
-//							autKYSNDForm.setErrorFirst(1 + i * 10);
-//							autKYSNDBO.deleteAUTKYSND(kYSND_DEPO, kYSND_MKCD, kYSND_SSCD);
-//						}
-//						
-//						saveErrors(request, actionErrors);
-//						if (actionErrors.size() > 0) {
-//							return mapping.findForward("addError");
-//						}
-//
-//						// Validate OK -> execute addAUTKYSND() method
-//						if (autKYSNDBO.addAUTKYSND(autKYSND)) {
-//							isSuccess = true;
-//						} else {
-//							isSuccess = false;
-//						}
-//
-//					} catch (Exception e) {
-//						e.printStackTrace();
-//						
-//						// Exeption throw -> redirect to Error page
-//						return mapping.findForward("error");
-//					}
+					
+					//Add each autKYSND into listAUTKYSND
 					listAUTKYSND.add(autKYSND);
 				}
 				i++;
@@ -404,7 +377,7 @@ public class AddAUTKYSNDAction extends Action {
 				} else {
 					ActionErrors actionErrors = new ActionErrors();
 					actionErrors.add("kYSND_DEPOError", new ActionMessage("error.depo_mkcd_sscd.trung"));
-					autKYSNDForm.setErrorFirst(11);
+					autKYSNDForm.setErrorFirst(114);
 					saveErrors(request, actionErrors);
 					return mapping.findForward("addError");
 				}

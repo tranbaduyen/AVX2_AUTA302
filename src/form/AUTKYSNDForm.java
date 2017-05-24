@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 
+import common.ValidateData;
 import model.bean.AUTKYSND;
 import model.bean.AUTMFOPM;
 
@@ -296,7 +297,7 @@ public class AUTKYSNDForm extends ActionForm {
 	 * @param arrKYSND_FORM
 	 */
 	public void setArrKYSND_FORM(int index, String arrKYSND_FORM) {
-		this.arrKYSND_FORM[index] = arrKYSND_FORM;
+		this.arrKYSND_FORM[index] = ValidateData.chuanHoa(arrKYSND_FORM);
 	}
 
 	/**
@@ -327,7 +328,7 @@ public class AUTKYSNDForm extends ActionForm {
 	 * @param arrKYSND_BHNO
 	 */
 	public void setArrKYSND_BHNO(int index, String arrKYSND_BHNO) {
-		this.arrKYSND_BHNO[index] = arrKYSND_BHNO;
+		this.arrKYSND_BHNO[index] = ValidateData.chuanHoa(arrKYSND_BHNO);
 	}
 
 	/**
@@ -403,7 +404,7 @@ public class AUTKYSNDForm extends ActionForm {
 	 * @param arrKYSND_SYMD
 	 */
 	public void setArrKYSND_SYMD(int index, String arrKYSND_SYMD) {
-		this.arrKYSND_SYMD[index] = arrKYSND_SYMD;
+		this.arrKYSND_SYMD[index] = ValidateData.chuanHoa(arrKYSND_SYMD);
 	}
 
 	/**
@@ -434,7 +435,7 @@ public class AUTKYSNDForm extends ActionForm {
 	 * @param arrKYSND_CHNO
 	 */
 	public void setArrKYSND_CHNO(int index, String arrKYSND_CHNO) {
-		this.arrKYSND_CHNO[index] = arrKYSND_CHNO;
+		this.arrKYSND_CHNO[index] = ValidateData.chuanHoa(arrKYSND_CHNO);
 	}
 
 	/**
@@ -465,7 +466,7 @@ public class AUTKYSNDForm extends ActionForm {
 	 * @param arrKYSND_SKCD
 	 */
 	public void setArrKYSND_SKCD(int index, String arrKYSND_SKCD) {
-		this.arrKYSND_SKCD[index] = arrKYSND_SKCD;
+		this.arrKYSND_SKCD[index] = ValidateData.chuanHoa(arrKYSND_SKCD);
 	}
 
 	/**
@@ -496,7 +497,7 @@ public class AUTKYSNDForm extends ActionForm {
 	 * @param arrKYSND_SZSU
 	 */
 	public void setArrKYSND_SZSU(int index, String arrKYSND_SZSU) {
-		this.arrKYSND_SZSU[index] = arrKYSND_SZSU;
+		this.arrKYSND_SZSU[index] = ValidateData.chuanHoa(arrKYSND_SZSU);
 	}
 
 	/**
@@ -527,7 +528,7 @@ public class AUTKYSNDForm extends ActionForm {
 	 * @param arrKYSND_BHME
 	 */
 	public void setArrKYSND_BHME(int index, String arrKYSND_BHME) {
-		this.arrKYSND_BHME[index] = arrKYSND_BHME;
+		this.arrKYSND_BHME[index] = ValidateData.chuanHoa(arrKYSND_BHME);
 	}
 
 	/**
@@ -589,7 +590,7 @@ public class AUTKYSNDForm extends ActionForm {
 	 * @param arrKYSND_SPBN
 	 */
 	public void setArrKYSND_SPBN(int index, String arrKYSND_SPBN) {
-		this.arrKYSND_SPBN[index] = arrKYSND_SPBN;
+		this.arrKYSND_SPBN[index] = ValidateData.chuanHoa(arrKYSND_SPBN);
 	}
 
 	/**

@@ -56,11 +56,13 @@ public class AUTMFOPMDAO {
 				autMFOPM.setmFOPM_NAME(rs.getString("MFOPM_NAME"));
 				list.add(autMFOPM);
 			}
-			rs.close();
 		} catch (Exception e) {
 			throw new Exception("Error occur: "+ e.getMessage());
 		} finally {
 			try {
+				if (rs != null) {
+					rs.close();
+				}
 				if (stmt != null) {
 					stmt.close();
 				}
