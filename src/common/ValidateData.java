@@ -39,7 +39,7 @@ public class ValidateData {
 	 */
 	public static boolean isEmpty(String str) {
 		str = chuanHoa(str);
-		return (str == null || str.length() == 0 || "".equals(str) || "0".equals(str)) ? true : false;
+		return (str == null || str.length() == 0 || "".equals(str) || "0".equals(str));
 	}
 
 	/**
@@ -116,7 +116,7 @@ public class ValidateData {
 	public static boolean isInvalidKYSND_BHNO(String kYSND_MKCD, String kYSND_BHNO) {
 		chuanHoa(kYSND_BHNO);
 		String kYSND_FIL = kYSND_BHNO.substring(14, 15);
-		return ("01".equals(kYSND_MKCD) && "#".equals(kYSND_FIL)) ? true : false;
+		return ("01".equals(kYSND_MKCD) && "#".equals(kYSND_FIL));
 	}
 
 	/**

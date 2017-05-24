@@ -72,7 +72,300 @@
 							</tr>
 						 </thead>
 						 <tbody>
-						 	
+						 	<tr style="">
+								<td rowspan="2" style="">
+									<div style="margin-right:20px;padding-top:8px;padding-right:2px;border: 1px solid #B9B7C7;text-align:center;">
+										<label style="" >01</label>
+									</div>
+								</td>
+								<td style=" text-align:left;width:6%;" class="">
+									<span>XX</span>
+								</td>
+								<td colspan="2" ">
+									<span>N N N N N</span>
+								</td>
+								<td colspan="2" style=" text-align:left;">
+									<span>XXXXXXXXXXXXXXXXXXXXXXXXXX</span>
+								</td>
+								<td colspan="5" style=" text-align:left;">
+									<span>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span>
+								</td>
+								<td rowspan="2" style="width:5%;"></td>
+							  </tr>
+							  <tr>
+								<td style=" text-align:left;">
+									<span>X</span>
+								</td>
+								<td style="width"></td>
+								<td style=" text-align:left;width:11%;">
+									<span>XXXXXXXXXX</span>
+								</td>
+								<td style=" text-align:left;width:15%;">
+									<span>XXXXXXXXXXXXXXX</span>
+								</td>
+								<td style=" text-align:right;">
+									<span>9999/99/99</span>
+								</td>
+								<td style=" text-align:right;">
+									<span>-999999</span>
+								</td>
+								<td style=" text-align:left;">
+									<span>XX</span>
+								</td>
+								<td style=" text-align:left;"></td>
+								<td  style="">
+									<span>2.２輪</span>
+								</td>
+								<td style=" text-align:left;">
+									<span>XXXXX</span>
+								</td>
+						
+							  </tr>
+						 	<tr style="">
+								<td rowspan="2" style="">
+									<div style="margin-right:20px;padding-top:8px;padding-right:2px;border: 1px solid #B9B7C7;text-align:center;">
+										<label style="" >02</label>
+									</div>
+								</td>
+								<td style=" text-align:left;width:6%;" class="">
+									<span>XX</span>
+								</td>
+								<td colspan="2" ">
+									<span>N N N N N</span>
+								</td>
+								<td colspan="2" style=" text-align:left;">
+									<span>XXXXXXXXXXXXXXXXXXXXXXXXXX</span>
+								</td>
+								<td colspan="5" style=" text-align:left;">
+									<span>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span>
+								</td>
+								<td rowspan="2" style="width:5%;"></td>
+							  </tr>
+							  <tr>
+								<td style=" text-align:left;">
+									<span>X</span>
+								</td>
+								<td style="width"></td>
+								<td style=" text-align:left;width:11%;">
+									<span>XXXXXXXXXX</span>
+								</td>
+								<td style=" text-align:left;width:15%;">
+									<span>XXXXXXXXXXXXXXX</span>
+								</td>
+								<td style=" text-align:right;">
+									<span>9999/99/99</span>
+								</td>
+								<td style=" text-align:right;">
+									<span>-999999</span>
+								</td>
+								<td style=" text-align:left;">
+									<span>XX</span>
+								</td>
+								<td style=" text-align:left;"></td>
+								<td  style="">
+									<span>2.２輪</span>
+								</td>
+								<td style=" text-align:left;">
+									<span>XXXXX</span>
+								</td>
+						
+							  </tr>
+							  <tr style="">
+								<td rowspan="2" style="">
+									<div style="margin-right:20px;padding-top:8px;padding-right:2px;border: 1px solid #B9B7C7;text-align:center;">
+										<label style="" >03</label>
+									</div>
+								</td>
+								<td style=" text-align:left;width:6%;" class="">
+									<span>XX</span>
+								</td>
+								<td colspan="2" ">
+									<span>N N N N N</span>
+								</td>
+								<td colspan="2" style=" text-align:left;">
+									<span>XXXXXXXXXXXXXXXXXXXXXXXXXX</span>
+								</td>
+								<td colspan="5" style=" text-align:left;">
+									<span>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span>
+								</td>
+								<td rowspan="2" style="width:5%;"></td>
+							  </tr>
+							  <tr>
+								<td style=" text-align:left;">
+									<span>X</span>
+								</td>
+								<td style="width"></td>
+								<td style=" text-align:left;width:11%;">
+									<span>XXXXXXXXXX</span>
+								</td>
+								<td style=" text-align:left;width:15%;">
+									<span>XXXXXXXXXXXXXXX</span>
+								</td>
+								<td style=" text-align:right;">
+									<span>9999/99/99</span>
+								</td>
+								<td style=" text-align:right;">
+									<span>-999999</span>
+								</td>
+								<td style=" text-align:left;">
+									<span>XX</span>
+								</td>
+								<td style=" text-align:left;"></td>
+								<td  style="">
+									<span>2.２輪</span>
+								</td>
+								<td style=" text-align:left;">
+									<span>XXXXX</span>
+								</td>
+						
+							  </tr>
+							  <tr style="">
+								<td rowspan="2" style="">
+									<div style="margin-right:20px;padding-top:8px;padding-right:2px;border: 1px solid #B9B7C7;text-align:center;">
+										<label style="" >04</label>
+									</div>
+								</td>
+								<td style=" text-align:left;width:6%;" class="">
+									<span>XX</span>
+								</td>
+								<td colspan="2" ">
+									<span>N N N N N</span>
+								</td>
+								<td colspan="2" style=" text-align:left;">
+									<span>XXXXXXXXXXXXXXXXXXXXXXXXXX</span>
+								</td>
+								<td colspan="5" style=" text-align:left;">
+									<span>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span>
+								</td>
+								<td rowspan="2" style="width:5%;"></td>
+							  </tr>
+							  <tr>
+								<td style=" text-align:left;">
+									<span>X</span>
+								</td>
+								<td style="width"></td>
+								<td style=" text-align:left;width:11%;">
+									<span>XXXXXXXXXX</span>
+								</td>
+								<td style=" text-align:left;width:15%;">
+									<span>XXXXXXXXXXXXXXX</span>
+								</td>
+								<td style=" text-align:right;">
+									<span>9999/99/99</span>
+								</td>
+								<td style=" text-align:right;">
+									<span>-999999</span>
+								</td>
+								<td style=" text-align:left;">
+									<span>XX</span>
+								</td>
+								<td style=" text-align:left;"></td>
+								<td  style="">
+									<span>2.２輪</span>
+								</td>
+								<td style=" text-align:left;">
+									<span>XXXXX</span>
+								</td>
+						
+							  </tr>
+							  <tr style="">
+								<td rowspan="2" style="">
+									<div style="margin-right:20px;padding-top:8px;padding-right:2px;border: 1px solid #B9B7C7;text-align:center;">
+										<label style="" >05</label>
+									</div>
+								</td>
+								<td style=" text-align:left;width:6%;" class="">
+									<span>XX</span>
+								</td>
+								<td colspan="2" ">
+									<span>N N N N N</span>
+								</td>
+								<td colspan="2" style=" text-align:left;">
+									<span>XXXXXXXXXXXXXXXXXXXXXXXXXX</span>
+								</td>
+								<td colspan="5" style=" text-align:left;">
+									<span>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span>
+								</td>
+								<td rowspan="2" style="width:5%;"></td>
+							  </tr>
+							  <tr>
+								<td style=" text-align:left;">
+									<span>X</span>
+								</td>
+								<td style="width"></td>
+								<td style=" text-align:left;width:11%;">
+									<span>XXXXXXXXXX</span>
+								</td>
+								<td style=" text-align:left;width:15%;">
+									<span>XXXXXXXXXXXXXXX</span>
+								</td>
+								<td style=" text-align:right;">
+									<span>9999/99/99</span>
+								</td>
+								<td style=" text-align:right;">
+									<span>-999999</span>
+								</td>
+								<td style=" text-align:left;">
+									<span>XX</span>
+								</td>
+								<td style=" text-align:left;"></td>
+								<td  style="">
+									<span>2.２輪</span>
+								</td>
+								<td style=" text-align:left;">
+									<span>XXXXX</span>
+								</td>
+						
+							  </tr>
+							  <tr style="">
+								<td rowspan="2" style="">
+									<div style="margin-right:20px;padding-top:8px;padding-right:2px;border: 1px solid #B9B7C7;text-align:center;">
+										<label style="" >06</label>
+									</div>
+								</td>
+								<td style=" text-align:left;width:6%;" class="">
+									<span>XX</span>
+								</td>
+								<td colspan="2" ">
+									<span>N N N N N</span>
+								</td>
+								<td colspan="2" style=" text-align:left;">
+									<span>XXXXXXXXXXXXXXXXXXXXXXXXXX</span>
+								</td>
+								<td colspan="5" style=" text-align:left;">
+									<span>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span>
+								</td>
+								<td rowspan="2" style="width:5%;"></td>
+							  </tr>
+							  <tr>
+								<td style=" text-align:left;">
+									<span>X</span>
+								</td>
+								<td style="width"></td>
+								<td style=" text-align:left;width:11%;">
+									<span>XXXXXXXXXX</span>
+								</td>
+								<td style=" text-align:left;width:15%;">
+									<span>XXXXXXXXXXXXXXX</span>
+								</td>
+								<td style=" text-align:right;">
+									<span>9999/99/99</span>
+								</td>
+								<td style=" text-align:right;">
+									<span>-999999</span>
+								</td>
+								<td style=" text-align:left;">
+									<span>XX</span>
+								</td>
+								<td style=" text-align:left;"></td>
+								<td  style="">
+									<span>2.２輪</span>
+								</td>
+								<td style=" text-align:left;">
+									<span>XXXXX</span>
+								</td>
+						
+							  </tr>
 						 </tbody>
 					</table>
 					<br>

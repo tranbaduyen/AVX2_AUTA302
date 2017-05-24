@@ -89,7 +89,6 @@ public class AddAUTKYSNDAction extends Action {
 		String kYSND_SZSU;
 		String kYSND_CHNO;
 		String kYSND_SKCD;
-		System.out.println(autKYSNDForm.getSubmit());
 		
 		//Method check validate data from Form before insert into database
 		if ("登録(Ｎ)".equals(autKYSNDForm.getSubmit())) {
@@ -234,13 +233,13 @@ public class AddAUTKYSNDAction extends Action {
 						}
 					}
 					// check kYSND_SZSU max value (-999999 <= kYSND_SZSU <= 999999)
-					if(ValidateData.isAllNumber(kYSND_SZSU)) {
-						if (Integer.parseInt(kYSND_SZSU) > 999999) {
+					if(ValidateData.isAllNumber(kYSND_SZSU) && Integer.parseInt(kYSND_SZSU) > 999999) {
+//						if (Integer.parseInt(kYSND_SZSU) > 999999) {
 							actionErrors.add("kYSND_SZSUError", new ActionMessage("error.szsu.maxValue"));
 							if (autKYSNDForm.getErrorFirst() == 0) {
 								autKYSNDForm.setErrorFirst(9 + j * 10);
 							}
-						}
+//						}
 					}
 
 					// check kYSND_SKCD use special characters
@@ -368,6 +367,7 @@ public class AddAUTKYSNDAction extends Action {
 				}
 				i++;
 			}
+			
 			try {
 				// Validate OK -> execute addAUTKYSND() method
 				if (autKYSNDBO.addListAUTKYSND(listAUTKYSND)) {
@@ -379,6 +379,7 @@ public class AddAUTKYSNDAction extends Action {
 					actionErrors.add("kYSND_DEPOError", new ActionMessage("error.depo_mkcd_sscd.trung"));
 					autKYSNDForm.setErrorFirst(114);
 					saveErrors(request, actionErrors);
+				
 					return mapping.findForward("addError");
 				}
 
