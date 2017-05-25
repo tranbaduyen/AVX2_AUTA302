@@ -151,6 +151,6 @@ public class ValidateData {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println(isInvalidDateFormat("12345678"));
+		System.out.println(isInvalidKYSND_BHNO("01", "1234567891234511#"));
 	}
 }

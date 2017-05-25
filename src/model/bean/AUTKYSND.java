@@ -38,6 +38,75 @@ public class AUTKYSND {
 	private String kYSND_SYCD;
 	private String kYSND_SPBN;
 
+	public AUTKYSND() {
+		super();
+		this.kYSND_SBET = "A";
+		this.kYSND_DEPO = "";
+		this.kYSND_MKCD = "";
+		this.kYSND_SSCD = "";
+		this.kYSND_SEQ = "0";
+		this.kYSND_MKKG = "";
+		this.kYSND_TYPE = "1";
+		this.kYSND_FORM = "";
+		this.kYSND_BHNO1 = "";
+		this.kYSND_FIL = "";
+		this.kYSND_BHNO2 = "";
+		this.kYSND_SYMD = "0";
+		this.kYSND_CHNO = "";
+		this.kYSND_SKCD = "";
+		this.kYSND_SZSU = "0";
+		this.kYSND_BHME = "";
+		this.kYSND_SYCD = "";
+		this.kYSND_SPBN = "";
+	}
+	
+	/**
+	 * Method constructor have parameters
+	 * 
+	 * @param kYSND_SBET
+	 * @param kYSND_DEPO
+	 * @param kYSND_MKCD
+	 * @param kYSND_SSCD
+	 * @param kYSND_SEQ
+	 * @param kYSND_MKKG
+	 * @param kYSND_TYPE
+	 * @param kYSND_FORM
+	 * @param kYSND_BHNO1
+	 * @param kYSND_FIL
+	 * @param kYSND_BHNO2
+	 * @param kYSND_SYMD
+	 * @param kYSND_CHNO
+	 * @param kYSND_SKCD
+	 * @param kYSND_SZSU
+	 * @param kYSND_BHME
+	 * @param kYSND_SYCD
+	 * @param kYSND_SPBN
+	 */
+	public AUTKYSND(String kYSND_SBET, String kYSND_DEPO, String kYSND_MKCD, String kYSND_SSCD, String kYSND_SEQ,
+			String kYSND_MKKG, String kYSND_TYPE, String kYSND_FORM, String kYSND_BHNO1, String kYSND_FIL,
+			String kYSND_BHNO2, String kYSND_SYMD, String kYSND_CHNO, String kYSND_SKCD, String kYSND_SZSU,
+			String kYSND_BHME, String kYSND_SYCD, String kYSND_SPBN) {
+		super();
+		this.kYSND_SBET = kYSND_SBET;
+		this.kYSND_DEPO = kYSND_DEPO;
+		this.kYSND_MKCD = kYSND_MKCD;
+		this.kYSND_SSCD = kYSND_SSCD;
+		this.kYSND_SEQ = kYSND_SEQ;
+		this.kYSND_MKKG = kYSND_MKKG;
+		this.kYSND_TYPE = kYSND_TYPE;
+		this.kYSND_FORM = kYSND_FORM;
+		this.kYSND_BHNO1 = kYSND_BHNO1;
+		this.kYSND_FIL = kYSND_FIL;
+		this.kYSND_BHNO2 = kYSND_BHNO2;
+		this.kYSND_SYMD = kYSND_SYMD;
+		this.kYSND_CHNO = kYSND_CHNO;
+		this.kYSND_SKCD = kYSND_SKCD;
+		this.kYSND_SZSU = kYSND_SZSU;
+		this.kYSND_BHME = kYSND_BHME;
+		this.kYSND_SYCD = kYSND_SYCD;
+		this.kYSND_SPBN = kYSND_SPBN;
+	}
+
 	/**
 	 * @return the kYSND_SBET
 	 */

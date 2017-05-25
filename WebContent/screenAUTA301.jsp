@@ -36,7 +36,7 @@
 			</div>
 			<div class="body-filter col-sm-12" align="center" style="">
 				<div style="background-color: #E7E7E8;">
-					<div class="body-main-label-text"><h1>AUTA301 Screen</h1></div>
+					<div class="body-main-label-text"><h1>AUTA301 画面</h1></div>
 				</div>
 			</div>
 			

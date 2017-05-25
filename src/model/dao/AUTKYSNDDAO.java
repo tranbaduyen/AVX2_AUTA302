@@ -34,7 +34,8 @@ public class AUTKYSNDDAO {
 	PreparedStatement preparedStatementInsert = null;
 	CallableStatement cs = null;
 	private int seq = 0;
-	private int num = 0;
+	private int isExist1 = 0;
+	private int isExist2 = 0;
 
 	/**
 	 * Method add a list object AUTKYSND into database
@@ -53,7 +54,8 @@ public class AUTKYSNDDAO {
 			connection = da.getConnect();
 			connection.setAutoCommit(false);
 			preparedStatementInsert = connection.prepareStatement(sql);
-			for (int i = 0; i < listAUTKYSND.size(); i++) {
+			int size = listAUTKYSND.size();
+			for (int i = 0; i < size; i++) {
 				preparedStatementInsert.setString(1, listAUTKYSND.get(i).getkYSND_SBET());
 				preparedStatementInsert.setString(2, listAUTKYSND.get(i).getkYSND_DEPO());
 				preparedStatementInsert.setString(3, listAUTKYSND.get(i).getkYSND_MKCD());
@@ -73,7 +75,6 @@ public class AUTKYSNDDAO {
 				preparedStatementInsert.setString(17, listAUTKYSND.get(i).getkYSND_SYCD());
 				preparedStatementInsert.setString(18, listAUTKYSND.get(i).getkYSND_SPBN());
 				preparedStatementInsert.setString(19, "");
-				System.out.println(preparedStatementInsert.toString());
 				preparedStatementInsert.executeUpdate();
 			}
 			connection.commit();
@@ -146,7 +147,7 @@ public class AUTKYSNDDAO {
 			rs = stmt.executeQuery(sql);
 
 			while (rs.next()) {
-				num = rs.getInt("num");
+				isExist1 = rs.getInt("num");
 			}
 		} catch (Exception e) {
 			throw new Exception("Error occur: " + e.getMessage());
@@ -163,7 +164,7 @@ public class AUTKYSNDDAO {
 			}
 		}
 
-		return (num != 0) ? true : false;
+		return (isExist1 != 0);
 	}
 
 	/**
@@ -184,9 +185,8 @@ public class AUTKYSNDDAO {
 		try {
 			stmt = connection.createStatement();
 			rs = stmt.executeQuery(sql);
-
 			while (rs.next()) {
-				num = rs.getInt("num");
+				isExist2 = rs.getInt("num");
 			}
 		} catch (Exception e) {
 			throw new Exception("Error occur: " + e.getMessage());
@@ -203,7 +203,6 @@ public class AUTKYSNDDAO {
 			}
 		}
 
-		return (num != 0) ? true : false;
+		return (isExist2 != 0);
 	}
-
 }

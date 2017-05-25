@@ -23,6 +23,30 @@ public class AUTMFOPM {
 	private String mFOPM_NAME;
 	
 	/**
+	 * Method constructor
+	 * 
+	 * @param mFOPM_MKCD
+	 * @param mFOPM_NAME
+	 */
+	public AUTMFOPM() {
+		super();
+		this.mFOPM_MKCD = "";
+		this.mFOPM_NAME = "";
+	}
+	
+	/**
+	 * Method constructor
+	 * 
+	 * @param mFOPM_MKCD
+	 * @param mFOPM_NAME
+	 */
+	public AUTMFOPM(String mFOPM_MKCD, String mFOPM_NAME) {
+		super();
+		this.mFOPM_MKCD = mFOPM_MKCD;
+		this.mFOPM_NAME = mFOPM_NAME;
+	}
+	
+	/**
 	 * @return the mFOPM_MKCD
 	 */
 	public String getmFOPM_MKCD() {

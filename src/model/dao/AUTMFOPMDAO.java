@@ -31,7 +31,7 @@ public class AUTMFOPMDAO {
 	Statement stmt = null;
 	
 	/**
-	 * Method get list AUTMFOPM
+	 * Method get list AUTMFOPM into Select Option
 	 * 
 	 * @return ArrayList<AUTMFOPM> list
 	 * @throws Exception
@@ -39,16 +39,13 @@ public class AUTMFOPMDAO {
 	public ArrayList<AUTMFOPM> getListAUTMFOPM() throws Exception{
 		String sql = "SELECT MFOPM_TRCD, MFOPM_RYAK, MFOPM_NAME "
 				+ "FROM AUTMFOPM ORDER BY (MFOPM_TRCD) ASC ";
-		ArrayList<AUTMFOPM> list = null;
-		list = new ArrayList<AUTMFOPM>();
-		AUTMFOPM autMFOPM = null;
+		ArrayList<AUTMFOPM> list = new ArrayList<AUTMFOPM>();
+		AUTMFOPM autMFOPM;
 		ResultSet rs = null;
 		try {
 			connection = da.getConnect();
 			stmt = connection.createStatement();
 			rs = stmt.executeQuery(sql);
-			list = new ArrayList<AUTMFOPM>();
-			autMFOPM = new AUTMFOPM();
 			while (rs.next()) {
 				autMFOPM = new AUTMFOPM();
 				autMFOPM.setmFOPM_MKCD(rs.getString("MFOPM_TRCD"));
