@@ -38,6 +38,9 @@ public class AUTKYSND {
 	private String kYSND_SYCD;
 	private String kYSND_SPBN;
 
+	/**
+	 * Method constructor no parameter
+	 */
 	public AUTKYSND() {
 		super();
 		this.kYSND_SBET = "A";

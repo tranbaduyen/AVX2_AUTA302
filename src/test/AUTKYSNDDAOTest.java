@@ -186,7 +186,9 @@ public class AUTKYSNDDAOTest {
 		
 		// check KYSND_DEPO = null, KYSND_MKCD = null, KYSND_SSCD = null
 		testExpect04CheckInputData_Exist = false;
-		testActual04CheckInputData_Exist = autKYSNDDAO.checkInputData_Exist(null,null,null);		
+		testActual04CheckInputData_Exist = autKYSNDDAO.checkInputData_Exist(null,null,null);
+		
+		/////////////////////////////////////////////////////////////////////////////////////
 
 		kYSND_SBET01 = "A";
 		kYSND_DEPO01 = "a1";

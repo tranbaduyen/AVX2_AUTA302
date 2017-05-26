@@ -28,6 +28,30 @@
     margin-top: 2px;
     margin-bottom: 2px;
 }
+
+
+
+select option:hover {
+   background-color: #eea236!important;
+}
+select:focus > option:hover { 
+    border: 2px solid #E16D32!important;
+    background-color: #eea236!important;
+    color: black;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+select:focus > option:checked { 
+    border: 2px solid #E16D32!important;
+    background-color: #E16D32;
+    color: white;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+option:hover {
+    background-color:#eea236!important;
+}
+
 </style>
 </head>
 <body>
@@ -122,43 +146,44 @@
 									</div>
 								</td>
 								<td style=" text-align:center;width:6%;" ">
-									<html:text styleId="txtDEPO${num}" property="arrKYSND_DEPO[${num}]"  styleClass="form-control no-border-radius" maxlength="2"  tabindex="1" onfocus="" ></html:text>
+									<html:text styleId="txtDEPO${num}" property="arrKYSND_DEPO[${num}]"  styleClass="form-control no-border-radius" maxlength="2"  tabindex="${1+num*10}" onfocus="" ></html:text>
 								</td>
 								<td colspan="2" style="">
+									<div class="lstDestinations">
 									<html:select styleId="txtMKCD${num}" styleClass="form-control no-border-radius" property="arrKYSND_MKCD[${num}]" style="">
 										<html:option value="0">を選択してください</html:option>
 										<html:optionsCollection name="autKYSNDForm" property="listAUTMFOPM" 
 										label="mFOPM_NAME" value="mFOPM_MKCD" />
 									</html:select>
-										
+									</div>	
 								</td>
 								<td colspan="2" style=" text-align:center;">
-									<html:text styleId="txtBHNO${num}" property="arrKYSND_BHNO[${num}]" styleClass=" form-control no-border-radius" maxlength="26"  tabindex="3"></html:text>
+									<html:text styleId="txtBHNO${num}" property="arrKYSND_BHNO[${num}]" styleClass=" form-control no-border-radius" maxlength="26"  tabindex="${3+num*10}"></html:text>
 								</td>
 								<td colspan="5" style=" text-align:center;">
-									<html:text styleId="txtBHME${num}" property="arrKYSND_BHME[${num}]" styleClass=" form-control no-border-radius" maxlength="30"  tabindex="4"></html:text>
+									<html:text styleId="txtBHME${num}" property="arrKYSND_BHME[${num}]" styleClass=" form-control no-border-radius" maxlength="30"  tabindex="${4+num*10}"></html:text>
 								</td>
 								<td rowspan="2" style="width:5%;" class="body${num }"></td>
 							  </tr>
 							  <tr style="" class="no-border-radius row${num}" id="row2${num}">
 								<td style=" text-align:center;">
-									<html:text styleId="txtSSCD${num}" property="arrKYSND_SSCD[${num}]" styleClass=" form-control no-border-radius" maxlength="1"  tabindex="5"></html:text>
+									<html:text styleId="txtSSCD${num}" property="arrKYSND_SSCD[${num}]" styleClass=" form-control no-border-radius" maxlength="1"  tabindex="${5+num*10}"></html:text>
 								</td>
 								<td style="width"></td>
 								<td style=" text-align:center;width:11%;">
-									<html:text styleId="txtFORM${num}" property="arrKYSND_FORM[${num}]"  styleClass=" form-control no-border-radius" maxlength="10"  tabindex="6"></html:text>
+									<html:text styleId="txtFORM${num}" property="arrKYSND_FORM[${num}]"  styleClass=" form-control no-border-radius" maxlength="10"  tabindex="${6+num*10}"></html:text>
 								</td>
 								<td style=" text-align:center;width:15%;">
-									<html:text styleId="txtCHNO${num}" property="arrKYSND_CHNO[${num}]"  styleClass=" form-control no-border-radius" maxlength="15"  tabindex="7"></html:text>
+									<html:text styleId="txtCHNO${num}" property="arrKYSND_CHNO[${num}]"  styleClass=" form-control no-border-radius" maxlength="15"  tabindex="${7+num*10}"></html:text>
 								</td>
 								<td align="right" style="">
-									<html:text styleId="txtSYMD${num}" style="" property="arrKYSND_SYMD[${num}]"  styleClass=" form-control no-border-radius" maxlength="8"  tabindex="8"></html:text>
+									<html:text styleId="txtSYMD${num}" style="" property="arrKYSND_SYMD[${num}]"  styleClass=" form-control no-border-radius" maxlength="8"  tabindex="${8+num*10}"></html:text>
 								</td>
 								<td align="right" style="">
-									<html:text styleId="txtSZSU${num}" property="arrKYSND_SZSU[${num}]"  styleClass=" form-control no-border-radius" maxlength="7"  tabindex="9"></html:text>
+									<html:text styleId="txtSZSU${num}" property="arrKYSND_SZSU[${num}]"  styleClass=" form-control no-border-radius" maxlength="7"  tabindex="${9+num*10}"></html:text>
 								</td>
 								<td style="text-align:center;">
-									<html:text styleId="txtSKCD${num}" property="arrKYSND_SKCD[${num}]"  styleClass=" form-control no-border-radius" maxlength="2"  tabindex="10"></html:text>
+									<html:text styleId="txtSKCD${num}" property="arrKYSND_SKCD[${num}]"  styleClass=" form-control no-border-radius" maxlength="2"  tabindex="${10+num*10}"></html:text>
 								</td>
 								<td style=" text-align:center;"></td>
 								<td  style="">						
@@ -169,7 +194,7 @@
 									</html:select>
 								</td>
 								<td style=" text-align:center;">
-									<html:text styleId="txtSPBN${num}" property="arrKYSND_SPBN[${num}]" styleClass=" form-control no-border-radius" maxlength="6"  tabindex="12"></html:text>
+									<html:text styleId="txtSPBN${num}" property="arrKYSND_SPBN[${num}]" styleClass=" form-control no-border-radius" maxlength="6"  tabindex="${13+num*100}"></html:text>
 								</td>
 							  </tr> 
 						 </tbody>
@@ -340,43 +365,43 @@
 				case 2+i*10:
 					$('#txtDEPO1').blur();
 					$('#txtMKCD'+i).focus();
-					$('.row'+i).css('background-color','#ff3333');
+					//$('.row'+i).css('background-color','#ff3333');
 					//document.getElementById('txtMKCD'+i).className += ' decoratedErrorField ';
 					break;
 				case 3+i*10:
 					$('#txtDEPO1').blur();
 					$('#txtBHNO'+i).focus();
-					$('.row'+i).css('background-color','#ff3333');
+					//$('.row'+i).css('background-color','#ff3333');
 					//document.getElementById('txtBHNO'+i).className += ' decoratedErrorField ';
 					break;
 				case 4+i*10:
 					$('#txtDEPO1').blur();
 					$('#txtBHME'+i).focus();
-					$('.row'+i).css('background-color','#ff3333');
+					//$('.row'+i).css('background-color','#ff3333');
 					//document.getElementById('txtBHME'+i).className += ' decoratedErrorField ';
 					break;
 				case 5+i*10:
 					$('#txtDEPO1').blur();
 					$('#txtSSCD'+i).focus();
-					$('.row'+i).css('background-color','#ff3333');
+					//$('.row'+i).css('background-color','#ff3333');
 					//document.getElementById('txtBHME'+i).className += ' decoratedErrorField ';
 					break;
 				case 6+i*10:
 					$('#txtDEPO1').blur();
 					$('#txtFORM'+i).focus();
-					$('.row'+i).css('background-color','#ff3333');
+					//$('.row'+i).css('background-color','#ff3333');
 					//document.getElementById('txtFORM'+i).className += ' decoratedErrorField ';
 					break;
 				case 7+i*10:
 					$('#txtDEPO1').blur();
 					$('#txtCHNO'+i).focus();
-					$('.row'+i).css('background-color','#ff3333');
+					//$('.row'+i).css('background-color','#ff3333');
 					//document.getElementById('txtCHNO'+i).className += ' decoratedErrorField ';
 					break;
 				case 8+i*10:
 					$('#txtDEPO1').blur();
 					$('#txtSYMD'+i).focus();
-					$('.row'+i).css('background-color','#ff3333');
+					//$('.row'+i).css('background-color','#ff3333');
 					//document.getElementById('txtSYMD'+i).className += ' decoratedErrorField ';
 					break;
 				case 9+i*10:
@@ -388,13 +413,13 @@
 				case 10+i*10:
 					$('#txtDEPO1').blur();
 					$('#txtSKCD'+i).focus();
-					$('.row'+i).css('background-color','#ff3333');
+					//$('.row'+i).css('background-color','#ff3333');
 					//document.getElementById('txtSKCD'+i).className += ' decoratedErrorField ';
 					break;
 				case 13+i*100:
 					$('#txtDEPO1').blur();
 					$('#txtSPBN'+i).focus();
-					$('.row'+i).css('background-color','#ff3333');
+					//$('.row'+i).css('background-color','#ff3333');
 					//document.getElementById('txtSPBN'+i).className += ' decoratedErrorField ';
 					break;
 				case 14+i*100:
@@ -412,6 +437,7 @@
 	});
 	</script>
 	<script type="text/javascript">
+	
 	$(document).ready(function() {
 	     $(':input[type="submit"]').prop('disabled', true);
 	     $('input[type="text"]').keyup(function() {

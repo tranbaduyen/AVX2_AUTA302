@@ -85,7 +85,7 @@ public class AUTKYSNDForm extends ActionForm {
 
 	/**
 	 * @param index
-	 * @return
+	 * @return arrKYSND_SBET[index];
 	 */
 	public String getArrKYSND_SBET(int index) {
 		return arrKYSND_SBET[index];
@@ -116,7 +116,7 @@ public class AUTKYSNDForm extends ActionForm {
 
 	/**
 	 * @param index
-	 * @return
+	 * @return arrKYSND_DEPO[index]
 	 */
 	public String getArrKYSND_DEPO(int index) {
 		return arrKYSND_DEPO[index];
@@ -139,7 +139,7 @@ public class AUTKYSNDForm extends ActionForm {
 
 	/**
 	 * @param index
-	 * @return
+	 * @return arrKYSND_MKCD[index]
 	 */
 	public String getArrKYSND_MKCD(int index) {
 		return arrKYSND_MKCD[index];
@@ -162,7 +162,7 @@ public class AUTKYSNDForm extends ActionForm {
 
 	/**
 	 * @param index
-	 * @return
+	 * @return arrKYSND_SSCD[index]
 	 */
 	public String getArrKYSND_SSCD(int index) {
 		return arrKYSND_SSCD[index];
@@ -185,7 +185,7 @@ public class AUTKYSNDForm extends ActionForm {
 
 	/**
 	 * @param index
-	 * @return
+	 * @return arrKYSND_SEQ[index]
 	 */
 	public String getArrKYSND_SEQ(int index) {
 		return arrKYSND_SEQ[index];
@@ -216,7 +216,7 @@ public class AUTKYSNDForm extends ActionForm {
 
 	/**
 	 * @param index
-	 * @return
+	 * @return arrKYSND_MKKG[index]
 	 */
 	public String getArrKYSND_MKKG(int index) {
 		return arrKYSND_MKKG[index];
@@ -247,7 +247,7 @@ public class AUTKYSNDForm extends ActionForm {
 
 	/**
 	 * @param index
-	 * @return
+	 * @return arrKYSND_TYPE[index]
 	 */
 	public String getArrKYSND_TYPE(int index) {
 		return arrKYSND_TYPE[index];
@@ -278,7 +278,7 @@ public class AUTKYSNDForm extends ActionForm {
 
 	/**
 	 * @param index
-	 * @return
+	 * @return arrKYSND_FORM[index]
 	 */
 	public String getArrKYSND_FORM(int index) {
 		return arrKYSND_FORM[index];
@@ -309,7 +309,7 @@ public class AUTKYSNDForm extends ActionForm {
 
 	/**
 	 * @param index
-	 * @return
+	 * @return arrKYSND_BHNO[index]
 	 */
 	public String getArrKYSND_BHNO(int index) {
 		return arrKYSND_BHNO[index];
@@ -385,7 +385,7 @@ public class AUTKYSNDForm extends ActionForm {
 
 	/**
 	 * @param index
-	 * @return
+	 * @return arrKYSND_SYMD[index]
 	 */
 	public String getArrKYSND_SYMD(int index) {
 		return arrKYSND_SYMD[index];
@@ -416,7 +416,7 @@ public class AUTKYSNDForm extends ActionForm {
 
 	/**
 	 * @param index
-	 * @return
+	 * @return arrKYSND_CHNO[index]
 	 */
 	public String getArrKYSND_CHNO(int index) {
 		return arrKYSND_CHNO[index];
@@ -447,7 +447,7 @@ public class AUTKYSNDForm extends ActionForm {
 
 	/**
 	 * @param index
-	 * @return
+	 * @return arrKYSND_SKCD[index]
 	 */
 	public String getArrKYSND_SKCD(int index) {
 		return arrKYSND_SKCD[index];
@@ -478,7 +478,7 @@ public class AUTKYSNDForm extends ActionForm {
 
 	/**
 	 * @param index
-	 * @return
+	 * @return arrKYSND_SZSU[index]
 	 */
 	public String getArrKYSND_SZSU(int index) {
 		return arrKYSND_SZSU[index];
@@ -571,7 +571,7 @@ public class AUTKYSNDForm extends ActionForm {
 
 	/**
 	 * @param index
-	 * @return
+	 * @return arrKYSND_SPBN[index]
 	 */
 	public String getArrKYSND_SPBN(int index) {
 		return arrKYSND_SPBN[index];
@@ -632,7 +632,7 @@ public class AUTKYSNDForm extends ActionForm {
 
 	/**
 	 * @param index
-	 * @return
+	 * @return number[index]
 	 */
 	public Integer getNumber(int index) {
 		return number[index];

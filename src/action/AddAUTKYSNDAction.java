@@ -124,6 +124,12 @@ public class AddAUTKYSNDAction extends Action {
 						autKYSNDForm.setErrorFirst(1 + j * 10);
 					}
 					
+					// check kYSND_DEPO is not halfsize
+					if (ValidateData.isContainFullSize(kYSND_DEPO)) {
+						actionErrors.add("kYSND_DEPOError", new ActionMessage("error.depo.halfsize"));
+						autKYSNDForm.setErrorFirst(1 + j * 10);
+					}
+					
 					// check kYSND_DEPO use special characters
 					if (ValidateData.isSpecialCharacters(kYSND_DEPO)) {
 						actionErrors.add("kYSND_DEPOError", new ActionMessage("error.depo.kituDB"));
@@ -183,6 +189,12 @@ public class AddAUTKYSNDAction extends Action {
 							autKYSNDForm.setErrorFirst(5 + j * 10);
 						}
 					}
+					
+					// check kYSND_SSCD is not halfsize
+					if (ValidateData.isContainFullSize(kYSND_SSCD)) {
+						actionErrors.add("kYSND_SSCDError", new ActionMessage("error.sscd.halfsize"));
+						autKYSNDForm.setErrorFirst(5 + j * 10);
+					}
 
 					// check kYSND_SSCD use special characters
 					if (ValidateData.isSpecialCharacters(kYSND_SSCD)) {
@@ -218,7 +230,7 @@ public class AddAUTKYSNDAction extends Action {
 
 					// check kYSND_SYMD invalid date value (1900 <= yyyy <= currentYear + 100 ,
 					// 1 <= MM <= 12 , 1 <= dd <= 31)
-					if (kYSND_SYMD.length() == 8 && ValidateData.isInvalidDateValue(kYSND_SYMD)) {
+					if (!ValidateData.isInvalidDateFormat(kYSND_SYMD) && ValidateData.isInvalidDateValue(kYSND_SYMD)) {
 						actionErrors.add("kYSND_SYMDError", new ActionMessage("error.symd.dateValue"));
 						if (autKYSNDForm.getErrorFirst() == 0) {
 							autKYSNDForm.setErrorFirst(8 + j * 10);
@@ -234,14 +246,18 @@ public class AddAUTKYSNDAction extends Action {
 					}
 					// check kYSND_SZSU max value (-999999 <= kYSND_SZSU <= 999999)
 					if(ValidateData.isAllNumber(kYSND_SZSU) && Integer.parseInt(kYSND_SZSU) > 999999) {
-//						if (Integer.parseInt(kYSND_SZSU) > 999999) {
 							actionErrors.add("kYSND_SZSUError", new ActionMessage("error.szsu.maxValue"));
 							if (autKYSNDForm.getErrorFirst() == 0) {
 								autKYSNDForm.setErrorFirst(9 + j * 10);
 							}
-//						}
 					}
-
+					
+					// check kYSND_SKCD is not halfsize
+					if (ValidateData.isContainFullSize(kYSND_SKCD)) {
+						actionErrors.add("kYSND_SKCDError", new ActionMessage("error.skcd.halfsize"));
+						autKYSNDForm.setErrorFirst(10 + j * 10);
+					}
+					
 					// check kYSND_SKCD use special characters
 					if (ValidateData.isSpecialCharacters(kYSND_SKCD)) {
 						actionErrors.add("kYSND_SKCDError", new ActionMessage("error.skcd.kituDB"));

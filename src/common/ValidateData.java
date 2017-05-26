@@ -133,8 +133,7 @@ public class ValidateData {
 		int month = Integer.parseInt(kYSND_SYMD.substring(4, 6));
 		int day = Integer.parseInt(kYSND_SYMD.substring(6, 8));
 
-		return (year < 1900 || year > currentYear + 100 || month < 1 || month > 12 || day < 1 || day > 31) ? true
-				: false;
+		return (year < 1900 || year > currentYear + 100 || month < 1 || month > 12 || day < 1 || day > 31);
 	}
 
 	/**
@@ -150,7 +149,35 @@ public class ValidateData {
 		return !(kYSND_SYMD.matches(regex) && kYSND_SYMD.length() == 8);
 	}
 	
-	public static void main(String[] args) {
-		System.out.println(isInvalidKYSND_BHNO("01", "1234567891234511#"));
+	/**
+	 * Checking full-width character is included in string. If full-width
+	 * character is included in string, it will return true. If is not, it will
+	 * return false.
+	 * 
+	 * @param cmdl
+	 * @return true || false
+	 */
+	public static boolean isContainFullSize(String cmdl) {
+		boolean isFullSize = false;
+		for (char c : cmdl.toCharArray()) {
+			if (!isHalfSize(c)) {
+				isFullSize = true;
+				break;
+			}
+		}
+		return isFullSize;
+	}
+
+	/**
+	 * Checking character is half-width or not. Unicode value of half-width
+	 * range: '\u0000' - '\u00FF' '\uFF61' - '\uFFDC' '\uFFE8' - '\uFFEE' If
+	 * unicode value of character is within this range, it will be half-width
+	 * character.
+	 * 
+	 * @param c
+	 * @return true || false
+	 */
+	public static boolean isHalfSize(char c) {
+		return '\u0000' <= c && c <= '\u00FF' || '\uFF61' <= c && c <= '\uFFDC' || '\uFFE8' <= c && c <= '\uFFEE';
 	}
 }
