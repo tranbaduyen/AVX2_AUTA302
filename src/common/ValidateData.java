@@ -26,6 +26,7 @@ public class ValidateData {
 	 */
 	public static String chuanHoa(String str) {
 		str = str.trim();
+		str = str.replaceAll("'", "");
 		str = str.replaceAll("\\s+", " ");
 		return str;
 	}

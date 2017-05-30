@@ -220,6 +220,12 @@ option:hover {
 </html:form>
 </div>
 </body>
+	<script>
+	$('input[type="text"]').change(function() {
+	    this.value = this.value.replace(/[\\\'\\\"\\<\\>=]/g,'');
+	    
+	});
+	</script>
 	<script type="text/javascript"> function refrClock() {
 		var d=new Date();
 			var s=d.getSeconds();
@@ -365,43 +371,43 @@ option:hover {
 				case 2+i*10:
 					$('#txtDEPO1').blur();
 					$('#txtMKCD'+i).focus();
-					//$('.row'+i).css('background-color','#ff3333');
+					$('.row'+i).css('background-color','#ff3333');
 					//document.getElementById('txtMKCD'+i).className += ' decoratedErrorField ';
 					break;
 				case 3+i*10:
 					$('#txtDEPO1').blur();
 					$('#txtBHNO'+i).focus();
-					//$('.row'+i).css('background-color','#ff3333');
+					$('.row'+i).css('background-color','#ff3333');
 					//document.getElementById('txtBHNO'+i).className += ' decoratedErrorField ';
 					break;
 				case 4+i*10:
 					$('#txtDEPO1').blur();
 					$('#txtBHME'+i).focus();
-					//$('.row'+i).css('background-color','#ff3333');
+					$('.row'+i).css('background-color','#ff3333');
 					//document.getElementById('txtBHME'+i).className += ' decoratedErrorField ';
 					break;
 				case 5+i*10:
 					$('#txtDEPO1').blur();
 					$('#txtSSCD'+i).focus();
-					//$('.row'+i).css('background-color','#ff3333');
+					$('.row'+i).css('background-color','#ff3333');
 					//document.getElementById('txtBHME'+i).className += ' decoratedErrorField ';
 					break;
 				case 6+i*10:
 					$('#txtDEPO1').blur();
 					$('#txtFORM'+i).focus();
-					//$('.row'+i).css('background-color','#ff3333');
+					$('.row'+i).css('background-color','#ff3333');
 					//document.getElementById('txtFORM'+i).className += ' decoratedErrorField ';
 					break;
 				case 7+i*10:
 					$('#txtDEPO1').blur();
 					$('#txtCHNO'+i).focus();
-					//$('.row'+i).css('background-color','#ff3333');
+					$('.row'+i).css('background-color','#ff3333');
 					//document.getElementById('txtCHNO'+i).className += ' decoratedErrorField ';
 					break;
 				case 8+i*10:
 					$('#txtDEPO1').blur();
 					$('#txtSYMD'+i).focus();
-					//$('.row'+i).css('background-color','#ff3333');
+					$('.row'+i).css('background-color','#ff3333');
 					//document.getElementById('txtSYMD'+i).className += ' decoratedErrorField ';
 					break;
 				case 9+i*10:
@@ -413,13 +419,13 @@ option:hover {
 				case 10+i*10:
 					$('#txtDEPO1').blur();
 					$('#txtSKCD'+i).focus();
-					//$('.row'+i).css('background-color','#ff3333');
+					$('.row'+i).css('background-color','#ff3333');
 					//document.getElementById('txtSKCD'+i).className += ' decoratedErrorField ';
 					break;
 				case 13+i*100:
 					$('#txtDEPO1').blur();
 					$('#txtSPBN'+i).focus();
-					//$('.row'+i).css('background-color','#ff3333');
+					$('.row'+i).css('background-color','#ff3333');
 					//document.getElementById('txtSPBN'+i).className += ' decoratedErrorField ';
 					break;
 				case 14+i*100:
