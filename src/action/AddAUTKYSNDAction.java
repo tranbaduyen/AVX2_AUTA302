@@ -112,7 +112,42 @@ public class AddAUTKYSNDAction extends Action {
 
 			autKYSNDForm.setErrorFirst(0);
 			int j = 1;
-			
+			int k = 1;
+			int dem = 0;
+			while (k < 11) {
+				
+				//get value from Form
+				kYSND_BHNO = autKYSNDForm.getArrKYSND_BHNO(k);
+				kYSND_DEPO = autKYSNDForm.getArrKYSND_DEPO(k);
+				kYSND_SYCD = autKYSNDForm.getArrKYSND_SYCD(k);
+				kYSND_SSCD = autKYSNDForm.getArrKYSND_SSCD(k);
+				kYSND_FORM = autKYSNDForm.getArrKYSND_FORM(k);
+				kYSND_MKCD = autKYSNDForm.getArrKYSND_MKCD(k);
+				kYSND_SYMD = autKYSNDForm.getArrKYSND_SYMD(k);
+				kYSND_BHME = autKYSNDForm.getArrKYSND_BHME(k);
+				kYSND_SPBN = autKYSNDForm.getArrKYSND_SPBN(k);
+				kYSND_SZSU = autKYSNDForm.getArrKYSND_SZSU(k);
+				kYSND_CHNO = autKYSNDForm.getArrKYSND_CHNO(k);
+				kYSND_SKCD = autKYSNDForm.getArrKYSND_SKCD(k);
+				
+				// Only check validate when record is not blank
+				if ((ValidateData.isBlankRecord(kYSND_DEPO, kYSND_MKCD, kYSND_SSCD, kYSND_FORM, kYSND_BHNO,
+								kYSND_SYMD, kYSND_CHNO, kYSND_SKCD, kYSND_SZSU, kYSND_BHME, kYSND_SYCD, kYSND_SPBN))) {
+					dem++;
+				}
+				k++;
+			}
+			System.out.println("dem"+dem);
+			// check kYSND_DEPO not input
+			if (dem==10) {
+				actionErrors.add("kYSND_DEPOError", new ActionMessage("error.depo.trong"));
+				actionErrors.add("kYSND_MKCDError", new ActionMessage("error.mkcd.trong"));
+				actionErrors.add("kYSND_SSCDError", new ActionMessage("error.sscd.trong"));
+				autKYSNDForm.setErrorFirst(1 + 1 * 10);
+				saveErrors(request, actionErrors);
+				
+				return mapping.findForward("addError");
+			}
 			//loop to check validate each record in form (1->10 records)
 			while (j < 11) {
 				
@@ -131,9 +166,7 @@ public class AddAUTKYSNDAction extends Action {
 				kYSND_SKCD = autKYSNDForm.getArrKYSND_SKCD(j);
 				
 				// Only check validate when record is not blank
-				if ((ValidateData.isBlankRecord(kYSND_DEPO1, kYSND_MKCD1, kYSND_SSCD1, kYSND_FORM1, kYSND_BHNO_1,
-						kYSND_SYMD1, kYSND_CHNO1, kYSND_SKCD1, kYSND_SZSU1, kYSND_BHME1, kYSND_SYCD1, kYSND_SPBN1))
-						|| (!ValidateData.isBlankRecord(kYSND_DEPO, kYSND_MKCD, kYSND_SSCD, kYSND_FORM, kYSND_BHNO,
+				if ((!ValidateData.isBlankRecord(kYSND_DEPO, kYSND_MKCD, kYSND_SSCD, kYSND_FORM, kYSND_BHNO,
 								kYSND_SYMD, kYSND_CHNO, kYSND_SKCD, kYSND_SZSU, kYSND_BHME, kYSND_SYCD, kYSND_SPBN))) {
 
 					// check kYSND_DEPO not input

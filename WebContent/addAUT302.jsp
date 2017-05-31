@@ -48,10 +48,14 @@ select:focus > option:checked {
     margin-left: 2px;
     margin-right: 2px;
 }
-option:hover {
-    background-color:#eea236!important;
+option:checked:hover, select:focus option:checked:hover {
+                background-color: black;
+                color: white;
 }
-
+.opt:hover{
+	 background-color: black;
+                color: white;
+}
 </style>
 </head>
 <body>
@@ -62,10 +66,10 @@ option:hover {
 			<div class="top-text col-sm-12;" style="color:#F8FFFF;margin-bottom:5px;" >
 				<div class="top-text col-sm-12;" style="color:#F8FFFF;margin-bottom:5px;" >
 				<div class="col-sm-5" style="float: left;background-color:#303549;padding-bottom: 10px;padding-left:5px;">
-					<label class="my-label">AUTA302</label>
+					<label for="title" class="my-label">AUTA302</label>
 				</div>
 				<div class="col-sm-4" style="float: left;background-color:#303549;padding-bottom: 10px;">
-					<label class="my-label" style=";">出荷指示 送信情報 登録</label>
+					<label for="module" class="my-label" style=";">出荷指示 送信情報 登録</label>
 				</div>
 				<div class="col-sm-3" style="float: left;background-color:#303549;">
 					<div id="clock" class="my-label" style="font-style:bold;padding-left: 65%;padding-bottom:15px;" ></div>
@@ -76,11 +80,12 @@ option:hover {
 			<div class="top-message col-sm-12" style="border: 1px solid black;background-color:#F8F8F8;margin-top: 10px;margin-bottom: 10px;">
 				<bean:define id="errorFirst" name="autKYSNDForm" property="errorFirst"></bean:define>
 				<html:hidden styleId="errorFirst" property="errorFirst" styleClass="form-control"></html:hidden>
-				<label for="errorMessage" style="color: red;padding-top:5px;padding-left: 5px;">
+				
 					<c:if test="${errorFirst == 0}">
-						<span>&lt;&lt;&lt; エラーメッセージ >>></span>
+						
 					</c:if>
 					<c:if test="${errorFirst != 0}">
+						<label for="errorMessage" style="color: black;padding-top:5px;padding-left: 5px;">
 						<span id="iconmessage1"></span>
 						<label for="message1" id="message1"><html:errors property="kYSND_DEPOError" /></label>
 						<span id="iconmessage2"></span>
@@ -152,7 +157,7 @@ option:hover {
 									<div class="lstDestinations">
 									<html:select styleId="txtMKCD${num}" styleClass="form-control no-border-radius" property="arrKYSND_MKCD[${num}]" style="">
 										<html:option value="0">を選択してください</html:option>
-										<html:optionsCollection name="autKYSNDForm" property="listAUTMFOPM" 
+										<html:optionsCollection styleClass="opt" name="autKYSNDForm" property="listAUTMFOPM" 
 										label="mFOPM_NAME" value="mFOPM_MKCD" />
 									</html:select>
 									</div>	
@@ -207,7 +212,7 @@ option:hover {
 				<div class="body-button col-sm-12">
 					<div style="margin: 10px 0 0 69%;">
 						<html:submit styleId="btnSubmit" property="submit" styleClass="mybtn mybtn-success my-btn" style="width: 69px;height: 34px;margin-left: 10px;" value="登録(Ｎ)"></html:submit>
-						<a role="button" href="index.jsp" class="mybtn mybtn-success my-btn" style="width: 110px;height: 34px;margin-left: 10px;text-decoration: none !important;">クリアー(Ｒ)</a>
+						<a role="button" href="addAUT302.do" class="mybtn mybtn-success my-btn" style="width: 110px;height: 34px;margin-left: 10px;text-decoration: none !important;">クリアー(Ｒ)</a>
 						<a role="button" href="screenAUTA301.jsp" class="mybtn mybtn-success my-btn" style="width: 120px;height: 34px;margin-left: 10px;text-decoration: none !important;">キャンセル(C)</a>
 					</div>
 				</div>
